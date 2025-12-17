@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "fonts-fb.css",
+	"sources": [
+		"fonts-fb.scss"
+	],
+	"mappings": "AAEA,OAAO,CAAC,mEAAI",
+	"names": []
+}

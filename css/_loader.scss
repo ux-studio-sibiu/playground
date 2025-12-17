@@ -1,0 +1,145 @@
+
+@-webkit-keyframes standard {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes standard {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes standard {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
+
+/////////////////////////////////   LOADER   /////////////////////////////////
+$height: 80px;
+$width:  80px;
+$border-width: 8px;
+$overlay-color: #999;
+$base-color: #555;
+$double-up-color-one: #aaa;
+
+
+#loader {
+  display:block;
+  position: relative;
+  width:100vw;
+  height: 100vh;
+  //display:none;
+
+		&:after {
+		  z-index: 2;
+		  content: "";
+		  height: $height;
+		  width: $width;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  margin: (-$width / 2) 0 0 (-$width / 2);
+		  border-radius: 100%;
+
+		  border-right: $border-width solid $double-up-color-one;
+		  border-top: $border-width double $double-up-color-one;
+		  border-left: $border-width double $double-up-color-one;
+		  border-bottom: $border-width double $double-up-color-one;
+
+		  @include animation( standard 0.3s infinite linear );
+		  
+		}
+
+
+}
+
+#not-mobile{
+
+  display:block;
+  position: relative;
+  width:100vw;
+  height: 100vh;
+  display:none;
+
+  &:after{
+		display:block;
+		content:"Will support smaller devices shortly";
+		text-align:center;
+		  z-index: 2;
+		  
+		  width: 100%;
+		  color:#fff;
+		  font-size:18px;
+		  position: absolute;
+		  top: 50%;
+
+  }
+
+  }
+
+
+
+#progress-loader{
+
+  display:block;
+  position: relative;
+  width:100vw;
+  height: 100vh;
+
+  #bar{
+		  display:block;
+		  z-index: 2;
+		  height: 16px;
+		  width: 360px;
+		  position: absolute;
+		  top: 80%;
+		  left: 50%;
+		  margin: (-360px / 2) 0 0 (-360px / 2);
+		  padding:1px;
+		  border: 1px solid #fff;
+
+		  #inner-bar{
+			  display:block;
+			  height:100%;
+			  background: #ddd;
+			  width:3%;
+		  
+		  }
+
+		  #inner-text{
+			  white-space: nowrap;
+			  display:block;
+			  position:absolute;
+			  //background: #ddd;
+			  bottom:-20px;
+			  line-height:14px;
+			  width:100%;
+			  color: #ddd;
+			  font-size:12px;
+			  text-align:center;
+		  
+		  }
+  
+  
+  }
+
+}

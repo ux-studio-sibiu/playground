@@ -1,0 +1,152 @@
+
+
+
+section#module-no{
+	
+		font-family:'Raleway', sans-serif;
+		background: rgba(0,0,0,0.5);
+		
+
+		#half{
+			position:absolute;
+			width:50%;
+			height:50%;
+			border: 1px dashed #aaa;
+}
+		#design{
+			color:#888;
+			display:block;
+			font-size:12px;
+			position:absolute;
+			bottom:0;
+			width:100%;
+			text-align:right;
+			padding:2px;
+
+
+		}
+
+
+		
+
+		.circle{
+		
+			position:absolute;
+			display:block;
+			width:150px;
+			height:150px;
+
+			border: 1px solid #aaa;
+
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+
+			box-shadow: 0 0  100px #000;
+			color:#aaa;
+			font-size:18px;
+
+			-webkit-transition: all 0.2s ease-out 0s;
+			-moz-transition: all 0.2s ease-out 0s;
+			-o-transition: all 0.2s ease-out 0s;
+			transition: all 0.2s ease-out 0s;
+
+
+			&:after{
+				content:" ";
+				position:absolute;
+				width:100%;
+				height:100%;
+				-moz-border-radius: 50%;
+				-webkit-border-radius: 50%;
+				border-radius: 50%;
+
+				background: #fff;
+				opacity:0.1;
+			}
+		
+			&#c1-fast{
+				top:-250px; //  20 + (-270)
+				left:74px;
+
+				&:before{
+					content: "FAST";
+					position:absolute;
+					top:50px;
+					left:50px;
+				}
+			}
+
+			&#c2-cheap{
+				top:265px;    //  115 + ( 300 * 1/2 )
+				left:-240px;  //  20 - ( 300 * 0.866)
+
+				&:before{
+					content: "CHEAP";
+					position:absolute;
+					top:70px;
+					left:30px;
+				}
+			}
+
+			&#c3-good{
+				top:265px;   //  115 + ( 300 * 1/2 )
+				left:385px;  //  125 + ( 300 * 0.866)
+
+				&:before{
+					content: "GOOD";
+					position:absolute;
+					top:70px;
+					left:60px;
+				}
+			}
+		
+		
+		
+		}
+
+		//when module is :hovered
+		&:hover{
+			.circle{
+				-webkit-transition: all 0.2s ease-out 0s;
+				-moz-transition: all 0.2s ease-out 0s;
+				-o-transition: all 0.2s ease-out 0s;
+				transition: all 0.2s ease-out 0s;
+
+
+				&#c1-fast{
+					top:20px;
+					left:74px;
+				}
+
+				&#c2-cheap{
+					top:115px;
+					left:20px;
+				}
+
+				&#c3-good{
+					top:115px;
+					left:125px;
+				}
+		
+		
+			}
+
+		}
+		//END OF: when module is :hovered
+
+		#no{
+			color:#ccc;
+			position:absolute;
+			font-size:18px;
+			line-height:20px;
+			text-align:center;
+			width:20px;
+			height:20px;
+
+			top: 147px;
+			left: 137px;
+		}
+
+
+}

@@ -1,0 +1,128 @@
+
+
+@mixin display_flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-direction:column;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+section#module-dontworry{
+	font-family: 'Raleway' , sans-serif;
+	font-size:16px;
+	color: #ccc;
+	background: rgba(0,0,0,0.3);
+
+
+.frame{
+	width:100%;
+	height:100%;
+	text-align:center;
+	
+	padding: 0 20px;
+
+	//@include display_flexbox();
+	display: -webkit-flex;
+	display: flex;
+	display:none;
+	
+	-webkit-flex-flow: column nowrap;
+	flex-flow: column nowrap;
+	-webkit-justify-content: center;
+	justify-content:center;
+
+
+
+	.text{
+		//display:block;
+		
+		width:100%;
+		-webkit-flex: 0 0 40px;
+		flex: 0 0 40px;
+		align-self:flex-end;
+
+		font-size:16px;
+	
+	}
+
+	&.active{
+		display: -webkit-flex;
+		display: flex;
+		}
+
+
+	.container{
+			-webkit-flex: 0 0 20px;
+			flex: 0 0 20px;
+
+			input[type="button"]{
+		
+				font-family: 'Raleway', sans-serif;
+				color: #ccc;
+				background:transparent;
+				border: 1px solid #9e9e9e;
+				height:20px;
+				width:75px;
+				margin: 0 10px;
+				cursor:pointer;
+
+				align-self:flex-end;
+
+				&:hover{
+					color: #000;
+					background: #9e9e9e;
+				}
+				
+			}
+
+	}
+
+	&.image{
+			  //background-image: url(../resources/dontworry.png);
+		&.p1{ background-image: url(../resources/dontworry.png); cursor:pointer;}
+		&.p2{ background-image: url(../resources/dontworry.png);}
+		&.p3{ background-image: url(../resources/dontworry.png);}
+
+
+	}
+
+	}
+
+
+
+
+	
+
+
+}

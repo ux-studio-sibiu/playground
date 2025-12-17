@@ -1,0 +1,258 @@
+/* -------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------	        	Utils	     	------------------------------------*/
+/* -------------------------------------------------------------------------------------------------------------*/
+
+body{
+
+.emptyLine {
+    clear: both !important;
+    width: 100%!important;
+}
+
+.mTop5px {
+    margin-top: 5px!important;
+}
+
+.mTop10px {
+    margin-top: 10px!important;
+}
+
+.mTop15px {
+    margin-top: 15px!important;
+}
+
+.mTop20px {
+    margin-top: 20px!important;
+}
+
+.mTop25px {
+    margin-top: 25px!important;
+}
+
+.mTop30px {
+    margin-top: 30px!important;
+}
+
+.mTop50px {
+    margin-top: 50px!important;
+}
+
+.mTop70px {
+    margin-top: 70px!important;
+}
+
+.mTop100px {
+    margin-top: 100px!important;
+}
+
+.mTop130px {
+    margin-top: 130px!important;
+}
+
+.mBot0px{
+    margin-bottom: 0px!important;
+}
+
+.mBot5px {
+    margin-bottom: 5px!important;
+}
+
+.mBot10px {
+    margin-bottom: 10px!important;
+}
+
+.mBot15px {
+    margin-bottom: 15px!important;
+}
+
+.mBot20px {
+    margin-bottom: 20px!important;
+}
+
+.mBot25px {
+    margin-bottom: 25px!important;
+}
+
+.mBot30px {
+    margin-bottom: 30px!important;
+}
+
+.mBot40px{
+    margin-bottom: 40px!important;
+}
+
+.mBot50px{
+    margin-bottom: 50px!important;
+}
+
+.mBot140px{
+    margin-bottom: 110px!important;
+}
+
+.mR30px {
+    margin-right:30px!important;
+}
+
+
+.paddingLR {
+    padding: 0 15px!important;
+}
+
+.floatR {
+    float: right!important;
+}
+
+.floatL {
+    float: left!important;
+}
+
+.floatN{
+    float: none!important;
+}
+
+.clearB {
+    clear: both!important;
+}
+
+.clearR {
+    clear: right!important;
+}
+
+.clearL {
+    clear: left!important;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.no-margin{
+    margin:0 !important;
+}
+
+.no-padding{
+    padding:0 !important;
+}
+
+.w100{
+	width:100% !important;
+}
+
+}
+
+.clearfix:after {
+    content: " " !important;
+    visibility: hidden!important;
+    display:block !important;
+    height: 0 !important;
+    clear: both !important;
+    width: 100% !important;
+}
+
+
+.hidden{
+    display:none !important;
+}
+
+
+
+/* -------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------	       Hover Effects	    ------------------------------------*/
+/* -------------------------------------------------------------------------------------------------------------*/
+
+/* Buzz */
+@-webkit-keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+
+@keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+
+.hvr-buzz {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hvr-buzz:hover, .hvr-buzz:focus, .hvr-buzz:active {
+  -webkit-animation-name: hvr-buzz;
+  animation-name: hvr-buzz;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+section.visible .hvr-buzz-nohover{
+  -webkit-animation-name: hvr-buzz;
+  animation-name: hvr-buzz;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+
+
+/* Pulse Grow */
+@-webkit-keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+.hvr-pulse-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+section.visible .hvr-buzz-pulse-grow{
+  -webkit-animation-name: hvr-pulse-grow;
+  animation-name: hvr-pulse-grow;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}

@@ -1,0 +1,200 @@
+﻿
+
+#menu-block{
+	position:absolute;
+	left: 30px;
+	bottom:30px;
+
+	width:340px;
+	height:340px;
+	padding: 20px;
+
+	background: rgba(0,0,0,0.8);
+	transition: cubic-bezier(.16,.75,.26,.9) 0.4s;
+	z-index:10;
+	color: $color-A-7-annotations;
+	opacity: 0;
+
+	box-shadow: 0px 0px 5px #000;
+
+	-moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+
+	&:hover{
+	//bottom:0px;
+	opacity: 1;
+	transition: cubic-bezier(.16,.75,.26,.9) 0.4s;
+	}
+
+
+
+	@media screen and (max-width: $screen-m-min) {
+				 //display:none;
+				 background: rgba(0,0,0,0.9);
+
+				 width:100%;
+				 height:100%;
+				 left: 0%;
+				 bottom:0%;
+
+				 visibility:hidden;
+				 opacity:0;
+				 transition:visibility 0s linear 0.2s,opacity 0.2s linear;
+
+
+			}
+
+
+	//BUTTONS
+	input[type='button']{
+			height:35px;
+			width:150px;
+			background: none;
+			color:white;
+			border: 2px solid white;
+			border-radius:8px;
+			position:absolute;
+			left:20px;
+			bottom:20px;
+			outline:none;
+
+			&:hover{  background: rgba(255,255,255,0.2);  }
+
+	}  //END OF input[type='button']
+
+	//CHECKBOXES
+	label.with-checkbox{
+			width:100%;
+			display:block;
+			margin-bottom: 5px;
+
+			cursor:pointer;
+
+			&:after {
+				content: " ";
+				visibility: hidden;
+				display:block;
+				height: 0;
+				clear: both;
+				width: 100%;
+			}
+		
+			input[type='checkbox']{
+				width:16px;
+				height:16px;
+				margin: 0px;
+				float:left;
+
+				-webkit-appearance: checkbox;
+			    -moz-appearance:    checkbox;
+			    appearance:         checkbox;
+			}
+
+			span{
+				float:left;
+				margin-left:5px;
+			&.bk{display:none; }
+			}
+
+	} //END OF label
+
+
+	div.inline label.with-checkbox{
+		display:inline-block;
+		width:50px;
+		height:50px;
+		float:left;
+		overflow:hidden;
+		margin-right:8px;
+		
+		
+		
+
+
+		input{display:none;}
+		span{display:none;}
+		
+		//Unchecked Background Icons
+		input~span.bk{
+		display:block;
+		width:100%;
+		height:100%;
+		margin:0px;
+		background-image: url(images/menu-icons-sprite.jpg);
+
+		-moz-border-radius: 8px;
+		-webkit-border-radius: 8px;
+		border-radius: 8px;
+		cursor:pointer;
+		}
+
+		input[value="bk1"]~span.bk{background-position: -50px 0;}
+		input[value="bk2"]~span.bk{background-position:    0 0;}
+		input[value="bk3"]~span.bk{background-position: -150px 0;}
+		input[value="bk4"]~span.bk{background-position: -100px 0;}
+
+		input[value="skin1"]~span.bk{background-position: 0 -50px;}
+		input[value="skin2"]~span.bk{background-position: -50px -50px;}
+		
+		//Checked Background Icons
+		input:checked~span.bk{
+		display:block;
+		width:100%;
+		height:100%;
+		
+		border: 2px solid $color-A-4-background;
+		
+		
+		
+		
+		}
+
+
+		}
+
+
+
+	//RADIOS
+	input[type="radio"]{
+		height:16px;
+		width:16px;
+		margin: 0px;
+		float:left;
+		
+	}
+}
+
+#menu-block-btn{
+	height:64px;
+	width:64px;
+	position:absolute;
+	left:20px;
+	bottom:20px;
+	z-index:20;
+
+	background: rgba(0,0,0,0.8);
+
+	-moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+
+	@media screen and (min-width: $screen-m-min) {
+				 display:none;
+				
+			}
+}
+
+
+
+input#menu-block-checkbox:checked + div#menu-block{
+
+	transition:visibility 0s linear 0.2s,opacity 0.2s linear;
+	visibility:visible;
+	opacity:1;
+	transition-delay:0s;
+	//display:block;
+
+
+
+}

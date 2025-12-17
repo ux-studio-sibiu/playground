@@ -1,0 +1,247 @@
+
+
+/* Buzz */
+@-webkit-keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(1px) rotate(1deg);
+    transform: translateX(1px) rotate(1deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(-1px) rotate(-1deg);
+    transform: translateX(-1px) rotate(-1deg);
+  }
+}
+
+@keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(1px) rotate(1deg);
+    transform: translateX(1px) rotate(1deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(-1px) rotate(-1deg);
+    transform: translateX(-1px) rotate(-1deg);
+  }
+}
+
+.hvr-buzz {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hvr-buzz:hover, .hvr-buzz:focus, .hvr-buzz:active {
+  -webkit-animation-name: hvr-buzz;
+  animation-name: hvr-buzz;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+
+
+
+#container-cover{
+		max-width: 1280px;
+		  margin: 0 auto;
+		  height:640px;
+
+		  
+		  }
+
+
+section#module-cover{
+	
+		border:none;
+		background:none;
+		margin:0;                            
+		z-index:10;                               
+		
+		@include flexbox();
+		flex-flow: column nowrap;
+                                                                           
+		width: 100%;
+		height: 100%;
+
+		max-width: 1280px;
+		max-height:640px;
+		margin: 0 auto;
+
+		//-webkit-box-flex: 0 0 640px;
+		//-webkit-flex: 0 0 6400px;
+		//-ms-flex: 0 0 6400px;
+		//flex: 0 0 640px;
+
+		@include transition(all 0s );
+
+	&.intro{
+		opacity:0;
+		@include transition( transform 0s !important) ;
+	
+	}
+
+
+	h1{		
+	.col2{
+				width:50%;
+				//flex: 1 50%;
+				display:inline-block;
+				float: left;
+				position:relative;
+
+				@media screen  and (max-width:1280px) { 
+					width:100%;
+				 }
+
+				}
+
+			&.top{padding-top:150px;}
+			
+			font-size:128px;
+			color: white;
+			text-align: center;
+			
+			width: 100%;
+			margin: 0 auto;
+			height:320px;
+
+			//////OPTIMIZE STUDIO
+			#optimize{
+				font-family: Scorched, Arial, sans-serif;
+				position:relative;
+				}
+
+			#studio{
+				font-family: Raleway, Arial, sans-serif;
+				font-weight:100;
+				font-size:135px;
+				position:relative;
+				display: inline-block;
+				left:-25px;
+				//top:190px;
+				//color: #aaa;
+			}//END OF #studio
+			//////END OF OPTIMIZE STUDIO
+
+				span.motto{
+					display:block;
+					position:absolute;
+					font-size:16px;
+					line-height:30px;
+					font-family: Arial, sans-serif;
+					font-weight:thin;
+					text-align: right;
+					width:100%;
+					color: #ccc;
+					right: 30px;
+					bottom: -20px;
+					//display:none;
+
+				}
+
+				span.define{
+					
+					font-size:13px;
+					line-height:16px;
+					font-family: Arial, sans-serif;
+					font-weight:thin;
+					text-align: left;
+					color: #999;
+					left: 0px;
+					display:inline-block;
+					//top: 190px;
+
+					em{ font-weight:bolder; font-size:15px; line-height:30px;}
+				
+				}
+			
+
+				
+
+				span#enter-btn{
+					
+					margin: 0 auto;
+					height:40px;
+					width:200px;
+					
+					font-size:14px;
+					line-height:36px;
+
+					font-family: Raleway, Arial, sans-serif;
+					background: rgba(100, 0, 0, 0.4);
+					box-shadow: 0 0 40px #000;
+					font-size: 20px;
+					border: 2px solid #aaa;
+					cursor:pointer;
+					text-shadow:none;
+
+					&:hover{ background: rgba(100, 0, 0, 0.2);  }
+
+				}
+			
+
+	}
+
+
+
+#the-button{
+                    display:block;
+                    
+                    border-radius:50%;
+                    height:90px;
+                    width:90px;
+                    left:105px; right:0;
+                    top:105px; bottom:0;
+                    color:#aaa;
+                    font-family: Raleway, sans-serif;
+					font-size:20px;
+                    border: 2px solid #aaa;
+                    line-height:90px;
+                    text-align:center;
+					cursor:pointer;
+					
+					background: rgba(100, 0, 0, 0.2);
+					box-shadow: 0 0 10px #000, 0 0 15px #000, 0 0 40px #000;
+
+					&:hover{
+						  //color: #000;
+						  background: #9e9e9e;
+						  background: rgba(100, 0, 0, 0.5);
+					}
+
+                }//END OF #the-button
+
+//changes when screen is less than 1280;
+@media screen  and (max-width:1280px) {
+	
+		h1.top { height:500px; }
+		#optimize, #studio { width:100%; left:0 !important; }
+		
+	}
+
+}
+
+
+@media screen  and (max-width:800px) {
+	#optimize{font-size:85px !important;}
+	#studio{font-size:65px !important; top:-60px;}
+
+}
+
+@media screen  and (max-width:480px) {
+	#optimize{font-size:55px !important;}
+	#studio{font-size:45px !important; top:-100px;}
+
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////

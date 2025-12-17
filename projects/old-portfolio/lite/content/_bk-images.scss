@@ -1,0 +1,105 @@
+﻿
+
+////////////////////////////////////////////////////////////////////
+///////////////                BACKGROUNDS              ////////////
+////////////////////////////////////////////////////////////////////
+
+
+body div.bk{
+	position:absolute;
+	width:100%;
+	height:100%;
+	display:none;
+
+	-webkit-background-size: cover !important;
+	  -moz-background-size: cover !important;
+	  -o-background-size: cover !important;
+	  background-size: cover !important;	
+
+	  //overflow:hidden;
+
+	@media screen and (max-width: $screen-s-max){
+				display:none !important;}
+		}
+
+body div.bk.bk1{
+	background: url("images/bk4-color.jpg") no-repeat center bottom fixed;
+}
+
+body div.bk.bk2{
+	background: url("images/bk3.jpg") no-repeat center bottom fixed;
+}
+
+body div.bk.bk3{
+	background: url("images/bk5-starhub.jpg") no-repeat center bottom fixed;
+
+	//-moz-box-shadow:    inset 0 0 100px #333333;
+    //-webkit-box-shadow: inset 0 0 100px #333333;
+    //box-shadow:         inset 0 0 100px #333333;
+
+
+	div{
+		background: url("images/StarHub-logo.png");
+
+		position:absolute; 
+		top:100px; 
+		left:100px;
+		height:80px; 
+		width:362px;
+
+	}
+}
+
+
+body div.bk.bk4{
+	background: url("images/bk6-o2.jpg") no-repeat left top fixed;
+}
+
+
+
+////////////////////////////////////////////////////////////////////
+/////////////////                HEADERS              //////////////
+////////////////////////////////////////////////////////////////////
+
+
+
+#HEADER div.hd{
+	position:absolute;
+	width:100%;
+	height:100%;
+	display:none;
+
+	
+
+}
+
+#HEADER div.hd.bk1{
+	background: url("images/hd4-color.jpg") no-repeat center top ;
+}
+
+#HEADER div.hd.bk2{
+	background: url("images/hd3.jpg") no-repeat center top ;
+}
+
+#HEADER div.hd.bk3{
+	background: #62A50C ;
+	background: #89AACB ;
+
+	div.logo{
+		background: url("images/StarHub-logo.png");
+
+		position:absolute; 
+		top:60px; 
+		left:20px;
+		height:60px; 
+		width:271px;
+		background-size: auto 60px;
+
+	}
+
+
+}
+
+#HEADER div.hd.bk4{
+	background: url("images/hd6-o2.jpg") no-repeat center top ;
+}

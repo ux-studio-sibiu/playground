@@ -1,0 +1,126 @@
+
+$neon-color: #fff;
+$neon-color: #961f1f;
+@-webkit-keyframes neonAnimation {
+        0% {
+          text-shadow: 0 0 10px #fff,
+                     0 0 20px  #fff,
+                     0 0 30px  #fff,
+                     0 0 40px  $neon-color,
+                     0 0 70px  $neon-color,
+                     0 0 80px  $neon-color,
+                     0 0 100px $neon-color,
+                     0 0 150px $neon-color;
+        }
+        100% {
+          text-shadow: 0 0 5px #fff,
+                     0 0 10px #fff,
+                     0 0 15px #fff,
+                     0 0 20px $neon-color,
+                     0 0 35px $neon-color,
+                     0 0 40px $neon-color,
+                     0 0 50px $neon-color,
+                     0 0 75px $neon-color;
+        }
+      }
+
+@-moz-keyframes neonAnimation {
+        0% {
+          text-shadow: 0 0 10px #fff,
+                     0 0 20px  #fff,
+                     0 0 30px  #fff,
+                     0 0 40px  $neon-color,
+                     0 0 70px  $neon-color,
+                     0 0 80px  $neon-color,
+                     0 0 100px $neon-color,
+                     0 0 150px $neon-color;
+        }
+        100% {
+          text-shadow: 0 0 5px #fff,
+                     0 0 10px #fff,
+                     0 0 15px #fff,
+                     0 0 20px $neon-color,
+                     0 0 35px $neon-color,
+                     0 0 40px $neon-color,
+                     0 0 50px $neon-color,
+                     0 0 75px $neon-color;
+        }
+      }
+
+@-ms-keyframes neonAnimation {
+        0% {
+          text-shadow: 0 0 10px #fff,
+                     0 0 20px  #fff,
+                     0 0 30px  #fff,
+                     0 0 40px  $neon-color,
+                     0 0 70px  $neon-color,
+                     0 0 80px  $neon-color,
+                     0 0 100px $neon-color,
+                     0 0 150px $neon-color;
+        }
+        100% {
+          text-shadow: 0 0 5px #fff,
+                     0 0 10px #fff,
+                     0 0 15px #fff,
+                     0 0 20px $neon-color,
+                     0 0 35px $neon-color,
+                     0 0 40px $neon-color,
+                     0 0 50px $neon-color,
+                     0 0 75px $neon-color;
+        }
+      }
+
+@keyframes neonAnimation {
+        0% {
+          text-shadow: 0 0 10px #fff,
+                     0 0 20px  #fff,
+                     0 0 30px  #fff,
+                     0 0 40px  $neon-color,
+                     0 0 70px  $neon-color,
+                     0 0 80px  $neon-color,
+                     0 0 100px $neon-color,
+                     0 0 150px $neon-color;
+        }
+        100% {
+          text-shadow: 0 0 5px #fff,
+                     0 0 10px #fff,
+                     0 0 15px #fff,
+                     0 0 20px $neon-color,
+                     0 0 35px $neon-color,
+                     0 0 40px $neon-color,
+                     0 0 50px $neon-color,
+                     0 0 75px $neon-color;
+        }
+      }
+
+
+section#module-snow{
+
+
+		.neon{
+
+			font-family: 'Monoton';
+			text-align:center;
+			font-size:4em;
+			cursor:default;
+			
+			color:#228DFF;
+			margin-top:110px;
+
+			-webkit-transition: all 0.5s;
+			 -moz-transition: all 0.5s;
+			 transition: all 0.5s;
+		}
+
+		&:hover{
+			.neon{
+				color: #ffffff;
+				-webkit-animation: neonAnimation 1.5s ease-in-out infinite alternate;
+				-moz-animation: neonAnimation 1.5s ease-in-out infinite alternate;
+				animation: neonAnimation 1.5s ease-in-out infinite alternate;
+			}
+
+     } 
+
+
+}

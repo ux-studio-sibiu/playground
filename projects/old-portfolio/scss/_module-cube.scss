@@ -1,0 +1,300 @@
+
+
+.preserve3d section#module-cube{
+		$L:300px;
+		
+		  
+		  position: relative;
+		  border:none;
+		  perspective: 1000px;
+		  overflow:visible;
+		  background:none;
+		  z-index: 2;
+	
+	#cube {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+
+			//@include transform-origin ( center center );
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			@include transform( translateZ(-$L/2) );
+			@include transition( transform 1s );
+
+		  figure {
+			  width: 100%;
+			  height: 100%;
+			  display: block;
+			  position: absolute;
+			   overflow:hidden;
+			  //border: 1px solid #aaa;
+			  background: rgba(0, 0, 0, 0.5);
+
+
+			  p{
+
+				  color: #999;
+				  font-size:12px;
+				  line-height:15px;
+				  font-family:'Raleway' , sans-serif;
+				  text-align:justify;
+				  width:100%;
+			  
+			  }
+
+			  div{
+				  
+				  margin:3px;
+				  margin-top:0px;
+				  border: 2px solid #666;
+				  color: #ccc;
+				  font-size:50px;
+				  font-family: 'Raleway' , sans-serif;
+				  text-align:center;
+				  $shadow:#222;
+				  @include text-shadow( 0 0 5px $shadow, 0 0 10px $shadow, 0 0 10px $shadow, 0 0 10px $shadow, 0 0 10px $shadow);
+
+				  &.left{float:left;margin-left:0px;}
+				  &.right{float:right; margin-right:0px;}
+				  &.big{
+					width:177px;
+					height:177px;
+					line-height:177px;
+				  }
+				  &.medium{
+					width:147px;
+					height:147px;
+					line-height:144px;
+				  }
+
+				  &.small{
+					width:117px;
+					height:117px;
+					line-height:117px;
+				  }
+
+				  &.full{
+					margin:0px;
+					width:300px;
+					height:300px;
+					line-height:300px;
+				  }
+				  
+			  }//END OF figure
+			  
+			 
+
+				&.front  { @include transform( rotateY(   0deg ) translateZ( $L/2 ) ); }
+				&.back   { @include transform( rotateX( 180deg ) translateZ( $L/2 ) ); }
+				&.right  { @include transform( rotateY(  90deg ) translateZ( $L/2 ) ); }
+				&.left   { @include transform( rotateY( -90deg ) translateZ( $L/2 ) ); }
+				&.top    { @include transform( rotateX(  90deg ) translateZ( $L/2 ) ); }
+				&.bottom { @include transform( rotateX( -90deg ) translateZ( $L/2 ) ); }
+
+			}
+
+		&.show-front  { @include transform( translateZ( -$L/2 ) rotateY(    0deg ) ); }
+		&.show-back   { @include transform( translateZ( -$L/2 ) rotateX( -180deg ) ); }
+		&.show-right  { @include transform( translateZ( -$L/2 ) rotateY(  -90deg ) ); }
+		&.show-left   { @include transform( translateZ( -$L/2 ) rotateY(   90deg ) ); }
+		&.show-top    { @include transform( translateZ( -$L/2 ) rotateX(  -90deg ) ); }
+		&.show-bottom { @include transform( translateZ( -$L/2 ) rotateX(   90deg ) ); }
+
+		//&:hover   {     @include transform( translateZ( -$L/2 ) rotateX( -180deg ) ); }
+
+
+	} //END OF #cube
+	
+	
+	#cube figure{
+
+		.info{
+			position:absolute;
+			bottom:5px;
+			right:5px;
+			color: #aaa;
+			font-family:'Raleway', sans-serif;
+			font-size:12px;
+
+		}
+
+	
+
+
+
+	}
+
+
+}	
+
+//NEONS
+section#module-cube{
+
+		
+		.neon{
+
+			font-family: 'Monoton', sans-serif;
+			text-align:center;
+			font-size:4em;
+			cursor:default;
+			
+			color:#fff;
+			margin-top:110px;
+
+			-webkit-transition: all 0.5s;
+			 -moz-transition: all 0.5s;
+			 transition: all 0.5s;
+		}
+
+	
+
+}
+
+
+
+//////////////////////////////////////////////////////////////////
+/*                 Modified Tooltipster theme:                  */
+//////////////////////////////////////////////////////////////////
+.cube-theme {
+	
+	border: 1px solid #aaa;
+	color: #aaa;
+    background: #000;
+	background: rgba(50, 0, 0, 1);
+	
+    @include box-shadow( 0 0 10px #000, 0 0 40px #000);
+	@include transform-origin(center center);
+
+   
+}
+
+/* Use this next selector to style things like font-size and line-height: */
+.cube-theme .tooltipster-content {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	line-height: 14px;
+	padding: 0;
+	overflow: hidden;
+}
+
+.cube-theme{
+
+		ul.tabs {
+	
+					  position:relative;
+					  bottom: 0px;
+					  width:100%;
+					  //left:5%;
+					  list-style: none;
+					  margin: 0px auto;
+					  padding: 0;
+
+					  font-family: 'Raleway' , Arial , sans-serif;
+					  font-size:12px;
+					  line-height:16px;
+					  height:16px;
+					  text-align: center;
+					  z-index:10;
+					  //border: 1px solid #C6C6C6;
+					  //border: 1px solid #228DFF;
+					  //opacity:0.4;
+					  
+
+							li {
+							  display: inline-block;
+							  
+							  width: 16.666666%;
+							  height: 100%;
+							  margin: 0;
+
+							  color: #C6C6C6;
+							  cursor: pointer;
+							  overflow: hidden;
+					  
+							  border-left: 1px solid #C6C6C6;
+							  
+							  &:hover{
+								background: #C6C6C6;
+								color:#000;
+
+							  }
+
+							  &:first-of-type{
+							  border-left:none;
+							  }
+							 &.active{
+									background: #C6C6C6;
+									color:#000;
+								}
+	
+				}//END OF li
+			} //END OF ul.tabs
+
+}
+
+
+
+
+//////FALLBACK
+.no-preserve3d section#module-cube{
+	
+	border:none;
+	background:none;
+	overflow:hidden;
+	
+	.card {
+		  width: 100%;
+		  height: 100%;
+		  position: absolute;
+		  perspective: 800px;
+		  //@include transform-origin(center center);
+		  
+
+
+	 figure {
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				//overflow:hidden;
+				@include transform-origin(center center);
+				@include transition( transform 0.5s ease-out);
+				
+				//border: 1px solid #aaa;
+				
+			&.front {
+			  z-index:1;
+			  @include transform(   rotateX( 0deg ) rotateY( 0deg ) translateZ(   0px)); 
+			}
+
+			&.middle { z-index:2;}
+
+			&.back {
+			  @include transform(   rotateX( 180deg )  rotateY( 0deg ) translateZ(100px));
+			  z-index:3;
+			  }
+
+		}//END OF figure
+
+		&:hover{
+				.front {@include transform(   rotateX( -180deg ) rotateY( 0deg ) translateZ(100px));}
+				.back { @include transform(   rotateX(  0deg )   rotateY( 0deg ) translateZ(0));}
+			    
+
+			  }
+
+
+} //END OF .card
+
+
+	#cube{
+	display:none;
+	}
+
+	.fallback{
+		display:block;
+
+	}
+
+}

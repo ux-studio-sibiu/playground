@@ -1,0 +1,90 @@
+
+
+
+
+
+
+
+
+
+section#module-hslider{
+	//cursor:none;
+	//padding:9px;
+	
+
+
+
+		button.menu{
+			position:absolute;
+			margin:0;
+			z-index: 3;
+			
+			span,
+			span:before,
+			span:after{
+				
+			}
+		
+		}
+
+
+#overlay{
+	padding:9px;
+	position:absolute;
+	right:0;
+	width:298px;
+	height:100%;
+
+	background:#000;
+	opacity: 0.8;
+	display:none;
+	z-index: 2;
+	//cursor: crosshair;
+
+	&.active{
+		display:block;
+	}
+
+			.item{
+			display:block;
+			width: 14px;
+			height:14px;
+			float:left;
+			background: transparent;
+			//border: 1px solid rgba(200,200,200,0);
+			
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+
+			@include transition( all 3s ease-out 0s);
+		
+
+
+		&:hover{
+			background: #999;
+
+			//border: 1px solid 200,200,200,1);
+			@include transition( all 0s ease-out 0s );
+
+		}
+
+		&.active{
+			
+			background: #228DFF;
+			background: #ffffff;
+			
+			@include animation( neonGlow .5s ease-in-out infinite alternate );
+		
+		
+		}
+
+
+		}
+
+
+}
+
+
+
+}

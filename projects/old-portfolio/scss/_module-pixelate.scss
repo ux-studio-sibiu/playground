@@ -1,0 +1,48 @@
+
+
+section#module-pixelate{
+		cursor:pointer;
+		
+
+		canvas{
+			
+			@include transition( all 0.5s ease-out 0s);
+			opacity: 1;
+			image-rendering: optimizeSpeed;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: -o-crisp-edges;
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: nearest-neighbor;
+
+			&.intro{opacity: 0.7}
+		
+		&:hover{
+			opacity: 1;
+		}
+
+
+		}//END OF canvas
+
+
+		.title{
+		    a{
+					text-decoration:none;
+					font-family: 'Raleway', sans-serif;
+					text-align:center;
+					cursor:default;
+					//pointer-events:none;
+					position:absolute;
+					bottom:3px;
+					//left:0px;
+					right:5px;
+					font-size:13px;
+					color:#ddd;
+					cursor:pointer;
+
+					&:hover{text-decoration:underline;}
+			}
+		} //END OF .title
+			
+
+} //END OF section#module-pixelate

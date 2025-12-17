@@ -1,0 +1,851 @@
+﻿<!doctype html>
+<html>
+        <head>
+            <title>MiPay Lite</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            
+            <link href="../../css/fonts/include-fonts.css" rel="stylesheet" />
+            <link href="content/Bundeled.css" rel="stylesheet" />
+            <link href="content/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" />
+
+            <script src="scripts/jquery-1.10.2/jquery-1.10.2.js"></script>
+            <script src="content/perfect-scrollbar/perfect-scrollbar.js"></script>
+            <script src="content/tooltipster/jquery.tooltipster.min.js"></script>
+            <script src="scripts/main.js"></script>
+
+            <link href="content/tooltipster/tooltipster.css" rel="stylesheet" />
+
+            <!--<script src="../scripts/mobile%20password/jquery.mobilePassword.js"></script>-->
+
+                    
+
+</head>
+
+
+
+<body data-bk="bk1">
+
+            <div class="bk bk1" style="display:block">   </div>
+            <div class="bk bk2">   </div>
+            <div class="bk bk3">   <div> </div> </div>
+            <div class="bk bk4">   </div>
+
+
+           <div class="background-highlight anno"> </div>
+           <div class="icon-up background-annotation anno">
+               <div>Background space is used for custumer brand identity.<br>
+                   To disable annotations click <label for="hide-annotation" >here</label>. Toggle available in options.<br>Note: annotations disabled for width:1200px;<br>
+               </div>
+
+           </div>
+           <div class="icon-right product-annotation anno">
+               <div>This is the payment service box. Mi-Pay customizes the look and feel here to be in tune with the customer branding style -some examples available in options<br>
+                    Mobile optimised: resize the browser (width ~ 400px) or load on a mobile device for preview.<br>
+                </div>
+           </div>
+            
+
+          
+
+            
+<!-----------------------------------------------------------------------------------------------------------UNREG PAGE-->
+<!----------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------->
+
+            <div class="main-scroll-container-shadow product-highlight" id="UNREG_PAGE" data-skin="skin1"> 
+
+                        
+                        <div class="main-scroll-container" >
+
+  
+                            <div class="main-container clearfix">
+                        
+                                <div id="HEADER" class="" >
+                                    
+                                    <div class="hd bk1" style="display:block">
+                                        <h3>CUSTOMER BRANDING</h3>
+                                        <div class="powered">Payments powered by Mi-Pay</div>
+                                    </div>
+
+                                    <div class="hd bk2">
+                                        <h3>CUSTOMER BRANDING</h3>
+                                        <div class="powered">Payments powered by Mi-Pay</div>
+                                    </div>
+
+                                    <div class="hd bk3">
+                                        <h3> </h3>
+                                        <div class="powered">Payments powered by Mi-Pay</div>
+                                        <div class="logo"> </div>
+                                    </div>
+
+                                    <div class="hd bk4">
+                                        <h3> </h3>
+                                        <div class="powered">Payments powered by Mi-Pay</div>
+                                    </div>
+
+                                    
+                                </div>
+
+<!------------------------------------------------------------------------------------------------------------------- PAGE-->
+                                <div id="CONTENT" class="content" data-page="unreg">
+                                    <section class="confirm-payment"> 
+                                        <h3 class="tooltip" title="@Shared.Title_MainTitle">Confirm Payment</h3>
+
+
+                                        
+                                        <div class="gp-box mTop30px">
+                                            <!--<p class="mBot20px">You are purchasing:<p>--> 
+                                            
+                                            <div class="gp-box-checkout clearfix"> 
+                                                    <div class="product"> M2/M4 Slam Explosives </div>
+                                                    <div class="price">  $76 </div>
+                                            </div>
+                                            <div class="gp-box-checkout clearfix"> 
+                                                    <div class="product"> M67 Fragmentation Grenade </div>
+                                                    <div class="price">  $126 </div>
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="gp-box-checkout clearfix"> 
+                                                    <div class="product"> </div>
+                                                    <div class="price w100"> $202 </div>
+                                            </div>
+
+                                        </div>
+
+                                        
+                                    </section>
+
+
+                                    <section class="payment-details"> 
+                                        <h3 class="tooltip" title="@Shared.Title_SectionPaymentDetails">Payment Details</h3>
+
+                                        <div class="gp-box tab-group-payment-method mTop10px">
+                                
+                                                    <input hidden type="radio" name="unreg-payment-tabs" id="unreg-tab1" data-selector="paytabs" checked />
+                                                    <label class="col-2 tooltip mBot25px" for="unreg-tab1" data-tab="#tab-content1" title="@Shared.Lbl_Mop_Card">Pay with Card</label>
+                                        
+                                                    <input hidden type="radio" name="unreg-payment-tabs" id="unreg-tab2" data-selector="paytabs" />
+                                                    <label class="col-2 tooltip mBot25px" for="unreg-tab2" data-tab="#tab-content2" title="@Shared.Lbl_Mop_PayPal">Pay with PayPal</label>
+
+                                                    <!--TAB 1: PAY WITH CARD-->
+                                                    <div id="tab-content1" class="tab-content">
+
+                                                            <p class="validation-text tooltip"   title="@Errors.Val_CardNumber_required <br> @Errors.Val_CardNumber_invalid">Please provide your Card Number</p>
+                                                            <p class="validation-text tooltip"   title="@Errors.Val_ExpiryDate_required <br> @Errors.Val_ExpiryDate_invalid">Please provide Expiry Date</p>
+                                                            <p class="validation-text tooltip"   title="@Errors.Val_SecurityCode_required <br> @Errors.Val_SecurityCode_invalid">Please provide your Security Code</p>
+                                                
+                                                            <div class="gp-box">
+                                                                <label  class="for-input tooltip" title="@Shared.Lbl_SelectCardDropDown">Select card:</label>
+                                                                <select id="select-card">   
+                                                                    <option>4444444444444448</option>
+                                                                    <option>5555555555555557</option>
+                                                                    <option>Add new card</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <!--SUB-TAB 1: EXISTING CARD-->
+                                                            <div class="gp-box tab-content-in" id="tab-content-in-1">
+
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input tooltip" title="@Shared.Lbl_CardNumber">Card Number:</label>
+                                                                        <input type="text" />
+                                                                    </div>
+
+                                                                    <div class="gp-box col-2-gutter-small">
+                                                                               <label class="for-input tooltip" title="@Shared.Lbl_ExpiryDate">Expiry Date:</label>
+                                                                                <select class="canbe-invalid">   
+                                                                                            <option>Jan</option>
+                                                                                            <option>Feb</option>
+                                                                                            <option>Mar</option>
+                                                                                            <option>Apr</option>
+                                                                                            <option>May</option>
+                                                                                            <option>Jun</option>
+                                                                                            <option>Jul</option>
+                                                                                            <option>Aug</option>
+                                                                                            <option>Sep</option>
+                                                                                            <option>Oct</option>
+                                                                                            <option>Now</option>
+                                                                                            <option>Dec</option>
+                                                                                        </select>
+                                                                    </div>
+                                                                            
+                                                                    <div class="gp-box col-2-gutter-small">
+                                                                                    <label class="for-input mTop15px" > </label>
+                                                                                    <select class="canbe-invalid">   
+                                                                                        <option>2015</option>
+                                                                                        <option>2016</option>
+                                                                                        <option>2017</option>
+                                                                                        <option>2018</option>
+                                                                                        <option>2019</option>
+                                                                                        <option>2020</option>
+                                                                                        <option>2021</option>
+                                                                                        <option>2022</option>
+                                                                                        <option>2023</option>
+                                                                                        <option>2024</option>
+                                                                                        <option>2025</option>
+                                                                                        <option>2026</option>
+                                                                                    </select>
+                                                                    </div>
+                                                                    
+
+
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input tooltip" title="@Shared.Lbl_SecurityCode">Security Code:</label>
+                                                                        <input class="mask" type="text" name="security code"/>
+                                                                    </div>
+
+                                                                    <div class="gp-box mTop20px">
+                                                                        <input type="button" value="Delete Card" class="col-2-gutter tooltip secondary" title="@Shared.Btn_DeleteCard"/>
+                                                                        <input type="button" value="Update Card" class="col-2-gutter tooltip secondary" title="@Shared.Btn_EditCard"/>
+                                                                    </div>
+                                                            </div>
+
+                                                            <!--SUB-TAB 2: ADD NEW CARD-->
+                                                            <div class="gp-box tab-content-in mBot15px" id="tab-content-in-2" style="display:none">
+
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input">Card type:</label>
+                                                                        <select>   
+                                                                            <option>Visa</option>
+                                                                            <option>Mastercard</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input">Card number:</label>
+                                                                        <input type="text" />
+                                                                    </div>
+
+                                                                    <div class="gp-box col-2-gutter-small">
+                                                                               <label class="for-input">Expiry Date:</label>
+                                                                                <select >   
+                                                                                            <option>Jan</option>
+                                                                                            <option>Feb</option>
+                                                                                            <option>Mar</option>
+                                                                                            <option>Apr</option>
+                                                                                            <option>May</option>
+                                                                                            <option>Jun</option>
+                                                                                            <option>Jul</option>
+                                                                                            <option>Aug</option>
+                                                                                            <option>Sep</option>
+                                                                                            <option>Oct</option>
+                                                                                            <option>Now</option>
+                                                                                            <option>Dec</option>
+                                                                                        </select>
+                                                                    </div>
+                                                                            
+                                                                    <div class="gp-box col-2-gutter-small">
+                                                                                    <label class="for-input mTop15px"> </label>
+                                                                                    <select >   
+                                                                                        <option>2015</option>
+                                                                                        <option>2016</option>
+                                                                                        <option>2017</option>
+                                                                                        <option>2018</option>
+                                                                                        <option>2019</option>
+                                                                                        <option>2020</option>
+                                                                                        <option>2021</option>
+                                                                                        <option>2022</option>
+                                                                                        <option>2023</option>
+                                                                                        <option>2024</option>
+                                                                                        <option>2025</option>
+                                                                                        <option>2026</option>
+                                                                                    </select>
+                                                                    </div>
+                                                                    
+
+
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input">Security Code:</label>
+                                                                        <input type="text" />
+                                                                    </div>
+                                                            </div>
+                                                
+
+                                                    </div>
+                                        
+                                                    <!--TAB 2: PAY WITH PAYPAL-->
+                                                    <div id="tab-content2" class="tab-content" style="display:none">
+                                                        <div class="gp-box mTop20px mBot140px">
+                                                                        <label class="for-input tooltip" title="@Shared.Lbl_PayPalAccount">PayPal account:</label>
+                                                                        <label class="read-only-input"> porcusoru.agresiv@mi-pay.com </label>
+
+                                                                        <div class="gp-box mTop20px">
+                                                                                <input type="button" value="Remove PayPal" class="col-2-gutter tooltip secondary" title="@Shared.Btn_DeletePayPalAccount"/>
+                                                                        </div>
+                                                            
+                                                        </div>
+
+
+                                            
+
+                                                    </div>
+                                 
+
+                                        </div>
+                            
+
+                                    </section>
+
+                                    <section class="personal-details"> 
+                                                <h3 class="tooltip" title="@Shared.Title_SectionPersonalDetails">Personal Details</h3>
+
+                                                <p class="validation-text tooltip"   title="@Shared.Val_Email_required <br> @Shared.Val_Email_invalid">Please provide your Email</p>
+                                                <p class="validation-text tooltip"   title="@Shared.Val_FirstName_required <br> @Shared.Val_FirstName_invalid">First Name field is required </p>
+                                                <p class="validation-text tooltip"   title="@Shared.Val_LastName_required <br> @Shared.Val_LastName_invalid">Last Name field is required</p> 
+
+                                                <div class="gp-box">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_Email">Email:</label>
+                                                       <input type="text" data-val="praslea.celvoinic@gmail.com" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box col-2-gutter-small">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_FirstName">First Name:</label>
+                                                       <input type="text" data-val="Praslea" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box col-2-gutter-small">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_LastName">Last Name:</label>
+                                                       <input type="text" data-val="CelVoinic" class="canbe-readonly"/>
+                                                </div>
+
+                                    </section>
+
+
+                                    <section class="billing-address"> 
+                                                <h3 class="tooltip" title="@Shared.Title_BillingAddress">Billing Address</h3>
+                                    
+                                                <p class="validation-text tooltip" title="@Shared.Val_Address1_required<br>@Shared.Val_Address1_invalid">Please provide your billing address </p>
+                                                <p class="validation-text tooltip" title="@Shared.Val_City_required<br>@Shared.Val_City_invalid">City field is required </p>
+                                                <p class="validation-text tooltip" title="@Shared.Val_PostalCode_required<br>@Shared.Val_PostalCode_invalid">Postal code field is required</p> 
+                                                <p class="validation-text tooltip" title="@Shared.Val_Country_required<br>@Shared.Val_Country_invalid">Country field is required</p>   
+                                
+                                                <div class="gp-box">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_Address1">Address 1:</label>
+                                                       <input type="text" data-val="Oituz str. no.25C" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box">
+                                                       <label for="Address2" class="for-input tooltip" title="@Shared.Lbl_Address2">Address 2:  [optional]</label>
+                                                       <input id="Address2" data-val="near Papa Bun" class=" canbe-readonly optional" type="text" />
+                                                </div>
+                                                <div class="gp-box col-2-gutter-small">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_City">City:</label>
+                                                       <input type="text" data-val="Sibiu" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box col-2-gutter-small">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_PostalCode">Postal code:</label>
+                                                       <input type="text" data-val="525005" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_Country">Country:</label>
+                                                       <input type="text" data-val="Romania" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box mTop20px">
+                                                       <input type="button" value="Change Address" class="col-2-gutter tooltip secondary" title="@Shared.Btn_EditDetails"/>
+                                                </div>
+                                                            
+
+                                    </section>
+
+
+                                    <section class="submit"> 
+                                                <h3></h3>
+                                                <p class="validation-text tooltip mBot15px" title="@Shared.Val_TermsAndConditions_required">Please agree to this service`s Terms and Conditions </p>
+                                                
+
+                                                <div class="gp-box checkbox mBot20px">
+                                                    <input type="checkbox" id="terms-and-conditions" hidden>
+                                                    <label  for="terms-and-conditions" class="tooltip" title="@Shared.Lbl_TermsAndConditions">
+                                                         I confirm that I have read and accept the <a>Terms and Conditions</a> and <a>Privacy and Cookie Policy</a> for this payment service
+
+                                                    </label>
+                                                </div>
+                                    
+                                                <p class="tooltip" title="@Shared.Paragraph_SectionSubmit_Info1">Once your payment is confirmed, you should receive your top-up within ten minutes.</p>
+                                                <p class="tooltip" title="@Shared.Paragraph_SectionSubmit_Info2">The next screen you see may be from your bank asking you to confirm your card details.</p>
+
+
+
+
+                                                <div class="gp-box mTop20px">
+                                                       <input type="button" value="Cancel" class="col-2-gutter tooltip secondary" title="@Shared.Btn_Cancel"/>
+                                                       <input id='submit' type="button" value="Confirm Payment" class="col-2-gutter tooltip primary" title="@Shared.Btn_Submit"/>
+                                                </div>
+                                                            
+
+                                    </section>
+
+
+
+                                </div>
+<!------------------------------------------>
+                               
+
+                                <div id="FOOTER">
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+
+                        
+            </div>
+
+<!------------------------------------------------------------------------------------------------------------REG PAGE-->
+<!----------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------->           
+
+            <div class="main-scroll-container-shadow product-highlight" id="REG_PAGE" data-skin="skin1" style="display:none"> 
+
+                        
+                        <div class="main-scroll-container" >
+
+  
+                            <div class="main-container clearfix">
+                        
+                                <div id="HEADER" class="" >
+                                    
+                                    <div class="hd bk1" style="display:block">
+                                        <h3>CUSTOMER BRANDING</h3>
+                                        <div class="powered">Payments powered by Mi-Pay</div>
+                                    </div>
+
+                                    <div class="hd bk2">
+                                        <h3>CUSTOMER BRANDING</h3>
+                                        <div class="powered">Payments powered by Mi-Pay</div>
+                                    </div>
+
+                                    <div class="hd bk3">
+                                        <h3> </h3>
+                                        <div class="powered">Payments powered by Mi-Pay</div>
+                                        <div class="logo"> </div>
+                                    </div>
+
+                                    <div class="hd bk4">
+                                        <h3> </h3>
+                                        <div class="powered">Payments powered by Mi-Pay</div>
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div id="CONTENT" class="content" data-page="unreg">
+                                    <section class="confirm-payment"> 
+                                        <h3 class="tooltip" title="@Shared.Title_MainTitle">Confirm Payment</h3>
+
+
+                                        
+                                        <div class="gp-box mTop30px">
+                                            <!--<p class="mBot20px">You are purchasing:<p>--> 
+                                            
+                                            <div class="gp-box-checkout clearfix"> 
+                                                    <div class="product"> M2/M4 Slam Explosives </div>
+                                                    <div class="price">  $76 </div>
+                                            </div>
+                                            <div class="gp-box-checkout clearfix"> 
+                                                    <div class="product"> M67 Fragmentation Grenade </div>
+                                                    <div class="price">  $126 </div>
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="gp-box-checkout clearfix"> 
+                                                    <div class="product"> </div>
+                                                    <div class="price w100"> $202 </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!--<p> Complete your purchase </p>-->
+
+                                        <p  class="tooltip" title="@Resources.Summary.Summary_Info1"> To pay with an existing card, please select it below, complete the payment form ant press the Confirm Payment button at the bottom of the page. </p>
+                                        <p  class="tooltip" title="@Resources.Summary.Summary_Info2"> To use a new payment method, update your existing payment details or add a new option. A maximium of 2 cards and one PayPal mandate can be stored for your account. </p>
+                                        <p  class="tooltip" title="@Resources.Summary.Summary_Info3"> Please check and make any changes to your personal details before submitting the transaction.</p>
+                                    
+                                    </section>
+
+
+                                    <section class="payment-details"> 
+                                        <h3 class="tooltip" title="@Shared.Title_SectionPaymentDetails">Payment Details</h3>
+
+                                        <div class="gp-box tab-group-payment-method mTop10px">
+                                
+                                                    <input hidden type="radio" name="reg-payment-tabs" id="reg-tab1" data-selector="paytabs" checked />
+                                                    <label class="col-2 tooltip mBot25px" for="reg-tab1" data-tab="#tab-content1" title="@Shared.Lbl_Mop_Card">Pay with Card</label>
+                                        
+                                                    <input hidden type="radio" name="reg-payment-tabs" id="reg-tab2" data-selector="paytabs"/>
+                                                    <label class="col-2 tooltip mBot25px" for="reg-tab2" data-tab="#tab-content2" title="@Shared.Lbl_Mop_PayPal">Pay with PayPal</label>
+
+
+
+                                                    
+                                                    
+
+
+                                                    <!--TAB 1: PAY WITH CARD-->
+                                                    <div id="tab-content1" class="tab-content">
+
+                                                            <p class="validation-text tooltip"   title="@Errors.Val_CardNumber_required <br> @Errors.Val_CardNumber_invalid">Please provide your Card Number</p>
+                                                            <p class="validation-text tooltip"   title="@Errors.Val_ExpiryDate_required <br> @Errors.Val_ExpiryDate_invalid">Please provide Expiry Date</p>
+                                                            <p class="validation-text tooltip"   title="@Errors.Val_SecurityCode_required <br> @Errors.Val_SecurityCode_invalid">Please provide your Security Code</p>
+                                                
+                                                            <div class="gp-box">
+                                                                <label  class="for-input tooltip" title="@Shared.Lbl_SelectCardDropDown">Select card:</label>
+                                                                <select id="select-card">   
+                                                                    <option>4444444444444448</option>
+                                                                    <option>5555555555555557</option>
+                                                                    <option>Add new card</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <!--SUB-TAB 1: EXISTING CARD-->
+                                                            <div class="gp-box tab-content-in" id="tab-content-in-1">
+
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input tooltip" title="@Shared.Lbl_CardNumber">Card Number:</label>
+                                                                        <input type="text" />
+                                                                    </div>
+
+                                                                    <div class="gp-box col-2-gutter-small">
+                                                                               <label class="for-input tooltip" title="@Shared.Lbl_ExpiryDate">Expiry Date:</label>
+                                                                                <select class="canbe-invalid">   
+                                                                                            <option>Jan</option>
+                                                                                            <option>Feb</option>
+                                                                                            <option>Mar</option>
+                                                                                            <option>Apr</option>
+                                                                                            <option>May</option>
+                                                                                            <option>Jun</option>
+                                                                                            <option>Jul</option>
+                                                                                            <option>Aug</option>
+                                                                                            <option>Sep</option>
+                                                                                            <option>Oct</option>
+                                                                                            <option>Now</option>
+                                                                                            <option>Dec</option>
+                                                                                        </select>
+                                                                    </div>
+                                                                            
+                                                                    <div class="gp-box col-2-gutter-small">
+                                                                                    <label class="for-input mTop15px" > </label>
+                                                                                    <select class="canbe-invalid">   
+                                                                                        <option>2015</option>
+                                                                                        <option>2016</option>
+                                                                                        <option>2017</option>
+                                                                                        <option>2018</option>
+                                                                                        <option>2019</option>
+                                                                                        <option>2020</option>
+                                                                                        <option>2021</option>
+                                                                                        <option>2022</option>
+                                                                                        <option>2023</option>
+                                                                                        <option>2024</option>
+                                                                                        <option>2025</option>
+                                                                                        <option>2026</option>
+                                                                                    </select>
+                                                                    </div>
+
+
+
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input tooltip" title="@Shared.Lbl_SecurityCode">Security Code:</label>
+                                                                        <input class="mask" type="text" name="security code"/>
+                                                                    </div>
+
+                                                                    <div class="gp-box mTop20px">
+                                                                        <input type="button" value="Delete Card" class="col-2-gutter tooltip secondary" title="@Shared.Btn_DeleteCard"/>
+                                                                        <input type="button" value="Update Card" class="col-2-gutter tooltip secondary" title="@Shared.Btn_UpdateCard"/>
+                                                                    </div>
+                                                            </div>
+
+                                                            <!--SUB-TAB 2: ADD NEW CARD-->
+                                                            <div class="gp-box tab-content-in mBot15px" id="tab-content-in-2" style="display:none">
+
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input">Card type:</label>
+                                                                        <select>   
+                                                                            <option>Visa</option>
+                                                                            <option>Mastercard</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input">Card number:</label>
+                                                                        <input type="text" />
+                                                                    </div>
+
+                                                                    <div class="gp-box col-2-gutter-small">
+                                                                               <label class="for-input">Expiry Date:</label>
+                                                                                <select class="canbe-invalid">   
+                                                                                            <option>Jan</option>
+                                                                                            <option>Feb</option>
+                                                                                            <option>Mar</option>
+                                                                                            <option>Apr</option>
+                                                                                            <option>May</option>
+                                                                                            <option>Jun</option>
+                                                                                            <option>Jul</option>
+                                                                                            <option>Aug</option>
+                                                                                            <option>Sep</option>
+                                                                                            <option>Oct</option>
+                                                                                            <option>Now</option>
+                                                                                            <option>Dec</option>
+                                                                                        </select>
+                                                                    </div>
+                                                                            
+                                                                    <div class="gp-box col-2-gutter-small">
+                                                                                    <label class="for-input mTop15px"> </label>
+                                                                                    <select >   
+                                                                                        <option>2015</option>
+                                                                                        <option>2016</option>
+                                                                                        <option>2017</option>
+                                                                                        <option>2018</option>
+                                                                                        <option>2019</option>
+                                                                                        <option>2020</option>
+                                                                                        <option>2021</option>
+                                                                                        <option>2022</option>
+                                                                                        <option>2023</option>
+                                                                                        <option>2024</option>
+                                                                                        <option>2025</option>
+                                                                                        <option>2026</option>
+                                                                                    </select>
+                                                                    </div>
+
+                                                                    <div class="gp-box">
+                                                                        <label class="for-input">Security Code:</label>
+                                                                        <input type="text" />
+                                                                    </div>
+                                                            </div>
+                                                
+
+                                                    </div>
+                                        
+                                                    <!--TAB 2: PAY WITH PAYPAL-->
+                                                    <div id="tab-content2" class="tab-content" style="display:none">
+                                                        <div class="gp-box mTop20px mBot140px">
+                                                                        <label class="for-input tooltip" title="@Shared.Lbl_PayPalAccount">PayPal account:</label>
+                                                                        <label class="read-only-input"> porcusoru.agresiv@mi-pay.com </label>
+
+                                                                        <div class="gp-box mTop20px">
+                                                                                <input type="button" value="Remove PayPal" class="col-2-gutter tooltip secondary" title="@Shared.Btn_DeletePayPalAccount"/>
+                                                                        </div>
+                                                            
+                                                        </div>
+
+
+                                            
+
+                                                    </div>
+                                 
+
+                                        </div>
+                            
+
+                                    </section>
+
+                                    <section class="personal-details"> 
+                                                <h3 class="tooltip" title="@Shared.Title_SectionPersonalDetails" >Personal Details</h3>
+
+                                                <p class="validation-text tooltip"   title="@Shared.Val_Email_required <br> @Shared.Val_Email_invalid">Please provide your Email</p>
+                                                <p class="validation-text tooltip"   title="@Shared.Val_FirstName_required <br> @Shared.Val_FirstName_invalid">First Name field is required </p>
+                                                <p class="validation-text tooltip"   title="@Shared.Val_LastName_required <br> @Shared.Val_LastName_invalid">Last Name field is required</p> 
+                                                
+
+                                                <div class="gp-box">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_Email">Email:</label>
+                                                       <input type="text" data-val="praslea.celvoinic@gmail.com" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box col-2-gutter-small">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_FirstName">First Name:</label>
+                                                       <input type="text" data-val="Praslea" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box col-2-gutter-small">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_LastName">Last Name:</label>
+                                                       <input type="text" data-val="Celvoinic" class="canbe-readonly"/>
+                                                </div>
+
+                                    </section>
+
+
+                                    <section class="billing-address"> 
+                                                <h3 class="tooltip" title="@Shared.Title_BillingAddress" >Billing Address</h3>
+                                    
+                                                <p class="validation-text tooltip" title="@Shared.Val_Address1_required<br>@Shared.Val_Address1_invalid">Please provide your billing address </p>
+                                                <p class="validation-text tooltip" title="@Shared.Val_City_required<br>@Shared.Val_City_invalid">City field is required </p>
+                                                <p class="validation-text tooltip" title="@Shared.Val_PostalCode_required<br>@Shared.Val_PostalCode_invalid">Postal code field is required</p> 
+                                                <p class="validation-text tooltip" title="@Shared.Val_Country_required<br>@Shared.Val_Country_invalid">Country field is required</p>     
+                                
+                                                <div class="gp-box">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_Address1">Address 1:</label>
+                                                       <input type="text" data-val="Oituz str. no.25C" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box">
+                                                       <label for="Address2" class="for-input tooltip" title="@Shared.Lbl_Address2">Address 2: -optional-</label>
+                                                       <input id="Address2" data-val="near Papa Bun" class=" canbe-readonly optional" type="text" />
+                                                </div>
+                                                <div class="gp-box col-2-gutter-small">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_City">City:</label>
+                                                       <input type="text" data-val="Sibiu" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box col-2-gutter-small">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_PostalCode">Postal code:</label>
+                                                       <input type="text" data-val="525005" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box">
+                                                       <label class="for-input tooltip" title="@Shared.Lbl_Country">Country:</label>
+                                                       <input type="text" data-val="Romania" class="canbe-readonly"/>
+                                                </div>
+                                                <div class="gp-box mTop20px">
+                                                       <input type="button" value="Change Address" class="col-2-gutter tooltip secondary" title="@Shared.Btn_EditDetails"/>
+                                                </div>
+                                                            
+
+                                    </section>
+
+
+                                    <section class="submit"> 
+                                                <h3></h3>
+
+                                                
+                                    
+                                                <p class="tooltip" title="@Shared.Paragraph_SectionSubmit_Info1">Once your payment is confirmed, you should receive your top-up within ten minutes.</p>
+                                                <p class="tooltip" title="@Shared.Paragraph_SectionSubmit_Info2">The next screen you see may be from your bank asking you to confirm your card details.</p>
+
+
+
+
+                                                <div class="gp-box mTop20px">
+                                                       <input type="button" value="Cancel" class="col-2-gutter tooltip secondary" title="@Shared.Btn_Cancel"/>
+                                                       <input id='submit' type="button" value="Confirm Payment" class="col-2-gutter tooltip primary" title="@Shared.Btn_Submit"/>
+                                                </div>
+                                                            
+
+                                    </section>
+
+
+
+                                </div>
+<!------------------------------------------>
+                               
+
+                                <div id="FOOTER"></div>
+
+
+                            </div>
+                        </div>
+
+                        
+            </div>
+
+<!----------------------------------------------------------------------------------------------------------------------->
+<!-----------------------------------------------------------------------------------------------------------MENU BLOCK-->
+<!----------------------------------------------------------------------------------------------------------------------->             
+            
+            <label for="menu-block-checkbox" id="menu-block-btn" class="lines-button x transformicon">  <span class="lines"></span>  </label>
+            
+            <input type="checkbox"  id="menu-block-checkbox" hidden />
+
+            
+            
+            
+            <div id="menu-block"> 
+                
+                <label class="with-checkbox"> 
+                    <input type="checkbox" id="hide-annotation"/>
+                    <span>Hide annotations</span>
+                </label>
+
+                <label class="with-checkbox"> 
+                    <input type="checkbox" id="show-resx"/>
+                    <span>Show resurces on hover</span>
+                </label>
+
+                <label class="with-checkbox"> 
+                    <input type="checkbox" id="disable-details"/>
+                    <span>Read-only fields</span>
+                </label>
+
+                <label class="with-checkbox"> 
+                    <input type="checkbox" id="show-validations"/>
+                    <span>Show field validations</span>
+                </label>
+
+
+
+
+                <!--BACKGROUNDS-->
+                <div class="inline clearfix mTop30px">
+                        <div class="inline-radio-title mBot10px" >Background examples:</div>
+                        <label class="with-checkbox"> 
+                            <input name="select-background" type="radio" value="bk1" checked />
+                            <span>Backgroud 1</span>
+                            <span class="bk"></span>
+                        </label>
+
+                        <label class="with-checkbox"> 
+                            <input name="select-background" type="radio" value="bk2"/>
+                            <span>Backgroud 2</span>
+                            <span class="bk"></span>
+                        </label>
+
+                        <label class="with-checkbox"> 
+                            <input name="select-background" type="radio" value="bk3"/>
+                            <span>Backgroud 3: Starhub</span>
+                            <span class="bk"></span>
+                        </label>
+
+                        <label class="with-checkbox"> 
+                            <input name="select-background" type="radio" value="bk4"/>
+                            <span>Backgroud 4: O<sub>2</sub></span>
+                            <span class="bk"></span>
+                        </label>
+                </div>
+
+
+                <!--SKINS-->
+                <div class="inline clearfix mTop30px" style="width:50%; float:left">
+                        <div class="inline-radio-title mBot10px" >Skin examples:</div>
+                        <label class="with-checkbox"> 
+                            <input name="select-skin" type="radio" value="skin1" checked />
+                            <span>Skin 1</span>
+                            <span class="bk"></span>
+                        </label>
+
+                        <label class="with-checkbox"> 
+                            <input name="select-skin" type="radio" value="skin2" />
+                            <span>Skin 2</span>
+                            <span class="bk"></span>
+                        </label>
+
+                </div>
+
+
+                <!--PAGES-->
+                <div class="clearfix mTop50px" style="width:50%; float:left">
+                        <label class="with-checkbox mTop10px"> 
+                            <input name="select-page" type="radio" value="unreg" checked />
+                            <span>Unregistered Page</span>
+                        </label>
+
+                        <label class="with-checkbox"> 
+                            <input name="select-page" type="radio" value="registered"/>
+                            <span>Registered Page</span>
+                        </label>
+                </div>
+
+                
+
+                
+
+                    
+
+
+            </div>
+
+            
+            <div class="anno menu-block-highlight"> <div> Hover for options</div> </div>
+            
+</body>
+
+    
+
+   
+
+
+</html>

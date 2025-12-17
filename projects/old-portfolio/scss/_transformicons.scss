@@ -1,0 +1,199 @@
+
+
+    button {
+        display: inline-block;
+        margin: 0;
+        border: none;
+        background: none;
+		font-size: 10px;
+		position:absolute;
+		z-index:5;
+
+		&:focus{
+			outline:none;
+		}
+    }
+
+    button span {
+        display: block;
+    }
+
+    .grid-button {
+        padding: 2em;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .grid-button .grid {
+        width: 1em;
+        height: 1em;
+        background: #aaa;
+        color: #aaa;
+        /* Not in use when the colors are specified below */
+        transition: 0.3s;
+    }
+
+    .grid-button.close .grid {
+        -webkit-transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
+        transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
+    }
+
+    .grid-button.rearrange .grid {
+        box-shadow: -1.25em -1.25em, 0 -1.25em, 1.25em -1.25em, -1.25em 0, 1.25em 0, -1.25em 1.25em, 0 1.25em, 1.25em 1.25em;
+    }
+
+    .grid-button.rearrange.close .grid {
+        box-shadow: 0 -1em, 0 -2em, 1em 0, -2em 0, 2em 0, -1em 0, 0 2em, 0 1em;
+    }
+
+    .grid-button.collapse .grid {
+        box-shadow: -1.25em 0, -1.25em 1.25em, 1.25em 0, 1.25em -1.25em, 0 -1.25em, -1.25em -1.25em, 0 1.25em, 1.25em 1.25em;
+    }
+
+    .grid-button.collapse.close .grid {
+        box-shadow: -1em 0, 0 0 transparent, 1em 0, 0 0 transparent, 0 -1em, 0 0 transparent, 0 1em, 0 0 transparent;
+    }
+
+    /* ====================== lines button ==================================================*/
+    .lines-button {
+        padding: 2em 1em;
+        transition: .3s;
+        cursor: pointer;
+        user-select: none;
+        border-radius: 0.57143em;
+        /* */
+    }
+
+    .lines-button:hover {
+        opacity: 1;
+    }
+
+    .lines-button:active {
+        transition: 0;
+    }
+
+    .lines {
+        display: inline-block;
+        width: 4em;
+        height: 0.57143em;
+        background: #aaa;
+        border-radius: 0.28571em;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .lines:before, .lines:after {
+        display: inline-block;
+        width: 4em;
+        height: 0.57143em;
+        background: #aaa;
+        border-radius: 0.28571em;
+        transition: 0.3s;
+        position: absolute;
+        left: 0;
+        content: '';
+        -webkit-transform-origin: 0.28571em center;
+        transform-origin: 0.28571em center;
+    }
+
+    .lines:before {
+        top: 1em;
+    }
+
+    .lines:after {
+        top: -1em;
+    }
+
+    .lines-button:hover .lines:before {
+        top: 1.14286em;
+    }
+
+    .lines-button:hover .lines:after {
+        top: -1.14286em;
+    }
+
+    .lines-button.close {
+        -webkit-transform: scale3d(0.8, 0.8, 0.8);
+        transform: scale3d(0.8, 0.8, 0.8);
+    }
+
+    .lines-button.arrow.close .lines:before, .lines-button.arrow.close .lines:after {
+        top: 0;
+        width: 2.22222em;
+    }
+
+    .lines-button.arrow.close .lines:before {
+        -webkit-transform: rotate3d(0, 0, 1, 40deg);
+        transform: rotate3d(0, 0, 1, 40deg);
+    }
+
+    .lines-button.arrow.close .lines:after {
+        -webkit-transform: rotate3d(0, 0, 1, -40deg);
+        transform: rotate3d(0, 0, 1, -40deg);
+    }
+
+    .lines-button.arrow-up.close {
+        -webkit-transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
+        transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
+    }
+
+    .lines-button.minus.close .lines:before, .lines-button.minus.close .lines:after {
+        -webkit-transform: none;
+        transform: none;
+        top: 0;
+        width: 4em;
+    }
+
+    .lines-button.x.close .lines {
+        background: transparent;
+    }
+
+    .lines-button.x.close .lines:before, .lines-button.x.close .lines:after {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        top: 0;
+        width: 4em;
+    }
+
+    .lines-button.x.close .lines:before {
+        -webkit-transform: rotate3d(0, 0, 1, 45deg);
+        transform: rotate3d(0, 0, 1, 45deg);
+    }
+
+    .lines-button.x.close .lines:after {
+        -webkit-transform: rotate3d(0, 0, 1, -45deg);
+        transform: rotate3d(0, 0, 1, -45deg);
+    }
+
+    .lines-button.x2 .lines {
+        transition: background 0.3s 0.5s ease;
+    }
+
+    .lines-button.x2 .lines:before, .lines-button.x2 .lines:after {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        transition: top 0.3s 0.6s ease, -webkit-transform 0.3s ease;
+        transition: top 0.3s 0.6s ease, transform 0.3s ease;
+    }
+
+    .lines-button.x2.close .lines {
+        transition: background 0.3s 0s ease;
+        background: transparent;
+    }
+
+    .lines-button.x2.close .lines:before, .lines-button.x2.close .lines:after {
+        transition: top 0.3s ease, -webkit-transform 0.3s 0.5s ease;
+        transition: top 0.3s ease, transform 0.3s 0.5s ease;
+        top: 0;
+        width: 4em;
+    }
+
+    .lines-button.x2.close .lines:before {
+        -webkit-transform: rotate3d(0, 0, 1, 45deg);
+        transform: rotate3d(0, 0, 1, 45deg);
+    }
+
+    .lines-button.x2.close .lines:after {
+        -webkit-transform: rotate3d(0, 0, 1, -45deg);
+        transform: rotate3d(0, 0, 1, -45deg);
+    }

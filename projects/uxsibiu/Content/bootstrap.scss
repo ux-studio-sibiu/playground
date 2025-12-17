@@ -1,0 +1,173 @@
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+//@import "bootstrap/variables";		
+@import "bootstrap-custom/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+//@import "bootstrap/print";
+@import "bootstrap-custom/glyphicons";
+
+// Core CSS
+@import "bootstrap-custom/scaffolding";
+@import "bootstrap-custom/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+//@import "bootstrap/tables";
+//@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+//@import "bootstrap/navbar";
+//@import "bootstrap/breadcrumbs";
+//@import "bootstrap/pagination";
+//@import "bootstrap/pager";
+@import "bootstrap/labels";
+//@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap-custom/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+//@import "bootstrap/wells";
+//@import "bootstrap/close";
+
+// Components w/ JavaScript
+@import "bootstrap/modals";
+//@import "bootstrap/tooltip";
+//@import "bootstrap/popovers";
+//@import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+
+
+//3rd party
+@import "jasny-bootstrap/css/jasny-bootstrap";
+
+.vertical-center {
+    height:100vh;
+	display: flex;
+	align-items: center;
+}
+
+em{
+color: #9838D5;
+}
+
+.underline{
+	margin-bottom:0.5em;
+	padding-bottom:0.25em;
+	border-bottom: 0.25em solid;
+}
+
+.boxed{
+	background: rgba(10,10,10,0.8);
+	//border: 2px solid #48c0a4;
+}
+
+hr{
+	border-top: 1px dashed #eeeeee;
+}
+
+.bk-main{
+	background-image:url("bootstrap-custom/images/bk3.jpg");
+}
+
+.bk-1{
+	background-image:url("bootstrap-custom/images/bk.jpg");
+	//background-repeat: no-repeat;
+	//background-origin:left top;
+	//background-position: 0 0;
+}
+
+.bk-2{
+	
+}
+
+img.shadow{
+	@include box-shadow( 4px 4px 2px 0px rgb(0, 0, 0) ); 	
+}
+
+.shadow-left{
+	
+}
+
+.i-need-gloss:after {
+    content: " ";
+    display: block;
+    background-image: url("bootstrap-custom/images/i-need-gloss.png");
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+
+@media  (screen and max-width: $screen-sm){
+
+.v-offset{ margin-top: 3em;}
+}
+
+
+.modal-open {
+	overflow:auto;
+}
+
+.effect-3d-float {
+    text-shadow: 0 0.032em 0 #b0b0b0, 0px 0.15em 0.11em rgba(0,0,0,0.15), 0px 0.25em 0.021em rgba(0,0,0,0.1), 0px 0.32em 0.32em rgba(0,0,0,0.1);
+	box-shadow: 0 0.032em 0 #b0b0b0, 0px 0.15em 0.11em rgba(0,0,0,0.15), 0px 0.25em 0.021em rgba(0,0,0,0.1), 0px 0.32em 0.32em rgba(0,0,0,0.1);
+    //color: #fff;
+}
+.effect-anaglyph {
+    text-shadow: -0.06em 0 red, 0.06em 0 cyan;
+	box-shadow: -0.06em 0 red, 0.06em 0 cyan;
+}
+
+$logo-color: #9838D5;
+ #ux-logo{
+            font-size:50px;
+            text-align:center;
+			color:$logo-color;
+            width:2.3em;
+            height:2.3em;
+            line-height:2.3em;
+            border: 0.06em solid $logo-color;
+            border-radius: 50% 50%;
+            
+            font-weight:100;
+            cursor:pointer;
+
+			background-color: rgba(0, 0, 0, 0.6);
+			box-shadow: 4px 4px 2px 0px black;
+
+			@include transition(all 0.2s);
+
+			&:hover{
+				background-color: lighten($logo-color, 10);
+				color: #111;
+				width:1.95em;
+				height:1.95em;
+				line-height:1.95em;
+			}
+
+        }
