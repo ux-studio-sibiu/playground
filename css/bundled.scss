@@ -73,6 +73,7 @@ section > div{
 	background-position: top center;
 	will-change: transform;
 	-webkit-transform : translate3d(0,0,0);
+	height:1px;
 
 	div.info-box {
 		position:absolute; 
@@ -84,7 +85,7 @@ section > div{
 		max-width: 400px;
 		color:#ddd; 
 		padding:20px; 
-		bottom:70px;
+		bottom:70px; 
 		left:-500px;
 		opacity:0;
 		}
@@ -231,8 +232,8 @@ section#Resume > div{
 
 .inset-text-shadow,
 .inset-text-shadow:after,
-.inset-text-shadow:before,{
-	color: rgba(220, 220, 220, 0.9);
+.inset-text-shadow:before{
+    color: rgba(220, 220, 220, 0.9);
     text-shadow: 1px 4px 6px #FFF, 0 0 0 #383838, 1px 4px 6px #FFF;
 
 }

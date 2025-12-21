@@ -152,7 +152,6 @@ jQuery(document).ready(function ($) {
 
             actual = actual - 1;
             $(".navbar-nav li.link").removeClass("active").eq(actual-1).addClass("active");
-            
 
         }
 

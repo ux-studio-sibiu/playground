@@ -334,6 +334,7 @@ function prevSection(event) {
             
 
     }
+    const currentSection = visibleSection.prev('.cd-section')
 
     resetScroll();
 }
@@ -358,6 +359,7 @@ function nextSection(event) {
 
         actual = actual + 1;
         $(".navbar-nav li.link").removeClass("active").eq(actual - 1).addClass("active");
+        
     }
     resetScroll();
 }
@@ -369,7 +371,7 @@ function goToSection(event, sectionNumber) {
     var visibleSection = sectionsAvailable.eq(actual - 1),
         middleScroll = false;
 
-        
+    var currentSection;
     //next
     if (actual < sectionNumber)
     {
@@ -388,20 +390,15 @@ function goToSection(event, sectionNumber) {
             sectionsAvailable.each(function () {
                 currentElem = $(this);
                 if (sectionsAvailable.index(currentElem) + 1 < sectionNumber) {
-                    //middleScroll = (hijacking == 'off' && $(window).scrollTop() != visibleSection.offset().top) ? true : false;
-                    //var animationParams = selectAnimation(animationType, middleScroll, 'prev');
                     currentElem.children('div').velocity("scaleDown", 0 );
                 }
                 if (sectionsAvailable.index(currentElem) + 1 > sectionNumber) {
-                    //middleScroll = (hijacking == 'off' && $(window).scrollTop() != visibleSection.offset().top) ? true : false;
-                    //var animationParams = selectAnimation(animationType, middleScroll, 'next');
                     currentElem.children('div').velocity("translateDown" , 0);
                 }
             })
                     
-
-            //alert("actual: " + actual);
-            actual = sectionNumber; //alert("actual: " + actual);
+            currentSection = sectionsAvailable.eq(sectionNumber-1)
+            actual = sectionNumber; 
             $(".navbar-nav li.link").removeClass("active").eq(actual - 1).addClass("active");
         }
 
@@ -425,25 +422,22 @@ function goToSection(event, sectionNumber) {
             sectionsAvailable.each(function () {
                 currentElem = $(this);
                 if (sectionsAvailable.index(currentElem) + 1 < sectionNumber) {
-                    //middleScroll = (hijacking == 'off' && $(window).scrollTop() != visibleSection.offset().top) ? true : false;
-                    //var animationParams = selectAnimation(animationType, middleScroll, 'prev');
                     currentElem.children('div').velocity("scaleDown", 0);
                 }
                 if (sectionsAvailable.index(currentElem) + 1 > sectionNumber) {
-                    //middleScroll = (hijacking == 'off' && $(window).scrollTop() != visibleSection.offset().top) ? true : false;
-                    //var animationParams = selectAnimation(animationType, middleScroll, 'next');
                     currentElem.children('div').velocity("translateDown", 0);
                 }
             })
 
 
 
-
+            currentSection = sectionsAvailable.eq(sectionNumber - 1)
             actual = sectionNumber;
             $(".navbar-nav li.link").removeClass("active").eq(actual - 1).addClass("active");
         }
     }
 
+    // currentSection.find("iframe").focus();
     resetScroll();
 }
 
@@ -453,14 +447,21 @@ function goToSection(event, sectionNumber) {
 $('.navbar-nav li.link').bind('click', function (event) {
     event.preventDefault();
     goToSectionNumber = $('.navbar-nav li.link').index($(this)) + 1;
-    goToSection(event, goToSectionNumber);
-
-        
-
+    goToSection(event, goToSectionNumber);    
 });
 
-    
 
+$("[data-loop-img]").each(function(){
+    var currentElem = $(this);
+    var imageCount = currentElem.attr("data-loop-img");
+    var loopDuration = currentElem.attr("data-loop-duration");
+   setInterval(function(){
+    
+    var currentImage = currentElem.attr("data-img");
+        var nextImage = (parseInt(currentImage) + 1 > imageCount) ? 1 : parseInt(currentImage) + 1;
+        currentElem.attr("data-img", nextImage);
+   }, loopDuration); 
+});
 
 function unbindScroll(section, time) {
     //if clicking on navigation - unbind scroll and animate using custom velocity animation
@@ -704,10 +705,6 @@ function setSectionAnimation(sectionOffset, windowHeight, animationName) {
 
     return [translateY, scale, rotateX, opacity, boxShadowBlur];
 }
-
-
-
-
 
 
 

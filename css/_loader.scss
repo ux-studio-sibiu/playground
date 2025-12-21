@@ -42,36 +42,6 @@ $base-color: #555;
 $double-up-color-one: #aaa;
 
 
-#loader {
-  display:block;
-  position: relative;
-  width:100vw;
-  height: 100vh;
-  //display:none;
-
-		&:after {
-		  z-index: 2;
-		  content: "";
-		  height: $height;
-		  width: $width;
-		  position: absolute;
-		  top: 50%;
-		  left: 50%;
-		  margin: (-$width / 2) 0 0 (-$width / 2);
-		  border-radius: 100%;
-
-		  border-right: $border-width solid $double-up-color-one;
-		  border-top: $border-width double $double-up-color-one;
-		  border-left: $border-width double $double-up-color-one;
-		  border-bottom: $border-width double $double-up-color-one;
-
-		  @include animation( standard 0.3s infinite linear );
-		  
-		}
-
-
-}
-
 #not-mobile{
 
   display:block;
