@@ -1,19 +1,19 @@
 ﻿
 
 
-@import "bootstrap";
-@import "utils";
-@import "loader";
+@use "bootstrap.css";
+@use "utils";
+@use "loader";
 
-@import "img-sprites";
-@import "scrolleffects";
+@use "img-sprites";
+@use "scrolleffects";
 
 
 
 
 
 em{
-color: #9838D5 ;
+color: #9838D5;
 }
 
 .underline{
@@ -35,7 +35,7 @@ hr{
 
 
 img.shadow{
-	@include box-shadow( 4px 4px 2px 0px rgb(0, 0, 0) ); 	
+	box-shadow : 4px 4px 2px 0px rgb(0, 0, 0) ; 	
 }
 
 
@@ -253,7 +253,7 @@ span.logo{
 *::selection { background: #5af; color: #fff; text-shadow: none; }
 
 
-.navbar-inverse .navbar-nav > li > a:focus {color:$navbar-inverse-link-color;}
+// .navbar-inverse .navbar-nav > li > a:focus {color:$navbar-inverse-link-color;}
 
 
 //UTILS

@@ -192,7 +192,6 @@ var sectionsAvailable = $('.cd-section'),
     prevArrow = verticalNav.find('a.cd-prev'),
     nextArrow = verticalNav.find('a.cd-next');
 
-
 //check the media query and bind corresponding events
 var MQ = deviceType(),
     bindToggle = false;
@@ -218,6 +217,9 @@ function bindEvents(MQ, bool) {
         }
         prevArrow.on('click', prevSection);
         nextArrow.on('click', nextSection);
+
+
+
 
         $(document).on('keydown', function (event) {
             if (event.which == '40' && !nextArrow.hasClass('inactive')) {
@@ -307,6 +309,16 @@ function scrollHijacking(event) {
     }
     return false;
 }
+
+// Listen to messages from iframes
+window.addEventListener("message", e => {
+  if (e.data.type === "scroll") {
+    if (e.data.deltaY < 0) prevSection()
+    else nextSection()
+  }
+});
+
+
 
 function prevSection(event) {
     //go to previous section
@@ -455,8 +467,14 @@ $("[data-loop-img]").each(function(){
     var currentElem = $(this);
     var imageCount = currentElem.attr("data-loop-img");
     var loopDuration = currentElem.attr("data-loop-duration");
+
+    currentElem.on("mouseenter", function(){currentElem.addClass("hovered");})
+    currentElem.on("mouseleave", function(){currentElem.removeClass("hovered");})
+
    setInterval(function(){
-    
+    // only animate on-hover;
+    if(!currentElem.hasClass("hovered")) return;
+
     var currentImage = currentElem.attr("data-img");
         var nextImage = (parseInt(currentImage) + 1 > imageCount) ? 1 : parseInt(currentImage) + 1;
         currentElem.attr("data-img", nextImage);

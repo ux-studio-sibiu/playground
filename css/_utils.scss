@@ -4,6 +4,10 @@
 
 body{
 
+.pointer-events-none{
+    pointer-events: none;
+}
+
 .emptyLine {
     clear: both !important;
     width: 100%!important;

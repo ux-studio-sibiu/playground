@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "sass": "sass css/bundled.scss css/bundled.css --watch",
+    "bootstrap-min": "sass css/_bootstrap.scss css/bootstrap.css --watch"
+  }
+}
