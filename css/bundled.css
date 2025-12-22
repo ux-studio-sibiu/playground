@@ -2939,13 +2939,6 @@ section#Project-case-deschise > div {
   background-position: center center;
 }
 
-section#Project-case-deschise-2 > div {
-  background-color: #dddddd !important;
-  background-image: url(../img/preload/case-deschise-2.jpg);
-  background-size: cover;
-  background-position: center center;
-}
-
 section#Project-Checkout > div {
   background-color: #dddddd !important;
   background-image: url("../img/preload/checkout.jpg");
@@ -3031,13 +3024,6 @@ section#Demo-Radio > div {
   background-image: url("../img/preload/radio.jpg");
   background-size: cover;
   background-position: center center;
-}
-
-section#Demo-PPT4U > div {
-  background-color: #fff !important;
-  background-image: url("../img/preload/ppt4u.jpg");
-  background-size: cover;
-  background-position: top center;
 }
 
 section#clasa-zero-iframe > div iframe {

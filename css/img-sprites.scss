@@ -50,7 +50,6 @@ $Project-Checkout : "../img/preload/checkout.jpg";
 //$Project-3Roi : "../img/preload/3Roi.jpg";
 //$Project-Vodafone : "../img/preload/Vodafone.jpg";
 //$Project-Archdaily : "../img/preload/archdaily.jpg";
-// $Demo-PPT4U: "../img/preload/ppt4u.jpg";
 $Demo-Optimize : "../img/preload/optimize.jpg";
 $Demo-Radio : "../img/preload/radio.jpg";
 $Demo-Architecture : "../img/preload/architecture.jpg";
@@ -223,15 +222,6 @@ section#Project-case-deschise > div{
 	
 }
 
-section#Project-case-deschise-2 > div{
-	background-color: #dddddd  !important;
-	background-image: url(../img/preload/case-deschise-2.jpg);
-	background-size:cover;
-	background-position:center center;
-	
-}
-
-
 section#Project-Checkout > div{
 	background-color: #dddddd  !important;
 	background-image: url($Project-Checkout);
@@ -333,13 +323,6 @@ section#Demo-Radio > div{
 	background-image: url($Demo-Radio);	
 	background-size:cover;
 	background-position:center center;	
-}
-
-section#Demo-PPT4U > div{
-	background-color: #fff !important;	
-    	background-image: url('../img/preload/ppt4u.jpg');
-	background-size:cover;
-	background-position:top center;
 }
 
 section#clasa-zero-iframe > div{
