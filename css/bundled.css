@@ -2638,6 +2638,14 @@ section.visible .hvr-buzz-nohover {
   animation-iteration-count: infinite;
 }
 
+@keyframes tick {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* Pulse Grow */
 @-webkit-keyframes hvr-pulse-grow {
   to {
