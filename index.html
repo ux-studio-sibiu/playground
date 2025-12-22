@@ -114,9 +114,13 @@
 
             <div class="screens">
                 <div class="screen s1"> <div class="browser-bar"> </div> <div class="advisor-image sidenav-menus"  data-loop-img="13" data-loop-duration="400" data-img='1'> </div> </div>
-                <div class="screen s2"> <div class="browser-bar"> </div> <div class="advisor-image ncw"  data-loop-img="6" data-loop-duration="330" data-img='5'> </div> </div>
+                <div class="screen s2"> <div class="browser-bar"> </div> <div class="advisor-image ncw"  data-loop-img="6" data-loop-duration="330" data-img='1'> </div> </div>
                 <div class="screen s3"> <div class="browser-bar"> </div> <div class="advisor-image sidenav-menus"  data-loop-img="13" data-loop-duration="130" data-img='10'> </div></div>
-                <div class="screenx s4"> </div>
+                
+                <div class="laptop-screen" data-loop-img="9" data-loop-duration="130" data-img='1'> 
+                    <div class="old-advisor-image" > </div> 
+                    <div class="laptop-mask"> </div>
+                </div>
             </div>
 
 
@@ -523,47 +527,14 @@
                 }
             };
 
+            // first batch to preload
             preloadPictures([
-
                 'img/preload/chrome.png',
                 'img/preload/photoshop.png',
                 'img/preload/vs.jpg',
                 'img/preload/javascript.png',
 
-                'img/preload/pdf.png',
-                'img/preload/bussiness-card.jpg',
-                'img/preload/cd-icon-arrow.png',
-
-                'img/preload/intro.jpg',
-                'img/preload/skills.jpg',
-
-                'img/preload/advisor/01-overview.jpg',
-                'img/preload/advisor/02-case-management.jpg',
-                'img/preload/advisor/03-customers.jpg',
-                'img/preload/advisor/04-checklists.jpg',
-                'img/preload/advisor/05-kyc.jpg',
-
-                'img/preload/advisor/06-contacts.jpg',
-                'img/preload/advisor/07-time-registration.jpg',
-                'img/preload/advisor/08-outlays.jpg',
-                'img/preload/advisor/09-invoicing.jpg',
-                'img/preload/advisor/10-resource-planning.jpg',
-
-                'img/preload/advisor/11-reports.jpg',
-                'img/preload/advisor/12-settings.jpg',
-                'img/preload/advisor/13-settings-2.jpg',
-
-                'img/preload/advisor/ncw-00.jpg',
-                'img/preload/advisor/ncw-01.jpg',
-                'img/preload/advisor/ncw-02.jpg',
-                'img/preload/advisor/ncw-03.jpg',
-                'img/preload/advisor/ncw-04.jpg',
-                'img/preload/advisor/ncw-05.jpg',
-
-
-                //'img/preload/3Roi.jpg',
                 'img/preload/4in1.jpg',
-                //'img/preload/archdaily.jpg',
                 'img/preload/architecture.jpg',
                 'img/preload/Configurator.jpg',
                 'img/preload/contact.jpg',
@@ -574,10 +545,57 @@
                 'img/preload/radio.jpg',
                 'img/preload/checkout.jpg',
                 //'img/preload/Vodafone.jpg',
+                //'img/preload/archdaily.jpg',
+                //'img/preload/3Roi.jpg',
 
             ], function () {
 
                 //after all images load
+                // preload second batch
+                preloadPictures([
+                    'img/preload/pdf.png', // second
+                    'img/preload/bussiness-card.jpg', // second
+                    'img/preload/cd-icon-arrow.png',
+
+                    'img/preload/intro.jpg',
+                    'img/preload/skills.jpg',
+
+                    'img/preload/advisor/01-overview.jpg',
+                    'img/preload/advisor/02-case-management.jpg',
+                    'img/preload/advisor/03-customers.jpg',
+                    'img/preload/advisor/04-checklists.jpg',
+                    'img/preload/advisor/05-kyc.jpg',
+
+                    'img/preload/advisor/06-contacts.jpg',
+                    'img/preload/advisor/07-time-registration.jpg',
+                    'img/preload/advisor/08-outlays.jpg',
+                    'img/preload/advisor/09-invoicing.jpg',
+                    'img/preload/advisor/10-resource-planning.jpg',
+
+                    'img/preload/advisor/11-reports.jpg',
+                    'img/preload/advisor/12-settings.jpg',
+                    'img/preload/advisor/13-settings-2.jpg',
+
+                    'img/preload/advisor/ncw-00.jpg',
+                    'img/preload/advisor/ncw-01.jpg',
+                    'img/preload/advisor/ncw-02.jpg',
+                    'img/preload/advisor/ncw-03.jpg',
+                    'img/preload/advisor/ncw-04.jpg',
+                    'img/preload/advisor/ncw-05.jpg',
+
+                    'img/preload/advisor/oldies/laptop-mask.png',
+                    'img/preload/advisor/oldies/01-old.jpg',
+                    'img/preload/advisor/oldies/02-old.jpg',
+                    'img/preload/advisor/oldies/03-old.jpg',
+                    'img/preload/advisor/oldies/04-old.jpg',
+                    'img/preload/advisor/oldies/05-old.jpg',
+                    'img/preload/advisor/oldies/06-old.jpg',
+                    'img/preload/advisor/oldies/07-old.jpg',
+                    'img/preload/advisor/oldies/08-old-new.jpg',
+                    'img/preload/advisor/oldies/09-old-new.jpg',
+
+                ])
+
                 $("body").removeClass("loading");
                 $("#progress-loader").remove();
                 console.log('loaded all images');

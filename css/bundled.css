@@ -2795,6 +2795,7 @@ section#Advisor > div div.screens .screen {
   height: calc(50% - 60px);
   margin: 30px;
   float: left;
+  cursor: pointer;
   box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.2509803922);
 }
 section#Advisor > div div.screens .screen .browser-bar {
@@ -2867,6 +2868,60 @@ section#Advisor > div div.screens .screen .advisor-image.ncw[data-img="5"] {
 }
 section#Advisor > div div.screens .screen .advisor-image.ncw[data-img="6"] {
   background-image: url("../img/preload/advisor/ncw-05.jpg");
+}
+section#Advisor > div div.screens .laptop-screen {
+  width: calc(50% - 100px);
+  height: calc(50% - 60px);
+  margin: 30px;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+section#Advisor > div div.screens .laptop-screen .laptop-mask {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url("../img/preload/advisor/oldies/laptop-mask.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+section#Advisor > div div.screens .laptop-screen .old-advisor-image {
+  position: absolute;
+  background-size: contain;
+  width: 391px;
+  height: 178px;
+  left: 111px;
+  top: 24px;
+}
+section#Advisor > div div.screens .laptop-screen[data-img="1"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/01-old.jpg");
+}
+section#Advisor > div div.screens .laptop-screen[data-img="2"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/02-old.jpg");
+}
+section#Advisor > div div.screens .laptop-screen[data-img="3"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/03-old.jpg");
+}
+section#Advisor > div div.screens .laptop-screen[data-img="4"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/04-old.jpg");
+}
+section#Advisor > div div.screens .laptop-screen[data-img="5"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/05-old.jpg");
+}
+section#Advisor > div div.screens .laptop-screen[data-img="6"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/06-old.jpg");
+}
+section#Advisor > div div.screens .laptop-screen[data-img="7"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/07-old.jpg");
+}
+section#Advisor > div div.screens .laptop-screen[data-img="8"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/08-old-new.jpg");
+}
+section#Advisor > div div.screens .laptop-screen[data-img="9"] .old-advisor-image {
+  background-image: url("../img/preload/advisor/oldies/09-old-new.jpg");
 }
 section#Advisor > div div.gif {
   height: calc(100% + 4px);

@@ -471,11 +471,19 @@ $("[data-loop-img]").each(function(){
     currentElem.on("mouseenter", function(){currentElem.addClass("hovered");})
     currentElem.on("mouseleave", function(){currentElem.removeClass("hovered");})
 
-   setInterval(function(){
-    // only animate on-hover;
-    if(!currentElem.hasClass("hovered")) return;
+    currentElem.on("click", function(){
+         var currentImage = currentElem.attr("data-img");
+        var nextImage = (parseInt(currentImage) + 1 > imageCount) ? 1 : parseInt(currentImage) + 1;
+        currentElem.attr("data-img", nextImage);
 
-    var currentImage = currentElem.attr("data-img");
+    });
+
+   setInterval(function(){
+    return;
+        // only animate on-hover;
+        if(!currentElem.hasClass("hovered")) return;
+
+        var currentImage = currentElem.attr("data-img");
         var nextImage = (parseInt(currentImage) + 1 > imageCount) ? 1 : parseInt(currentImage) + 1;
         currentElem.attr("data-img", nextImage);
    }, loopDuration); 
