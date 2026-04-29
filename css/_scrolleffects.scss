@@ -277,6 +277,14 @@ h2.section-heading {
   transform: translateY(-50%);
   display: none;
   list-style-type: none;
+
+  li{ 
+    background: #000;
+    &:hover{background: #2f2f2f;}
+    &:active{background: #000000;}
+
+    &:has(.inactive){  background: transparent; }
+}
 }
 .cd-vertical-nav a {
   display: block;

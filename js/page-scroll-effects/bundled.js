@@ -349,6 +349,8 @@ function prevSection(event) {
     const currentSection = visibleSection.prev('.cd-section')
 
     resetScroll();
+    callbackAfterSectionChange()
+
 }
     
 function nextSection(event) {
@@ -374,6 +376,7 @@ function nextSection(event) {
         
     }
     resetScroll();
+    callbackAfterSectionChange();
 }
 //goToSection Function - only for data-ijacking = OFF
 function goToSection(event, sectionNumber) {
@@ -451,6 +454,15 @@ function goToSection(event, sectionNumber) {
 
     // currentSection.find("iframe").focus();
     resetScroll();
+    callbackAfterSectionChange()
+}
+
+function callbackAfterSectionChange(){
+    $("html").removeClass("use-custom-cursor");
+
+    if($("section.visible").hasClass("custom-cursor")){
+        $("html").addClass("use-custom-cursor");
+    }
 }
 
 //return [animationVisible, animationTop, animationBottom, animDuration, easing];
@@ -462,6 +474,8 @@ $('.navbar-nav li.link').bind('click', function (event) {
     goToSection(event, goToSectionNumber);    
 });
 
+$('.scrollable-container').on('mousewheel DOMMouseScroll', function (e) { e.stopPropagation();})
+
 
 $("[data-loop-img]").each(function(){
     var currentElem = $(this);
@@ -471,22 +485,31 @@ $("[data-loop-img]").each(function(){
     currentElem.on("mouseenter", function(){currentElem.addClass("hovered");})
     currentElem.on("mouseleave", function(){currentElem.removeClass("hovered");})
 
+    // left click
     currentElem.on("click", function(){
          var currentImage = currentElem.attr("data-img");
         var nextImage = (parseInt(currentImage) + 1 > imageCount) ? 1 : parseInt(currentImage) + 1;
         currentElem.attr("data-img", nextImage);
 
     });
-
-   setInterval(function(){
-    return;
-        // only animate on-hover;
-        if(!currentElem.hasClass("hovered")) return;
-
+    // right click
+    currentElem.on("contextmenu", function(e){
+        e.preventDefault();
         var currentImage = currentElem.attr("data-img");
-        var nextImage = (parseInt(currentImage) + 1 > imageCount) ? 1 : parseInt(currentImage) + 1;
-        currentElem.attr("data-img", nextImage);
-   }, loopDuration); 
+        var prevImage = (parseInt(currentImage) - 1 > 0) ? parseInt(currentImage) - 1 : imageCount;
+        currentElem.attr("data-img", prevImage);
+
+    });
+
+//    setInterval(function(){
+//     return;
+//         // only animate on-hover;
+//         if(!currentElem.hasClass("hovered")) return;
+
+//         var currentImage = currentElem.attr("data-img");
+//         var nextImage = (parseInt(currentImage) + 1 > imageCount) ? 1 : parseInt(currentImage) + 1;
+//         currentElem.attr("data-img", nextImage);
+//    }, loopDuration); 
 });
 
 function unbindScroll(section, time) {
@@ -734,6 +757,31 @@ function setSectionAnimation(sectionOffset, windowHeight, animationName) {
 
 
 
+// const cursor = document.querySelector('.cursor');
+// let x = 0, y = 0;
 
-//}); //end of $(document).ready();
+// document.addEventListener('mousemove', (e) => {
+//   x = e.clientX - 32;
+//   y = e.clientY - 32;
+// });
+
+// function loop() {
+//   cursor.style.transform = `translate(${x}px, ${y}px)`;
+//   requestAnimationFrame(loop);
+// }
+
+// loop();
+
+// const html = document.documentElement;
+
+// document.querySelectorAll('.custom-cursor').forEach(el => {
+//   el.addEventListener('mouseenter', () =>
+//     html.classList.add('use-custom-cursor')
+//   );
+
+//   el.addEventListener('mouseleave', () =>
+//     html.classList.remove('use-custom-cursor')
+//   );
+// });
+
 

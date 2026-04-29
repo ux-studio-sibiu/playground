@@ -269,3 +269,14 @@ section.visible .hvr-buzz-pulse-grow{
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
 }
+
+.scrollable-container{
+  overflow-y: auto;
+    max-height: 100%;
+}
+
+
+.font-160{
+    font-size: 160px;
+    letter-spacing: -0.7rem;
+}
