@@ -21,6 +21,10 @@
   color: #24292f !important;
   background-color: #ffffff;
   padding: 32px;
+
+  &.markdown-body-black{
+    color: #d0d7de !important;
+  }
 }
 
 /* Headings */
@@ -94,6 +98,10 @@
   background-color: #e7e7e7;
   padding: 0.2em 0.4em;
   border-radius: 6px;
+}
+
+.markdown-body.markdown-body-black code {
+  background-color: #393939;
 }
 
 .markdown-body pre {

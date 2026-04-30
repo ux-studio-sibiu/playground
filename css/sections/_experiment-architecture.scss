@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+section#Demo-Architecture > div{
+	background-color: #fff !important;
+	background-image: url($Demo-Architecture);	
+	background-size:cover;
+	background-position:center center;	
+}

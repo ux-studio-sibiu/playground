@@ -1,0 +1,9 @@
+@use 'variables' as *;
+
+section#Project-Checkout > div{
+	background-color: #dddddd  !important;
+	background-image: url($Project-Checkout);
+	background-size:contain;
+	background-position:center center;
+	
+}

@@ -1,0 +1,6 @@
+@use 'variables' as *;
+
+section#Project-Ghost > div{
+	background-color: #2b334f;
+	background-image: url($Project-Ghost);	
+}

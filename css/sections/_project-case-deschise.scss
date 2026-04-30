@@ -1,0 +1,26 @@
+@use 'variables' as *;
+
+section#Project-case-deschise > div{
+	
+	div.image-container{
+		position:absolute;
+
+		height:100%;
+		width:calc(100% - 360px);
+		top:0;
+		left:360px;
+		background-image: url($Project-case-deschise);
+		background-size:cover;
+		background-position:center center;
+	}
+
+	div.qr-code{
+		height:200px;
+		width:200px;
+		margin-top:30px;
+		margin-left:50px;
+		background-image: url('../img/preload/qr.jpg');
+		background-size:cover;
+		background-position:center center;
+	}
+}

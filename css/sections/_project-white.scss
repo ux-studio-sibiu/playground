@@ -1,0 +1,15 @@
+section#Project-White > div{
+	background-color: #000  !important;
+	//background-image: url($Project-White);
+	background-size:contain;
+	background-position:center center;
+    overflow: hidden;
+
+    video{
+        	position: relative;
+	left: -5%;
+	width: 110%;
+	height: 95%;
+    }
+	
+}

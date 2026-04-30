@@ -485,12 +485,37 @@ $("[data-loop-img]").each(function(){
     currentElem.on("mouseenter", function(){currentElem.addClass("hovered");})
     currentElem.on("mouseleave", function(){currentElem.removeClass("hovered");})
 
+    
+
+    var container = currentElem.closest(".screen").append("<div class='nav-bullets'></div>")
+    for (var i = 1; i <= parseInt(imageCount); i++) {
+        container.find(".nav-bullets").append("<div class='bullet' data-img='" + i + "'></div>")
+    }
+
+    var marginLeft = (currentElem.width() - container.find(".nav-bullets").width()) / 2;
+    container.find(".nav-bullets").css("margin-left", marginLeft);
+
+    function updateActiveBullet() {
+        var active = currentElem.attr("data-img");
+        container.find(".nav-bullets .bullet").removeClass("active");
+        container.find(".nav-bullets .bullet[data-img='" + active + "']").addClass("active");
+    }
+    updateActiveBullet();
+
+    // bullet click
+    container.find(".nav-bullets .bullet").on("click", function(e){
+        e.stopPropagation();
+        var img = $(this).attr("data-img");
+        currentElem.attr("data-img", img);
+        updateActiveBullet();
+    });
+
     // left click
     currentElem.on("click", function(){
          var currentImage = currentElem.attr("data-img");
         var nextImage = (parseInt(currentImage) + 1 > imageCount) ? 1 : parseInt(currentImage) + 1;
         currentElem.attr("data-img", nextImage);
-
+        updateActiveBullet();
     });
     // right click
     currentElem.on("contextmenu", function(e){
@@ -498,7 +523,7 @@ $("[data-loop-img]").each(function(){
         var currentImage = currentElem.attr("data-img");
         var prevImage = (parseInt(currentImage) - 1 > 0) ? parseInt(currentImage) - 1 : imageCount;
         currentElem.attr("data-img", prevImage);
-
+        updateActiveBullet();
     });
 
 //    setInterval(function(){
@@ -757,31 +782,31 @@ function setSectionAnimation(sectionOffset, windowHeight, animationName) {
 
 
 
-// const cursor = document.querySelector('.cursor');
-// let x = 0, y = 0;
+const cursor = document.querySelector('.cursor');
+let x = 0, y = 0;
 
-// document.addEventListener('mousemove', (e) => {
-//   x = e.clientX - 32;
-//   y = e.clientY - 32;
-// });
+document.addEventListener('mousemove', (e) => {
+  x = e.clientX - 32;
+  y = e.clientY - 32;
+});
 
-// function loop() {
-//   cursor.style.transform = `translate(${x}px, ${y}px)`;
-//   requestAnimationFrame(loop);
-// }
+function loop() {
+  cursor.style.transform = `translate(${x}px, ${y}px)`;
+  requestAnimationFrame(loop);
+}
 
-// loop();
+loop();
 
-// const html = document.documentElement;
+const html = document.documentElement;
 
-// document.querySelectorAll('.custom-cursor').forEach(el => {
-//   el.addEventListener('mouseenter', () =>
-//     html.classList.add('use-custom-cursor')
-//   );
+document.querySelectorAll('.custom-cursor').forEach(el => {
+  el.addEventListener('mouseenter', () =>
+    html.classList.add('use-custom-cursor')
+  );
 
-//   el.addEventListener('mouseleave', () =>
-//     html.classList.remove('use-custom-cursor')
-//   );
-// });
+  el.addEventListener('mouseleave', () =>
+    html.classList.remove('use-custom-cursor')
+  );
+});
 
 

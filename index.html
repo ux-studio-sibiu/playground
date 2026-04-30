@@ -29,28 +29,22 @@
 
 <body data-hijacking="on" data-animation="scaleDown" class="the-bk loading">
 
-    
-    
-    <!-- INTRO Section -->
+
+        <!-- INTRO Section -->
     <section id="Intro" class="cd-section visible">
         <div class="vertical-align">
                 <div class="col-md-12" style="color:#fff; ">
                     
-                        <h1 class="section-heading center-text text-shadow-light font-poppins neon-text-flicker">Turcanu Razvan | Portfolio</h1>
-                        <p class="lead section-lead center-text text-shadow font-poppins neon-text">Keep scrolling down to find work samples: concepts, screenshots, demos.</p>
+                        <h1 class="section-heading center-text text-shadow-light font-poppins neon-text-flicker-disabled">Turcanu Razvan | Portfolio</h1>
+                        <p class="lead section-lead center-text text-shadow-disabled font-poppins neon-text-disabled">Keep scrolling down to find work samples: concepts, screenshots, demos.</p>
                         <!--<p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>-->
                     
                 </div>
 
         </div>
     </section>
-
-    <!-- SKILLS Section -->
-    <section id="Skills" class="cd-section">
-        <div></div>
-    </section>
-   
-    <!-- TOOLS Section -->
+    <!-- @@include('partials/skills.html') -->
+        <!-- TOOLS Section -->
     <section id="Tools" class="cd-section ">
         <div class="vertical-align">
             <div class="container" style="";>
@@ -121,7 +115,7 @@
                                 </div>
                             </div>
                     </div>
-                    <h1 class="lead section-lead center-text text-shadow" style="width:100%; color:#fff">some tools I use</h1>
+                    <!-- <h1 class="lead section-lead center-text text-shadow" style="width:100%; color:#fff">some tools I use</h1> -->
 
             </div>
 
@@ -132,7 +126,7 @@
 
     <!-- Projects Section -->
 
-    <section id="Projects" class="cd-section">
+        <section id="Projects" class="cd-section">
         <div class="vertical-align">  
                     <div class="col-md-12">
                         <h1 class="section-heading center-text font-160">Projects</h1>
@@ -141,157 +135,171 @@
         </div>
             
     </section>
-
-    <section id="Advisor" class="cd-section ">
+        <section id="Advisor" class="cd-section ">
         <div>
 
             <div class="screens">
-                <div class="screen s1"> <div class="browser-bar"> </div> <div class="advisor-image sidenav-menus"  data-loop-img="13" data-loop-duration="400" data-img='1'> </div> </div>
-                <div class="screen s2"> <div class="browser-bar"> </div> <div class="advisor-image ncw"  data-loop-img="6" data-loop-duration="330" data-img='1'> </div> </div>
-                <div class="screen s3"> <div class="browser-bar"> </div> <div class="advisor-image sidenav-menus"  data-loop-img="13" data-loop-duration="130" data-img='10'> </div></div>
+                <div class="screen s1"> <div class="screen-wrap"> <div class="browser-bar"> </div> <div class="advisor-image sidenav-menus"  data-loop-img="13" data-loop-duration="400" data-img='1'> </div> </div> </div>
+                <div class="screen s2"> <div class="screen-wrap"> <div class="browser-bar"> </div> <div class="advisor-image ncw"  data-loop-img="6" data-loop-duration="330" data-img='1'> </div> </div> </div>
+                <div class="screen s3"> <div class="screen-wrap"> <div class="browser-bar"> </div> <div class="advisor-image sidenav-menus"  data-loop-img="13" data-loop-duration="130" data-img='10'> </div></div></div>
                 
-                <div class="laptop-screen" data-loop-img="9" data-loop-duration="130" data-img='1'> 
-                    <div class="old-advisor-image" > </div> 
-                    <div class="laptop-mask"> </div>
+                <div class="laptop-screen s4" data-loop-img="9" data-loop-duration="130" data-img='1'> 
+                    <div class="screen-wrap">
+                        <div class="old-advisor-image" > </div> 
+                        <div class="laptop-mask"> </div>
+                    </div>
                 </div>
             </div>
 
             <div class="info-box info-box-fixed info-box-white markdown-body scrollable-container">
-                
-                <section>
-                    <p><strong><code>Accounting Office Management Studio</code></strong></p>
-                    <p>
-                        Web application for managing accounting offices and their clients.<br>
-                        My role involved long-standing contribution to the product development, with focus on advancing the UI system.
-                        <!-- <strong><code>Features</code> > </strong> client management, invoicing, reporting, task management,
-                        document management, user management, notifications, settings. -->
-                </section>
+                <div class="scroll-container"> 
+                    <section>
+                        <span class="mt-30 mb-20 font-24 float-left w-100" style="font-size: 2.4rem; width:100%"><strong><code>Accounting Office Management Studio</code></strong></span>
+                        <p>
+                            Web application for managing accounting offices and their clients.<br>
+                            My role involved long-standing contribution to the product development, with focus on advancing the UI system.
+                            Close collaboration with design-system teams to bridge design intent and technical implementation.
+                            
+                            <!-- <strong><code>Features</code> > </strong> client management, invoicing, reporting, task management,
+                            document management, user management, notifications, settings. -->
+                    </section>
+
+                    <section>
+                        <p>
+                            <strong><code>UI system</code> : </strong>
+                            <code>KendoUI</code> + <code>.NET MVC</code> + <code>custom SPA</code> + <code>VUD</code>
+                        </p>
+                        <ul>
+                            <li>
+                                <strong><code>KendoUI</code> : </strong>
+                            base components are styled using the VUD design system and extended with significant custom behavior. 
+                            </li>
+
+                            <li><strong><code>VUD</code> : </strong> Visma Unified Design, token based, frequent updates.</li>
+
+                            <li>
+                                <strong><code>custom SPA framework</code></strong> over <code>.NET MVC</code> and <code>KendoUI</code> also integrating <code>VUD</code> design system.
+                                Only possible after a full refactor of UI code
+                            </li>
+
+                            
+                        </ul>
+                    </section>
+
+                    <section class="mt-30">
+                        <strong><code>Notable features</code> : </strong>
+                        <ul>
+                            <li>complex UI with dense functionality</li>
+                            <li>multi-step flows with branching logic (reversible wizard)</li>
+                            <li>configurable <code>dashboards</code> (resizable, draggable, lazy-loading)</li>
+                            <li><code>dynamic grids</code> (configurable columns, resize, reorder, persistent filtering, endless scroll, expandable rows)</li>
+                            <li>intricate <code>combobox</code> inputs: persistent states, chained async loading, segmented with infinite scroll, inline add, multi-select, auto-filled values</li>  
+                            <!-- <li>async chained inputs (ex: office > customer > task > activity)</li> -->
+                            <li>long running tasks send live updates via <code>signalR</code></li>
+                            <li>rigorous <code>validation</code> : client + server</li>
+                            <li>occasional <code>keyboard</code> focused flows</li>
+                        </ul>
+                    </section>
+
+                    <section class="mt-30">
+                        <strong><code>Challenges</code> : </strong>
+                        <ul>
+                            <li>difficult to evolve inherited code: ad-hoc implementations, inconsistent patterns, un-documented logic, significant scale</li>
+                            <!-- <li>improving <code>structure</code> and <code>consistency</code> and handling frequent <code>VUD</code> updates.</li> -->
+                            <li>implement <code>refactoring</code> strategies with version control, eventually covering all UI</li>
+                            <li>enforce consistency and constraints</li>
+                            <li>large data sets require optimizing for <code>performance</code> : async dropdowns, segmented with endless-scroll, server-side filtering</li>
+
+                            <li>bridge design intent and technical implementation</li>
+                            <li>push back when UX is technically flawed and propose alternatives that scale</li>
+                            
+
+                        </ul>
+                    </section>
+
+                <br/>
 
                 <section>
-                    <p>
-                        <strong><code>UI system</code> : </strong>
-                        <code>KendoUI</code> + <code>.NET MVC</code> + <code>custom SPA</code> + <code>VUD</code>
-                    </p>
-                    <ul>
-                        <li>
-                            <strong><code>KendoUI</code> : </strong>
-                           base components are styled using the VUD design system and extended with significant custom behavior. 
-                        </li>
-
-                        <li><strong><code>VUD</code> : </strong> Visma Unified Design, token based, frequent updates.</li>
-
-                        <li>
-                            <strong><code>custom SPA framework</code></strong> over <code>.NET MVC</code> and <code>KendoUI</code> also integrating <code>VUD</code> design system.
-                            Only possible after a full refactor of UI code
-                        </li>
-
-                        
-                    </ul>
-                </section>
-
-                <section>
-                    <strong><code>Notable features</code> : </strong>
-                    <ul>
-                        <li>multi-step flows with branching logic (reversible, wizard)</li>
-                        <li>configurable <code>dashboards</code> (resizable, draggable, lazy-loading)</li>
-                        <li><code>dynamic grids</code> (configurable columns, resize, reorder, persistent filtering, endless scroll, expandable rows)</li>
-                        <li>enhanced <code>combobox</code> inputs: persistent sorting, endless scroll, inline create, multiselect, prefill the only value</li>  
-                        <li>chained inputs (ex: office > customer > task > activity)</li>
-                        <li>long running tasks send live updates via <code>signalR</code></li>
-                        <li>rigorous <code>validation</code> : client + server</li>
-                        <li>ocasional <code>keyboard</code> focused flows</li>
-                    </ul>
-                </section>
-
-                 <section>
-                    <strong><code>Challanges</code> : </strong>
-                    <ul>
-                        <li>difficult to evolve inherited code: ad-hoc implementations, inconsistent patterns, un-documented logic, significant scale</li>
-                        <!-- <li>improving <code>structure</code> and <code>consistency</code> and handling frequent <code>VUD</code> updates.</li> -->
-                        <li>implement <code>refactoring</code> strategies with version control, eventually covering all UI</li>
-                        <li>enforce consistency and constraints</li>
-                        <li>large data sets requires optimizing for <code>performance</code> : async dropdowns, segmented with endless-scroll, serverside filtering</li>
-
-                        <li>push back when UX is technically flawed and propose alternatives that scale</li>
-                        
-
-                    </ul>
-                </section>
-
-            <br/>
-
-            <section>
-                    <strong><code>Stack</code> : </strong>
-                    <code>react</code>
-                    <code>git</code>
-                    <code>.NET</code>
-                    <code>vscode</code>
-                    <code>figma</code>
-                    <code>cypress</code>
-                    <code>kendo ui</code>
-                </section>
-	
+                        <strong><code>Stack</code> : </strong>
+                        <code>git</code>
+                        <code>.NET</code>
+                        <code>vscode</code>
+                        <code>jQuery</code>
+                        <code>kendo ui</code>
+                        <code>figma</code>
+                        <code>snowplow</code>
+                        <code>cypress</code>
+                        <code>signalR</code>
+                    </section>
+	            </div>
             </div>
         </div>
     </section>
-
-    <section id="Project-case-deschise" class="cd-section">
+        <section id="Project-case-deschise" class="cd-section">
         
-        <div class="vertical-align" >
-            <div style="height:50px; width:350px;"><a target="_blank" href="https://casedeschise.ro/" class="cta-btn">www.casedeschise.ro</a></div>
-            <div class="info-box info-box-fixed info-box-white markdown-body scrollable-container">
-                
-                <section>
-                    <p><strong><code>casedeschise.ro</code></strong></p>
-                    <p> public website for annual 'open house' event, in collaboration with local architects guild 'OAR'</p>
+        <div>
+            <div class="image-container vertical-align" > 
+                <!-- <div style="height:50px; width:350px;"><a target="_blank" href="https://casedeschise.ro/" class="cta-btn">www.casedeschise.ro</a></div> -->
+                <!-- <a style="font-size: 2.4rem; margin: 10px 0 30px 27px !important; color:#fff; display: inline-block; outline: none;" href="https://casedeschise.ro/" target="_blank"><strong><code>www.casedeschise.ro</code></strong></a> -->
+            </div>
+            
+            
+            <div class="info-box info-box-fixed info-box-black markdown-body markdown-body-black scrollable-container" style="box-shadow:none; border-right:3px solid #fff;">
+                <div class="scroll-container"> 
+                    <div class="qr-code"> </div>
+                    <section>
+                        <a style="font-size: 2.4rem; margin: 10px 0 30px 27px !important; color:#fff; display: inline-block; outline: none;" href="https://casedeschise.ro/" target="_blank"><strong><code>www.casedeschise.ro</code></strong></a>
+                        <ul>
+                            <li>website for annual 'open house' event, in collaboration with local architects guild 'OAR'</li>
+                            <li>twin events in cities Sibiu and Valcea</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <strong><code>Stack</code> : </strong>
+                        <code>react</code>
+                        <code>next.js</code>
+                        <code>sanity</code>
+                        <code>webhooks</code>
+                        <code>google maps</code>
+                        <code>resend</code>
+                        <code>umami</code>
+                        <code>vscode</code>
+                        <code>github actions</code>
+                        <code>vercel</code>
+                    </section>
+                    <br>
+                    <section>
                     
-                </section>
+                        <ul>
+                            <li>registration for each location : build-in form + email QR (Resend) + built-in QR validator</li>
+                            <li style="margin-bottom:30px">reports via dashbord in Sanity</li>
 
-                <section>
-                    <strong><code>Stack</code> : </strong>
-                    <code>react</code>
-                    <code>next.js</code>
-                    <code>sanity</code>
-                    <code>google maps</code>
-                    <code>resend</code>
-                    <code>umami</code>
-                    <code>vscode</code>
-                    <code>git</code>
-                    <code>vercel</code>
-                </section>
-                <br>
-                <section>
-                   
-                    <ul>
-                        <li>twin implementation for Sibiu and Valcea events</li>
-                        <li>lists event schedule, houses open for visits, tours, registration forms </li>
-                        <li>responsive, fully customizable content via Sanity CMS: listings, registration forms, map view, manage registrations</li>
-                        <!-- <li>built with next.js, GitHub, Vercel deployment and hosting</li> -->
-                        <li>map views with google maps api</li>
-                        <li>analytics tracked via Umami</li>
-                        <li>registration process via build-in registration form + email with Resend + built-in QR validator</li>
-                        
-                    </ul>
-                </section>
+                            <li>heavy image content</li>
+                            <li>focus on performance and optimization (uses sanity free plan)</li>
+                            <li>strenuous usage for 1-2 month around the event date</li>
+                            <li style="margin-bottom:30px">aggresive caching sanity queries - webhooks, revalidate, next cache</li>
 
+                            <!-- <li>responsive, customizable via Sanity CMS: listings, registration forms, map view, manage registrations</li> -->
+                            <!-- <li>built with next.js, GitHub, Vercel deployment and hosting</li> -->
+
+                            <li>analytics tracked via Umami</li>
+                            <li>map views with google maps api</li>
+                            
+                        </ul>
+                    </section>
+                </div>
             </div>
         </div>
     </section>
-
-    <section id="Project-4in1" class="cd-section">
+        <section id="Project-4in1" class="cd-section">
         <div >
             <div class="info-box">Design concept for <span style="color:#0099ca  ">skinable, cross-device</span> <span style="color:#DF629C  ">payment product</span>   This is part of an effort to <span style="color:#DF629C  ">standardize</span> company products and make life easier for the dev/test team while allowing room for <span style="color:#0099ca">customization</span> for the clients. The following projects for O2 Germany and FooCall UK are based on this design</div>
 
         </div>
     </section>
-
-    <section id="Project-MultiDevice" class="cd-section">
-        <div>
-            <div class="info-box" style=""> First implementation of previous concept. <span style="color:#0099ca">Mobile optimised </span> <span style="color:#DF629C">payment service </span> for <span style="color:#0099ca">O2 Germany</span>, merging the customer <span style="color:#0099ca">desktop</span> and <span style="color:#0099ca">mobile</span> experiences. This also greatly improves the dev and test experience. O2 supports <span style="color:#DF629C">IE7</span> and service is also available in <span style="color:#DF629C">german</span>. Fun stuff!</div>  
-        </div>
-    </section>
-
-    <section id="Project-White" class="cd-section">
+    <!-- @@include('partials/project-multidevice.html') -->
+        <section id="Project-White" class="cd-section">
         <div>
             <video loop muted autoplay class="">
                 <source src="img/preload/fnt.mp4" type="video/mp4" />
@@ -320,19 +328,14 @@
 
 
     </section>
-
-    <section id="Project-Ghost" class="cd-section">
-        <div><div class="info-box" style=""> <span style="color:#DF629C">Payment service design</span> for app and web. This fragment describes a <span style="color:#0099ca">customer journey</span> when purchasing a product online and paying by <span style="color:#DF629C">Credit Card</span> or <span style="color:#0099ca">Paypal</span> from a mobile device</div>  </div>
-    </section>
-
-    <section id="Project-Configurator" class="cd-section">
+    <!-- @@include('partials/project-ghost.html') -->
+        <section id="Project-Configurator" class="cd-section">
         <div >
             <div class="info-box"> <span style="color:#0099ca">Mobile optimised</span>, internal tool for managing company projects. Provides a rough breakdown of <span style="color:#DF629C">effort and time estimates</span> and cues projects acording to resurce availability. Main admin screen features an <span style="color:#DF629C">interactive roadmap</span> with scheduled projects. One of the more interesting projects I have been involved in.</div>  
 
         </div>
     </section>
-
-    <section id="MipayAdmin" class="cd-section">
+        <section id="MipayAdmin" class="cd-section">
         <div class="parent">
             <!--<div class="window">
                 <div class="gif"> </div>-->
@@ -359,129 +362,64 @@
 
     </section>
 
-    <!-- <section id="Project-Checkout" class="cd-section ">
-        <div>
-            <div class="info-box" style="font-size:15px;">
-                <span style="color:#DF629C">Wireframes</span> and <span style="color:#0099ca">mockups</span>  are great for <span style="color:#0099ca">comunicating functionality</span> and <span style="color:#DF629C">look-and-feel</span> to both technical and non-technical players.<br><br>
-                Check out a work sample for an <span style="color:#0099ca"> Online Checkout Process</span> made with
-                <span style="color:#DF629C">Balsamiq</span>,
-                <span style="color:#0099ca">Photoshop</span> and
-                <span style="color:#DF629C">Invision</span>
-                <a target="_blank" href="https://projects.invisionapp.com/share/KRFFRYT6NTG#/screens/133697655_Your_Items" class="cta-btn inside-info-box">
-                    Checkout Concept
-                </a>
-            </div>
-        </div>
-    </section> -->
+    <!-- @@include('partials/project-checkout-prototype.html') -->
 
-    <!-- <section id="Demo-PPT4U" class="cd-section">
-        <div class="vertical-align">
-
-            <div style="height:50px; width:250px">
-                <a target="_blank" href="http://razvanturcanu-001-site1.etempurl.com/" class="cta-btn hvr-pulse-grow ">
-                    Passepartout4u website
-                </a>
-
-                <div class="hover-info-box">
-                    <span style="color:#DF629C">Mobile optimised</span>, <span style="color:#DF629C">single-page</span> portfolio website for <span style="color:#0099ca">Passepartout4u</span> - a Milan based photography guild.
-                    The client requested for a <span style="color:#DF629C">minimal design</span> with lots of white space that lets the photograpy speak for itself.
-                    The <span style="color:#0099ca">heavy image content</span> was tackled using <span style="color:#DF629C">lazy loading</span> techniques and subtle <span style="color:#DF629C">transition effects</span>.
-                    <span style="color:#0099ca">The custom made .Net CMS</span> sniffs the folder structure, and auto-magically displays relevant content, making management simple for photographers.
-                </div>
-            </div>
-
-        </div>
-    </section> -->
-
-    
-
-    <!-- Experiments Section -->
+        <!-- Experiments Section -->
     <section id="Demos" class="cd-section custom-cursor">
         <div class="vertical-align">  
                     <div class="col-md-12">
                     
                         <h1 class="section-heading center-text font-160">Experiments</h1>
                         <p class="lead section-lead center-text" style="top:-23px; position:relative;">This section features protoypes and experiments </p>
-                        <!--<p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>-->
-                    
+     
                     </div>
         </div>
     </section>
-
-
-    <!-- Demos - Clasa Zero Section -->
+        <!-- Demos - Clasa Zero Section -->
     <section id="clasa-zero-iframe" class="cd-section">
         <div>
             <div class="tablet-view">
                 <iframe src="https://clasa-zero.vercel.app/game" class="full-screen-iframe" style="position:relative"></iframe>
             </div>
             <div class="info-box info-box-fixed info-box-white markdown-body scrollable-container">
-                
-                <section>
-                    <p><strong><code>Accounting Office Management Studio</code></strong></p>
-                    <p>
-                        Web application for managing accounting offices and their clients.<br>
-                        My role involved long-standing contribution to the product development, with focus on advancing the UI system.
+                <div class="scroll-container">
+                    <section>
+                        <p style="font-size: 2.4rem; margin:30px 0;"><strong><code>Kids Stem Game</code></strong></p>
+                        <p> Random puzzles for pre-school kids</p>
+                    </section>
 
-                </section>
+                    <section>
+                        <strong><code>Features</code> : </strong>
+                        <ul>
+                            <li>randomly generated puzzles and possible answers</li>
+                            <li>10+ puzzle types: sequences, matching, counting, simple reading</li>
+                            <li>persist settings with <code>local storage</code></li>
+                            <li>custom puzzles can be added on <code>sanity</code> cms</li>
+                            <li>ai generated graphics</li>
 
-                <section>
-                    <p>
-                        <strong><code>UI system</code> : </strong>
-                        <code>KendoUI</code> + <code>.NET MVC</code> + <code>custom SPA</code> + <code>VUD</code>
-                    </p>
- 
-                </section>
+                            <li>focus on performance and optimization: smooth transitions, preload next puzzle</li>
+                            <li>slide back to review previous puzzles and answers</li>
+                        </ul>
+                    </section>
 
-                <section>
-                    <strong><code>Notable features</code> : </strong>
-                    <ul>
-                        <li>multi-step flows with branching logic (reversible, wizard)</li>
-                        <li>configurable <code>dashboards</code> (resizable, draggable, lazy-loading)</li>
-                        <li><code>dynamic grids</code> (configurable columns, resize, reorder, persistent filtering, endless scroll, expandable rows)</li>
-                        <li>enhanced <code>combobox</code> inputs: persistent sorting, endless scroll, inline create, multiselect, prefill the only value</li>  
-                        <li>chained inputs (ex: office > customer > task > activity)</li>
-                        <li>long running tasks send live updates via <code>signalR</code></li>
-                        <li>rigorous <code>validation</code> : client + server</li>
-                        <li>ocasional <code>keyboard</code> focused flows</li>
-                    </ul>
-                </section>
+                    <br/>
 
-                 <section>
-                    <strong><code>Challanges</code> : </strong>
-                    <ul>
-                        <li>difficult to evolve inherited code: ad-hoc implementations, inconsistent patterns, un-documented logic, significant scale</li>
-                        <!-- <li>improving <code>structure</code> and <code>consistency</code> and handling frequent <code>VUD</code> updates.</li> -->
-                        <li>implement <code>refactoring</code> strategies with version control, eventually covering all UI</li>
-                        <li>enforce consistency and constraints</li>
-                        <li>large data sets requires optimizing for <code>performance</code> : async dropdowns, segmented with endless-scroll, serverside filtering</li>
+                    <section>
+                        <strong><code>Stack</code> : </strong>
+                        <code>react</code>
+                        <code>next.js</code>
+                        <code>zustand</code>
+                        <code>sanity</code>
+                        <code>github copilot</code>
+                        <code>chat gpt</code>
+                        <code>vscode</code>
 
-                        <li>push back when UX is technically flawed and propose alternatives that scale</li>
-                        
-
-                    </ul>
-                </section>
-
-            <br/>
-
-            <section>
-                    <strong><code>Stack</code> : </strong>
-                    <code>react</code>
-                    <code>next.js</code>
-                    <code>git</code>
-                    <code>.NET</code>
-                    <code>vscode</code>
-                    <code>figma</code>
-                    <code>cypress</code>
-                    
-                    <code>kendo ui</code>
-                </section>
-	
+                    </section>
+	            </div>
             </div>
         </div>
     </section>
-
-    <!-- Demos-Optimize Section -->
+        <!-- Demos-Optimize Section -->
     <section id="optimize-studio-iframe" class="cd-section">
         <div>
             <iframe src="projects/old-portfolio/index.html" class="full-screen-iframe" style="position:relative"></iframe>
@@ -491,8 +429,7 @@
             </div> -->
         </div>
     </section>
-
-    <!-- Demos-Radio Section -->
+        <!-- Demos-Radio Section -->
     <section id="Demo-Radio" class="cd-section">
         <div class="vertical-align" >
 
@@ -508,24 +445,8 @@
 
         </div>
     </section>
-    <!-- Demos-Architecture Section -->
-    <!-- <section id="Demo-Architecture" class="cd-section">
-        <div class="vertical-align" >
-
-            <div style="height:50px; width:250px">
-                <a  target="_blank" href="projects/old-portfolio/arh/index.html" class="cta-btn hvr-pulse-grow " >
-                   My first website            
-                </a>
-
-                <div class="hover-info-box">
-                    This is my <span style="color:#DF629C">very first attempt</span> at website design. It features a gallery of <span style="color:#0099ca">architecture designs, renderings, 3d models, technical details or contest entries</span> from my studies. If you visit this <span style="color:#DF629C">use mouse scroll, arrow keys and drag gestures</span> for easy navigation.
-                </div>
-            </div>
-
-        </div>
-    </section> -->
-
-    <!-- Resume Section -->
+    <!-- @@include('partials/experiments-architecture-portfolio.html') -->
+        <!-- Resume Section -->
     <section id="Resume" class="cd-section">
 
             <div class="vertical-align" style="background:transparent !important">
@@ -551,9 +472,7 @@
             </div>
         </div>
     </section>
-
-
-    <!-- CONTACT Section -->
+        <!-- CONTACT Section -->
     <section id="Contact" class="cd-section">
         <div class="vertical-align">
             <div class="container">
@@ -565,8 +484,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Navigation -->
+        <!-- Navigation -->
 
     <span id="not-mobile">  </span>
     <span id="progress-loader">
@@ -594,35 +512,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" >
                         <li class="link active"><a href="#" >Hi!</a>  </li>
-                        <li class="link"><a href="#">My skills</a></li>
+                        <!-- <li class="link"><a href="#">My skills</a></li> -->
                         <li class="link"><a href="#">My tools</a>    </li>
                                 
-                        <!--<ul class="nav navbar-nav" style="width:200px">-->
-                                <li class="link">      <a href="#">My work :</a>    </li>
-                                <li class="link small-child-projects click-on-load">    <a href="#">1</a></li>
-                                <li class="link small-child-projects">    <a href="#">2</a></li>
-                                <li class="link small-child-projects">    <a href="#">3</a></li>
-                                <li class="link small-child-projects">    <a href="#">4</a></li>
-                                <li class="link small-child-projects">    <a href="#">5</a></li>
-                                <li class="link small-child-projects">    <a href="#">6</a></li>
-                                <li class="link small-child-projects">    <a href="#">7</a></li>
-                                <li class="link small-child-projects">    <a href="#">8</a></li>
-                                <!-- <li class="link small-child-projects">    <a href="#">9</a></li> -->
-                                <!-- <li class="link small-child-projects">    <a href="#">8</a></li>
-                                <li class="link small-child-projects">    <a href="#">9</a></li> -->
-                         <!--</ul>-->
+                        <li class="link">      <a href="#">My work :</a>    </li>
+                        <li class="link small-child-projects click-on-load">    <a href="#">1</a></li>
+                        <li class="link small-child-projects">    <a href="#">2</a></li>
+                        <li class="link small-child-projects">    <a href="#">3</a></li>
+                        <li class="link small-child-projects">    <a href="#">4</a></li>
+                        <li class="link small-child-projects">    <a href="#">5</a></li>
+                        <li class="link small-child-projects">    <a href="#">6</a></li>
+                        <!-- <li class="link small-child-projects">    <a href="#">7</a></li>
+                        <li class="link small-child-projects">    <a href="#">8</a></li> -->
 
-                        <!--<ul class="nav navbar-nav" style="width:75px">-->
-                                <li class="link " ><a href="#">Experiments :</a>    </li>
-                                <li class="link small-child-projects">    <a href="#">1</a></li>
-                                <li class="link small-child-projects">    <a href="#">2</a></li>
-                                <li class="link small-child-projects">    <a href="#">3</a></li>                            
+                        <li class="link " ><a href="#">Experiments :</a>    </li>
+                        <li class="link small-child-projects">    <a href="#">1</a></li>
+                        <li class="link small-child-projects">    <a href="#">2</a></li>
+                        <li class="link small-child-projects">    <a href="#">3</a></li>                            
                                 
-                         <!--</ul>-->
-
-                        <!--<li class="link"><a href="#">UX Sibiu</a>  </li>-->
                         <li class="link"><a href="#">My Resume</a>  </li>
-
                         <li class="link"><a href="#">Contact</a>  </li>
                 </ul>
             </div>
@@ -637,9 +545,7 @@
             <li><a href="#" class="cd-next">Prev</a></li>
         </ul>
     </nav>
-
-
-    <!-- jQuery -->
+        <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
@@ -760,8 +666,8 @@
                 // preload second batch
                 preloadPictures([
 
-                    
                     'img/preload/case-deschise.jpg',
+                    'img/preload/qr.jpg',
                     'img/preload/Configurator.jpg',
                     'img/preload/architecture.jpg',
                     'img/preload/pdf.png',
@@ -820,6 +726,7 @@
             //TODO: remove this
             setTimeout(function(){ $("li.click-on-load").trigger("click") }, 100);
         </script>
+
 
 </body>
 

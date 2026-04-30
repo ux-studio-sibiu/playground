@@ -1,0 +1,181 @@
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script>
+
+        (function ($) {
+            // Bind the function to global jQuery object.
+            $.fn.reveal = function () {
+                // Arguments is a variable which is available within all functions
+                // and returns an object which holds the arguments passed.
+                // It is not really an array, so by calling Array.prototype
+                // he is actually casting it into an array.
+                var args = Array.prototype.slice.call(arguments);
+
+                // For each elements that matches the selector:
+                return this.each(function () {
+                    // this is the dom element, so encapsulate the element with jQuery.
+                    var img = $(this),
+                        src = img.data("src");
+
+                    // If there is a data-src attribute, set the attribute
+                    // src to make load the image and bind an onload event.
+                    src && img.attr("src", src).load(function () {
+                        // Call the first argument passed (like fadeIn, slideIn, default is 'show').
+                        // This piece is like doing img.fadeIn(1000) but in a more dynamic way.
+                        img[args[0] || "show"].apply(img, args.splice(1));
+                    });
+                });
+            }
+        }(jQuery));
+
+
+
+        jQuery(document).ready(function ($) {
+    
+            //dynamically load and add .css or .js file
+            function loadjscssfile(filename, filetype) {
+                if (filetype == "js") { //if filename is a external JavaScript file
+                    var fileref = document.createElement('script')
+                    fileref.setAttribute("type", "text/javascript")
+                    fileref.setAttribute("src", filename)
+                }
+                else if (filetype == "css") { //if filename is an external CSS file
+                    var fileref = document.createElement("link")
+                    fileref.setAttribute("rel", "stylesheet")
+                    fileref.setAttribute("type", "text/css")
+                    fileref.setAttribute("href", filename)
+                }
+                if (typeof fileref != "undefined")
+                    document.getElementsByTagName("head")[0].appendChild(fileref)
+            }
+
+
+            var preloadPictures = function (pictureUrls, callback) {
+                var i,
+                    j,
+                    loaded = 0
+                loader = $("#progress-loader #bar #inner-bar");
+
+                for (i = 0, j = pictureUrls.length; i < j; i++) {
+                    (function (img, src) {
+                        img.onload = function () {
+
+                            setTimeout(function () {
+
+                                if (++loaded == pictureUrls.length && callback) {
+                                    callback();
+                                }
+
+
+                                loader.css("width", (loaded / j * 100) + "%");
+                                $("#inner-text").html(src);
+
+                            }, 10);
+
+
+                        };
+
+                        // Use the following callback methods to debug
+                        // in case of an unexpected behavior.
+                        img.onerror = function () { console.log("error"); loaded++; };
+                        img.onabort = function () { console.log("abort"); loaded++; };
+
+                        img.src = src;
+                    }(new Image(), pictureUrls[i]));
+                }
+            };
+
+            // first batch to preload
+            preloadPictures([
+
+                'img/preload/intro.jpg',
+                'img/preload/skills.jpg',
+                'img/preload/cd-icon-arrow.png',
+                
+                'img/preload/logos/chrome.png',
+                'img/preload/logos/copilot.png',
+                'img/preload/logos/figma.png',
+                'img/preload/logos/git.png',
+
+                'img/preload/logos/photoshop.png',
+                'img/preload/logos/html.png',
+                'img/preload/logos/react-white.png',
+                'img/preload/logos/vscode.png',
+                
+                'img/preload/4in1.jpg',
+                'img/preload/MultiDevice.jpg',
+
+                // 'img/preload/Foocall.jpg',
+                // 'img/preload/Ghost.jpg',
+                // 'img/preload/optimize.jpg',
+                // 'img/preload/checkout.jpg',
+                //'img/preload/Vodafone.jpg',
+                //'img/preload/3Roi.jpg',
+
+            ], function () {
+
+                //after all images load
+                // preload second batch
+                preloadPictures([
+
+                    'img/preload/case-deschise.jpg',
+                    'img/preload/qr.jpg',
+                    'img/preload/Configurator.jpg',
+                    'img/preload/architecture.jpg',
+                    'img/preload/pdf.png',
+                    'img/preload/bussiness-card.jpg',
+                    'img/preload/contact.jpg',
+                    'img/preload/radio.jpg',
+                    
+                    'img/preload/advisor/01-overview.jpg',
+                    'img/preload/advisor/02-case-management.jpg',
+                    'img/preload/advisor/03-customers.jpg',
+                    'img/preload/advisor/04-checklists.jpg',
+                    'img/preload/advisor/05-kyc.jpg',
+
+                    'img/preload/advisor/06-contacts.jpg',
+                    'img/preload/advisor/07-time-registration.jpg',
+                    'img/preload/advisor/08-outlays.jpg',
+                    'img/preload/advisor/09-invoicing.jpg',
+                    'img/preload/advisor/10-resource-planning.jpg',
+
+                    'img/preload/advisor/11-reports.jpg',
+                    'img/preload/advisor/12-settings.jpg',
+                    'img/preload/advisor/13-settings-2.jpg',
+
+                    'img/preload/advisor/ncw-00.jpg',
+                    'img/preload/advisor/ncw-01.jpg',
+                    'img/preload/advisor/ncw-02.jpg',
+                    'img/preload/advisor/ncw-03.jpg',
+                    'img/preload/advisor/ncw-04.jpg',
+                    'img/preload/advisor/ncw-05.jpg',
+
+                    'img/preload/advisor/oldies/laptop-mask.png',
+                    'img/preload/advisor/oldies/01-old.jpg',
+                    'img/preload/advisor/oldies/02-old.jpg',
+                    'img/preload/advisor/oldies/03-old.jpg',
+                    'img/preload/advisor/oldies/04-old.jpg',
+                    'img/preload/advisor/oldies/05-old.jpg',
+                    'img/preload/advisor/oldies/06-old.jpg',
+                    'img/preload/advisor/oldies/07-old.jpg',
+                    'img/preload/advisor/oldies/08-old-new.jpg',
+                    'img/preload/advisor/oldies/09-old-new.jpg',
+
+                ])
+
+                $("body").removeClass("loading");
+                $("#progress-loader").remove();
+                console.log('loaded all images');
+
+                loadjscssfile("js/page-scroll-effects/bundled.js", "js") //dynamically load and add this .js file
+
+                $("img[data-src]").reveal("fadeIn", 0);
+
+            });
+
+
+        });
+            //TODO: remove this
+            setTimeout(function(){ $("li.click-on-load").trigger("click") }, 100);
+        </script>

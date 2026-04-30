@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+section#Demo-Optimize > div{
+	background-color: #fff !important;
+	background-image: url($Demo-Optimize);	
+	background-size:cover;
+	background-position:center center;	
+}

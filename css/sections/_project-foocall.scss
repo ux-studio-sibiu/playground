@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+section#Project-Foocall > div{
+	background-color: #2b334f !important;
+	background-image: url($Project-Foocall);
+	background-size:cover;
+	background-position:center center;
+}

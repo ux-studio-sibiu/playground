@@ -1,0 +1,13 @@
+@use 'variables' as *;
+
+section#Contact > div{
+	background-image: url($Contact);
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-position:top right;
+	}
+
+
+.bussiness-card{
+	box-shadow: rgba(5, 5, 5, 0.2) -4px 4px 10px 2px;
+}

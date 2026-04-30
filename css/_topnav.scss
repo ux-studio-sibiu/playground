@@ -1,0 +1,56 @@
+//Navigation Bar
+.navbar-inverse {
+    // box-shadow: 0 2px 3px #000;
+	// box-shadow: 3px 5px rgba(0, 0, 0, 0.3294117647);
+    background-color: #000000;
+	border:none;
+    height: 50px;
+	font-size:18px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+	outline: none !important;
+}
+
+
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus{
+        background-color: #ffffff !important;
+		color: #000;
+		
+}
+
+.navbar-inverse .navbar-nav > li.link > a:hover{
+		background-color: rgba(255, 255, 255, 0.4);
+}
+
+
+
+li.link{
+	float:left;
+	border-right: 1px solid #000;
+	border:none;
+}
+
+.small-child-projects{
+	
+	width:30px;
+	a{
+	text-align:center;
+	padding-left:0!important;
+	padding-right:0 !important;
+	}
+
+}
+
+span.logo
+ {
+    display: inline-block;
+    height: 45px;
+    width: 60px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}

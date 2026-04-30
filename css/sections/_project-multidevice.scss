@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+section#Project-MultiDevice > div{
+	background-color: #f3f4f6 !important;
+	background-image: url($Project-MultiDevice);
+	background-size:contain;
+	background-position:center center;	
+}

@@ -1,0 +1,11 @@
+@use 'variables' as *;
+
+section#Intro > div{
+	background-color: #2b334f;
+	background-image: url($Intro);
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position:bottom center;
+	
+	
+}

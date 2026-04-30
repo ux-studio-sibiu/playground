@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+section#Demo-Radio > div{
+	background-color: #fff !important;
+	background-image: url($Demo-Radio);	
+	background-size:cover;
+	background-position:center center;	
+}

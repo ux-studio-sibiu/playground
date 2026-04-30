@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+section#Project-Configurator > div{
+	background-color: #f0f0f0 !important;
+	background-image: url($Project-Configurator);
+	background-size:contain;
+	background-position:center center;
+}

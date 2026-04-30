@@ -7,10 +7,14 @@ const outFile = path.join(__dirname, 'index.html');
 function build() {
     const template = fs.readFileSync(path.join(srcDir, 'index.html'), 'utf8');
 
-    const output = template.replace(/@@include\('(.+?)'\)/g, (match, filePath) => {
-        const fullPath = path.join(srcDir, filePath);
+    const output = template.replace(/<!--.*?@@include\('(.+?)'\).*?-->|@@include\('(.+?)'\)/g, (match, commentedPath, activePath) => {
+        if (commentedPath) {
+            // Inside an HTML comment — skip entirely
+            return match;
+        }
+        const fullPath = path.join(srcDir, activePath);
         if (!fs.existsSync(fullPath)) {
-            console.error(`Missing partial: ${filePath}`);
+            console.error(`Missing partial: ${activePath}`);
             process.exit(1);
         }
         return fs.readFileSync(fullPath, 'utf8');

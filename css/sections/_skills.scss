@@ -1,0 +1,11 @@
+@use 'variables' as *;
+
+section#Skills > div{
+	background-color: #2b334f;
+	background-image: url($Skills);
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-position:center center;
+	
+	
+}
