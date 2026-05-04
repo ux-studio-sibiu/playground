@@ -2985,6 +2985,9 @@ section > div div.info-box.info-box-black {
   left: 0 !important;
   box-shadow: 3px 5px rgba(0, 0, 0, 0.3294117647);
 }
+section > div div.info-box .project-title {
+  font-size: 2.4rem;
+}
 
 section.visible > div div.info-box {
   opacity: 1;
@@ -3183,6 +3186,45 @@ section#Advisor > div div.screens .screen .screen-wrap .advisor-image {
   background-size: cover;
   background-position: top center;
 }
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="1"] {
+  background-image: url("../img/preload/advisor/2026/01-overview.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="2"] {
+  background-image: url("../img/preload/advisor/2026/02-case-management.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="3"] {
+  background-image: url("../img/preload/advisor/2026/03-customers.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="4"] {
+  background-image: url("../img/preload/advisor/2026/04-checklists.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="5"] {
+  background-image: url("../img/preload/advisor/2026/05-kyc.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="6"] {
+  background-image: url("../img/preload/advisor/2026/06-contacts.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="7"] {
+  background-image: url("../img/preload/advisor/2026/07-time-reg.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="8"] {
+  background-image: url("../img/preload/advisor/2026/08-outlays.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="9"] {
+  background-image: url("../img/preload/advisor/2026/09-invoicing.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="10"] {
+  background-image: url("../img/preload/advisor/2026/10-resource-planning.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="11"] {
+  background-image: url("../img/preload/advisor/2026/11-reports.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="12"] {
+  background-image: url("../img/preload/advisor/2026/12-settings.jpg");
+}
+section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus-new[data-img="13"] {
+  background-image: url("../img/preload/advisor/2026/13-settings.jpg");
+}
 section#Advisor > div div.screens .screen .screen-wrap .advisor-image.sidenav-menus[data-img="1"] {
   background-image: url("../img/preload/advisor/01-overview.jpg");
 }
@@ -3362,6 +3404,9 @@ section#Advisor > div .info-box {
 @media (max-width: 1800px) {
   section#Advisor > div .info-box {
     width: 400px;
+  }
+  section#Advisor > div .info-box .project-title {
+    font-size: 18px;
   }
   section#Advisor > div div.screens {
     transform: scale(0.85);

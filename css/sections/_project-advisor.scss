@@ -100,6 +100,21 @@ section#Advisor > div{
 					background-size:cover;
 					background-position: top center;
 
+
+					&.sidenav-menus-new[data-img='1'] { background-image: url($Project-Advisor-2026-01); }
+					&.sidenav-menus-new[data-img='2'] { background-image: url($Project-Advisor-2026-02); }
+					&.sidenav-menus-new[data-img='3'] { background-image: url($Project-Advisor-2026-03); }
+					&.sidenav-menus-new[data-img='4'] { background-image: url($Project-Advisor-2026-04); }
+					&.sidenav-menus-new[data-img='5'] { background-image: url($Project-Advisor-2026-05); }
+					&.sidenav-menus-new[data-img='6'] { background-image: url($Project-Advisor-2026-06); }
+					&.sidenav-menus-new[data-img='7'] { background-image: url($Project-Advisor-2026-07); }
+					&.sidenav-menus-new[data-img='8'] { background-image: url($Project-Advisor-2026-08); }
+					&.sidenav-menus-new[data-img='9'] { background-image: url($Project-Advisor-2026-09); }
+					&.sidenav-menus-new[data-img='10'] { background-image: url($Project-Advisor-2026-10); }
+					&.sidenav-menus-new[data-img='11'] { background-image: url($Project-Advisor-2026-11); }
+					&.sidenav-menus-new[data-img='12'] { background-image: url($Project-Advisor-2026-12); }
+					&.sidenav-menus-new[data-img='13'] { background-image: url($Project-Advisor-2026-13); }
+
 					&.sidenav-menus[data-img='1'] { background-image: url($Project-Advisor-01); }
 					&.sidenav-menus[data-img='2'] { background-image: url($Project-Advisor-02); }
 					&.sidenav-menus[data-img='3'] { background-image: url($Project-Advisor-03); }
@@ -214,7 +229,7 @@ section#Advisor > div{
 	@media (max-width: 1850px) {  div.screens{ right: -10px; } }
 
 	@media (max-width: 1800px) { 
-		.info-box{ width:400px;}
+		.info-box{ width:400px; .project-title{font-size:18px;}}
 		div.screens{transform: scale(0.85);right:50px;}
 	}
 
