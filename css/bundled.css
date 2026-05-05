@@ -3532,6 +3532,12 @@ section#Demo-Radio > div {
   background-size: cover;
   background-position: center center;
 }
+section#Demo-Radio > div iframe {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
 
 section#clasa-zero-iframe > div {
   background: #dfdfdf !important;
@@ -3569,6 +3575,12 @@ section#clasa-zero-iframe > div .info-box {
   top: 0;
   left: 0;
   box-shadow: 3px 5px rgba(0, 0, 0, 0.3294117647);
+}
+@media (max-height: 900px) {
+  section#clasa-zero-iframe > div .tablet-view {
+    top: 6vh;
+    height: calc(90vh - 50px);
+  }
 }
 
 section#optimize-studio-iframe > div iframe {

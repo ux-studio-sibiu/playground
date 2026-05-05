@@ -272,3 +272,9 @@ function embed_player() {
     // Replace the 'ytplayer' element with an <iframe> and
     // YouTube player after the API code downloads.
 }
+
+
+window.addEventListener("wheel", e => {
+  e.preventDefault();
+  window.parent.postMessage({ type: "scroll", deltaY: e.deltaY }, "*");
+}, { passive: false });

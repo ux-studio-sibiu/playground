@@ -43,4 +43,9 @@ section#clasa-zero-iframe > div
 		box-shadow: 3px 5px rgba(0, 0, 0, 0.3294117647);
 	}
 
+	@media (max-height: 900px) { 
+		.tablet-view{ top:6vh; height: calc(90vh - 50px);}
+
+	}
+
 }
