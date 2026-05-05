@@ -34,11 +34,6 @@ $(document).ready(function () {
        
     getFolderContents();
 
-    //$('body').waitForImages(function () {
-    //    $(".not_loaded").removeClass("not_loaded");
-
-    //});
-
     //listen for knowstreamstatus event
     $(window).one('knowstreamstatus', function () {
         alert('status changed');
@@ -86,16 +81,7 @@ function getFolderContents() {
                 // will loop through 
                 var current_url = $(this).attr("href").split('/');
                 var clean_url = decodeURIComponent(current_url[current_url.length - 1]);
-
                 mp3_urls.push(clean_url);
-
-                //var mp3_name = $(this).attr("href").replace(".mp3", "").replace("_", " ");
-                //mp3_urls[i].mp3_name = mp3_name;
-
-                //alert(mp3_urls[i].mp3_name)
-                //var playlist = url.replace(".mp3", "");
-                //var playlist = url.replace(".mp3", "");
-                //mp3_urls.playlist
 
                 //populate player list
                 li_elem = $("<li />");

@@ -3445,6 +3445,13 @@ section#Project-case-deschise > div div.qr-code {
   background-size: cover;
   background-position: center center;
 }
+@media (max-width: 1600px) {
+  section#Project-case-deschise > div div.qr-code {
+    height: 140px;
+    width: 140px;
+    margin-left: 80px;
+  }
+}
 
 section#Project-Checkout > div {
   background-color: #dddddd !important;

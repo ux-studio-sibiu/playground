@@ -23,4 +23,13 @@ section#Project-case-deschise > div{
 		background-size:cover;
 		background-position:center center;
 	}
+
+	@media (max-width: 1600px) { 
+		div.qr-code{
+			height: 140px;
+			width: 140px;
+			margin-left: 80px;
+		}
+
+	}
 }
