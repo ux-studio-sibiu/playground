@@ -37,7 +37,10 @@
   max-width: 170mm; /* fits inside A4 margins */
   margin: 0 auto;
   padding: 32px;
+  
 }
+
+.markdown-body *{  box-sizing:border-box; }
 
 /* Headings */
 .markdown-body h1,
@@ -155,52 +158,59 @@
   border-top: 1px solid #d0d7de;
   margin: 24px 0;
 }
-	</style>
+
+.markdown-body section{
+  float:left;
+  width:100%;
+}
+
+.clearfix:after {
+    content: " " !important;
+    visibility: hidden!important;
+    display:block !important;
+    height: 0 !important;
+    clear: both !important;
+    width: 100% !important;
+}
+</style>
 
 
-  <main class="markdown-body" style="">
+  <main class="markdown-body clearfix">
 
-    <section style="float:left; margin-top:20px; margin-bottom: 16px;">
-      <p >
-        <strong>
-          <code>Țurcanu Răzvan</code> > <code>Sibiu, Romania</code> > <code>0748 546788</code> > <code>arh.turcanu.razvan@gmail.com</code>
-        </strong>
-      </p>
-
+    <section style="width:100%; float:left; margin-top:40px; margin-bottom: 16px;">
       <p>
-        <strong><code>portfolio</code> > </strong> <a href="http://ux-architect.github.io/playground/"> http://ux-architect.github.io/playground/ </a>
+        <strong><code>Țurcanu Răzvan</code> > <code>Sibiu, Romania</code> > <code>0748 546788</code> > <code>arh.turcanu.razvan@gmail.com</code></strong>
+      </p>
+
+      <p style="margin-bottom:0">
+        <strong><code>portfolio</code> > </strong> <a href="https://ux-studio-sibiu.github.io/playground/" target="_blank"> www.ux-studio-sibiu.github.io/playground/ </a>
       </p>
     </section>
 	
 	
-    <section>
+    <section style="margin: 35px 0">
       
-        <p style="margin-bottom: 8px;"><strong><code>frontend engineer</code> > </strong> <code>bridge design-intent + implementation</code></p>
-		<p style="float: left; width: 44%; margin-bottom: 8px;">
-		
-		•  performance and optimization focus <br />
-		•  product-focus, strong UX sensibility <br />
-		•  design-system mindset <br />
-		•  polished, scalable ui <br />
-		
-		</p>
-		<p style="float: left; width: 56%; margin-bottom: 8px;">
-		• <code>next.js</code>, <code>react</code>, typescript, utility css <br />
-        • emailing <code>resend</code>, analytics, maps, <br />
-        • git, figma, sanity <br />
-		• legacy : .net mvc, jquery, photoshop
-      </p>
+      <p style="margin-bottom: 8px;"><strong><code>frontend engineer</code> > </strong> <code>bridge design-intent + implementation</code></p>
+      <ul style="float: left; width: 47%; margin-bottom: 8px;">
+        <li>performance and optimization focus</li>
+        <li>product-focus, strong UX sensibility</li>
+        <li>design-system mindset</li>
+        <li>polished, scalable ui</li>
+      </ul>
 
-      
-    </section>
-	
+		<ul style="float: left; width: 53%; margin-bottom: 8px;">
+		    <li><code>next.js</code>, <code>react</code>, typescript, utility css</li>
+        <li>emailing <code>resend</code>, analytics, maps</li>
+        <li>git, figma, sanity</li>
+		    <li>legacy : .net mvc, jquery, photoshop</li>
+      </ul>
 
-	 <section style="margin-bottom:5px;">
       <strong><code>complementary</code> > </strong> 
           <code>fluent english</code>
           <code>graphic & product design</code>
           <code>keen eye for detail</code>
     </section>
+	
 
 	<br/>
 	
@@ -215,10 +225,10 @@
 
       <!-- <p><strong>- <code>dev oriented</code> :</strong></p> -->
       <ul>
-		<li>long-standing dev contribution for complex accounting product - SE, NL, DK, NO markets </li>
+		    <li>long-standing dev contribution for complex accounting product - SE, NL, DK, NO markets </li>
         <li>maintain ui <code>structure and consistency</code>, enforce constraints, push back on flawed UX and propose alternatives, code-reviews</li>
-		<li>implemented a <code>custom SPA library</code> over a <code>.net core</code> + <code>kendo ui</code>.</li>
-		<li>proactive in reducing complexity, redundant dependencies, bugs  and visual inconsistencies</li>
+        <li>implemented a <code>custom SPA library</code> over a <code>.net core</code> + <code>kendo ui</code>.</li>
+        <li>proactive in reducing complexity, redundant dependencies, bugs  and visual inconsistencies</li>
         <li>handle frequent design system updates</li>
         <li>responsible use of AI tools, balance strengths/limitations: <code>gh copilot</code>, <code>claude</code>, <code>chat-gpt</code></li>
         <li>participated in UX research, user testing, interviews, and prototyping</li>
@@ -232,8 +242,10 @@
 	<br/>
     <section>
       <p style="margin-bottom: 4px;"><strong> <code>2014 – 2018</code> > <code>Mi-Pay Sibiu</code> > <code>frontend developer</code></strong></p>
-		• frontend dev in .NET MVC for responsive micro-payment apps and dashboards<br />
-		• ui/ux focus from concept to production<br />
+      <ul>
+        <li>frontend dev in .NET MVC for responsive micro-payment apps and dashboards</li>
+        <li>ui/ux focus from concept to production</li>
+      </ul>
     </section>
 	<br/>
     <section>

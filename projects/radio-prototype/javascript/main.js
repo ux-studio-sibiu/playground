@@ -1,19 +1,9 @@
 
-
-
-
-
-
-var gif_urls = [{
-        url: " ",
-        dur: '4'
-}];
+var gif_urls = [{ url: " ", dur: '4'}];
        
 
 //User Configurations
 var config_default_gif_dur = 3;
-
-
 var mp3_urls = [];
 var gifs_watched = 0;
 
@@ -163,7 +153,13 @@ function next_gif() {
 }
 
 function start_random_mp3() {
-    var random_audio = Math.floor(Math.random() * mp3_urls.length);
+
+    var params = new URLSearchParams(window.location.search);
+    var curatedMp3s = [56,45,20,13,6,27,33];
+    var random_audio = params.has('curated')
+        ? curatedMp3s[Math.floor(Math.random() * curatedMp3s.length)]
+        : Math.floor(Math.random() * mp3_urls.length);
+    
     audio_player.src = "";
     audio_player.src = "AUDIO/" + mp3_urls[random_audio];
     audio_player.play();
@@ -221,8 +217,6 @@ function onYouTubePlayerAPIReady() {
 
 function startOffAir(){
 
-    start_random_mp3();
-    $(".gif").show();
     $("#ytplayer").hide();
 
     //start random song when current one ends;
@@ -230,20 +224,28 @@ function startOffAir(){
         start_random_mp3();
     });
 
-
     var timer;
     (function repeat() {
         //current_dur = 2000;
         current_dur = next_gif() * 1000;
         timer = setTimeout(repeat, current_dur);
-        
     })();
 
-
-
-    //setInterval(function () {  }, 4000);
-
 };
+
+function startTv(){
+    start_random_mp3();
+    $(".gif").show();
+    $(".play-button").hide();
+    $(".stop-button").show();
+}
+
+function stopTv(){
+    audio_player.pause();
+    $(".gif").hide();
+    $(".stop-button").hide();
+    $(".play-button").show();
+}
 
 //startOffAir();
 

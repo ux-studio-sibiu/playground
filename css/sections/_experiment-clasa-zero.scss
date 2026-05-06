@@ -41,11 +41,31 @@ section#clasa-zero-iframe > div
 		top: 0;
 		left: 0;
 		box-shadow: 3px 5px rgba(0, 0, 0, 0.3294117647);
+
+
+			div.qr-code{
+			height:200px;
+			width:200px;
+			margin-top:30px;
+			margin-left:75px;
+			border: 4px solid #000;
+			background-image: url('../img/preload/qr-clasa-zero.jpg');
+			background-size:cover;
+			background-position:center center;
+
+			@media (max-width: 1600px) { 
+					height: 140px;
+					width: 140px;
+					margin-left: 80px;
+			}
+		}
 	}
 
 	@media (max-height: 900px) { 
 		.tablet-view{ top:6vh; height: calc(90vh - 50px);}
 
 	}
+
+	
 
 }

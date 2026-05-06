@@ -3583,6 +3583,23 @@ section#clasa-zero-iframe > div .info-box {
   left: 0;
   box-shadow: 3px 5px rgba(0, 0, 0, 0.3294117647);
 }
+section#clasa-zero-iframe > div .info-box div.qr-code {
+  height: 200px;
+  width: 200px;
+  margin-top: 30px;
+  margin-left: 75px;
+  border: 4px solid #000;
+  background-image: url("../img/preload/qr-clasa-zero.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+@media (max-width: 1600px) {
+  section#clasa-zero-iframe > div .info-box div.qr-code {
+    height: 140px;
+    width: 140px;
+    margin-left: 80px;
+  }
+}
 @media (max-height: 900px) {
   section#clasa-zero-iframe > div .tablet-view {
     top: 6vh;
@@ -3619,9 +3636,27 @@ section#Contact > div {
   background-repeat: no-repeat;
   background-position: top right;
 }
-
-.bussiness-card {
+section#Contact > div iframe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: none;
   box-shadow: rgba(5, 5, 5, 0.2) -4px 4px 10px 2px;
+}
+section#Contact > div .card-container {
+  left: 120px;
+  transform: rotate(-7deg);
+}
+section#Contact > div .card-container .bussiness-card {
+  padding: 0;
+  box-shadow: rgba(5, 5, 5, 0.2) -4px 4px 10px 2px;
+  box-shadow: rgba(103, 103, 103, 0.1) -4px 4px 10px 2px;
+}
+@media (max-width: 1600px) {
+  section#Contact > div .card-container {
+    transform: scale(0.8) rotate(-7deg) !important;
+    left: 240px;
+  }
 }
 
 /* -------------------------------- 
@@ -4147,6 +4182,7 @@ html.use-custom-cursor .cursor {
   border: none;
   height: 50px;
   font-size: 18px;
+  border-bottom: 1px solid #000;
 }
 
 .navbar-inverse .navbar-nav > li > a {

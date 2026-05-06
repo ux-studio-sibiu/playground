@@ -299,6 +299,9 @@ function initHijacking() {
 }
 
 function scrollHijacking(event) {
+    // allow browser zoom when Ctrl is pressed
+    if (event.ctrlKey) return;
+
     // on mouse scroll - check if animate section
     if (event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0) {
         delta--;
@@ -474,7 +477,16 @@ $('.navbar-nav li.link').bind('click', function (event) {
     goToSection(event, goToSectionNumber);    
 });
 
-$('.scrollable-container').on('mousewheel DOMMouseScroll', function (e) { e.stopPropagation();})
+$('.scrollable-container').on('mousewheel DOMMouseScroll', function (e) {
+    var el = this;
+    var delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
+    var scrollingDown = delta < 0;
+    var atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+
+    if (scrollingDown && atBottom) return;
+
+    e.stopPropagation();
+})
 
 
 $("[data-loop-img]").each(function(){
@@ -536,6 +548,7 @@ $("[data-loop-img]").each(function(){
 //         currentElem.attr("data-img", nextImage);
 //    }, loopDuration); 
 });
+
 
 function unbindScroll(section, time) {
     //if clicking on navigation - unbind scroll and animate using custom velocity animation
