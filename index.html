@@ -474,13 +474,35 @@
 
         <!-- // decrease font size in cv -->
         <script>
-            const iframe = document.getElementById("iframe-resume");
-            iframe.addEventListener("load", function() {
+            function applyIframeStyles() {
+                const iframe = document.getElementById("iframe-resume");
+                if (!iframe) return;
+                
                 const doc = iframe.contentDocument || iframe.contentWindow.document;
                 const style = doc.createElement("style");
                 style.textContent = ".markdown-body { font-size:14px !important;}";
                 doc.head.appendChild(style);
-            });
+            }
+            
+            function waitForIframeAndApply() {
+                const iframe = document.getElementById("iframe-resume");
+                
+                if (!iframe) {
+                    // iframe doesn't exist yet, retry
+                    requestAnimationFrame(waitForIframeAndApply);
+                    return;
+                }
+                
+                // iframe exists, wait for it to load
+                iframe.addEventListener("load", applyIframeStyles);
+            }
+            
+            // Wait until DOM is ready
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", waitForIframeAndApply);
+            } else {
+                waitForIframeAndApply();
+            }
         </script>
 
     </section>
