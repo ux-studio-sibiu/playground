@@ -49,7 +49,7 @@ Main Components
 
 @media only screen and (min-width: 1050px) {
     .cd-section {
-        min-height: 100vh;
+        min-height: calc(100vh - 50px);
         // margin-bottom: 50px;
     }
 
@@ -183,6 +183,7 @@ h2.section-heading {
         visibility: hidden;
         position: absolute;
         top: 50px;
+        height: calc(100% - 50px);
         left: 0;
         width: 100%;
     }
