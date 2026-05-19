@@ -3106,6 +3106,20 @@ section#Intro > div {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
+  position: relative;
+}
+
+section#Intro .intro-content {
+  position: relative;
+  z-index: 2;
+}
+
+section#Intro .intro-accent-separator {
+  display: inline-block;
+  transition: transform 90ms ease-out;
+  transform: rotate(0deg);
+  transform-origin: center center;
+  will-change: transform;
 }
 
 section#Skills > div {

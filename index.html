@@ -45,10 +45,10 @@
                         mix-blend-mode: difference;">
                         <source src="img/preload/static.webm" type="video/webm">
                 </video>
-
-                <div class="col-md-12" style="color:#fff; ">
+ 
+                <div class="col-md-12 intro-content" style="color:#fff; ">
                     
-                        <h1 class="section-heading center-text text-shadow-light font-poppins neon-text-flicker-disabled" style="font-size:70px"><span>Țurcanu Răzvan</span> <span style="color:yellow">|</span> <span>Portfolio</span></h1>
+                                                <h1 class="section-heading center-text text-shadow-light font-poppins neon-text-flicker-disabled" style="font-size:70px"><span>Țurcanu Răzvan</span> <span class="intro-accent-separator" style="color:yellow">|</span> <span>Portfolio</span></h1>
                         <p class="lead section-lead center-text text-shadow-disabled font-poppins neon-text-disabled">small collage of projects, concepts, and interactive experiments</p>
                     
                 </div>
@@ -932,6 +932,60 @@
 
 
         jQuery(document).ready(function ($) {
+
+            var introSection = $("#Intro");
+            var introSeparator = $(".intro-accent-separator");
+            var introTiltDegrees = 12;
+            var introDeadZonePx = 100;
+            var introNeutralBandPx = 100;
+            var introMousemoveThrottleMs = 400;
+            var lastIntroTiltUpdateTs = 0;
+
+            $(document).on("mousemove", function (event) {
+                var now = Date.now();
+                if ((now - lastIntroTiltUpdateTs) < introMousemoveThrottleMs) {
+                    return;
+                }
+                lastIntroTiltUpdateTs = now;
+
+                if (!introSeparator.length || !introSection.hasClass("visible")) {
+                    introSeparator.css("transform", "rotate(0deg)");
+                    return;
+                }
+
+                var separatorOffset = introSeparator.offset();
+                if (!separatorOffset) {
+                    return;
+                }
+
+                var separatorCenterX = separatorOffset.left + (introSeparator.outerWidth() / 2);
+                var separatorCenterY = separatorOffset.top + (introSeparator.outerHeight() / 2);
+                var cursorDeltaX = event.pageX - separatorCenterX;
+                var cursorDeltaY = event.pageY - separatorCenterY;
+                var isCursorBelowSeparator = event.pageY > separatorCenterY;
+
+                if (Math.abs(cursorDeltaY) <= (introNeutralBandPx / 2)) {
+                    introSeparator.css("transform", "rotate(0deg)");
+                    return;
+                }
+
+                if (Math.abs(cursorDeltaX) <= introDeadZonePx) {
+                    introSeparator.css("transform", "rotate(0deg)");
+                    return;
+                }
+
+                var tiltDirection = cursorDeltaX < 0 ? -1 : 1;
+                if (isCursorBelowSeparator) {
+                    tiltDirection = -tiltDirection;
+                }
+
+                introSeparator.css("transform", "rotate(" + (tiltDirection * introTiltDegrees) + "deg)");
+            });
+
+            $(document).on("mouseleave", function () {
+                lastIntroTiltUpdateTs = 0;
+                introSeparator.css("transform", "rotate(0deg)");
+            });
     
             //dynamically load and add .css or .js file
             function loadjscssfile(filename, filetype) {

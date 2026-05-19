@@ -2,37 +2,68 @@ const fs = require('fs');
 const path = require('path');
 
 const srcDir = path.join(__dirname, 'src');
-const cvDir = path.join(__dirname, 'cv');
 const outFile = path.join(__dirname, 'index.html');
 
-function extractBodyContent(html) {
-    const match = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    return match ? match[1] : html;
+// INCLUDES: hardcoded list of all @@include tokens used in src/
+// To add a new partial: see README.md
+const INCLUDES = [
+    { token: "@@include('partials/head.html')",                      file: 'src/partials/head.html' },
+    { token: "@@include('partials/intro.html')",                     file: 'src/partials/intro.html' },
+    { token: "@@include('partials/tools.html')",                     file: 'src/partials/tools.html' },
+    { token: "@@include('partials/projects-header.html')",           file: 'src/partials/projects-header.html' },
+    { token: "@@include('partials/project-advisor.html')",           file: 'src/partials/project-advisor.html' },
+    { token: "@@include('partials/project-case-deschise.html')",     file: 'src/partials/project-case-deschise.html' },
+    { token: "@@include('partials/project-4in1.html')",              file: 'src/partials/project-4in1.html' },
+    { token: "@@include('partials/project-multidevice.html')",       file: 'src/partials/project-multidevice.html' },
+    { token: "@@include('partials/project-white.html')",             file: 'src/partials/project-white.html' },
+    { token: "@@include('partials/project-ghost.html')",             file: 'src/partials/project-ghost.html' },
+    { token: "@@include('partials/project-configurator.html')",      file: 'src/partials/project-configurator.html' },
+    { token: "@@include('partials/project-mipayadmin.html')",        file: 'src/partials/project-mipayadmin.html' },
+    { token: "@@include('partials/project-checkout-prototype.html')", file: 'src/partials/project-checkout-prototype.html' },
+    { token: "@@include('partials/experiments-header.html')",        file: 'src/partials/experiments-header.html' },
+    { token: "@@include('partials/experiment-clasa-zero.html')",     file: 'src/partials/experiment-clasa-zero.html' },
+    { token: "@@include('partials/experiment-zoom.html')",           file: 'src/partials/experiment-zoom.html' },
+    { token: "@@include('partials/experiment-map.html')",            file: 'src/partials/experiment-map.html' },
+    { token: "@@include('partials/experiment-optimize.html')",       file: 'src/partials/experiment-optimize.html' },
+    { token: "@@include('partials/experiment-radio.html')",          file: 'src/partials/experiment-radio.html' },
+    { token: "@@include('partials/experiments-architecture-portfolio.html')", file: 'src/partials/experiments-architecture-portfolio.html' },
+    { token: "@@include('partials/resume.html')",                    file: 'src/partials/resume.html' },
+    { token: "@@include('partials/contact.html')",                   file: 'src/partials/contact.html' },
+    { token: "@@include('partials/nav.html')",                       file: 'src/partials/nav.html' },
+    { token: "@@include('partials/scripts.html')",                   file: 'src/partials/scripts.html' },
+    // Nested include inside contact.html — bodyOnly extracts <body> content from a full HTML document
+    { token: "@@include('../../cv/resume-turcanu-razvan.html')",     file: 'cv/resume-turcanu-razvan.html', bodyOnly: true },
+];
+
+// Replace token in html, leaving tokens inside <!-- --> comments untouched.
+function replaceToken(html, token, content) {
+    const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return html.replace(new RegExp('<!--[\\s\\S]*?-->|' + escaped, 'g'), (match) => {
+        return match === token ? content : match;
+    });
 }
 
 function build() {
-    const template = fs.readFileSync(path.join(srcDir, 'index.html'), 'utf8');
+    let output = fs.readFileSync(path.join(srcDir, 'index.html'), 'utf8');
 
-    function processIncludes(html, baseDir) {
-        const INCLUDE_RE = /<!--.*?@@include\('(.+?)'\).*?-->|@@include\('(.+?)'\)/g;
-        return html.replace(INCLUDE_RE, (match, commentedPath, activePath) => {
-            if (commentedPath) return match;
-            const fullPath = path.join(baseDir, activePath);
+    // Two passes: first resolves top-level includes (which may introduce nested tokens),
+    // second resolves anything that became visible after the first pass (e.g. CV inside contact).
+    for (let pass = 0; pass < 2; pass++) {
+        for (const { token, file, bodyOnly } of INCLUDES) {
+            if (!output.includes(token)) continue;
+            const fullPath = path.join(__dirname, file);
             if (!fs.existsSync(fullPath)) {
-                console.error(`Missing partial: ${fullPath}`);
+                console.error(`Missing file: ${fullPath}`);
                 process.exit(1);
             }
-            const content = fs.readFileSync(fullPath, 'utf8');
-            // If it's a full HTML document, inline only the <body> content
-            if (content.trimStart().toLowerCase().startsWith('<!doctype')) {
-                return extractBodyContent(content);
+            let content = fs.readFileSync(fullPath, 'utf8');
+            if (bodyOnly) {
+                const match = content.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+                content = match ? match[1] : content;
             }
-            // Recursively process includes relative to the included file's directory
-            return processIncludes(content, path.dirname(fullPath));
-        });
+            output = replaceToken(output, token, content);
+        }
     }
-
-    const output = processIncludes(template, srcDir);
 
     fs.writeFileSync(outFile, output, 'utf8');
     console.log(`[${new Date().toLocaleTimeString()}] Built index.html`);
@@ -41,14 +72,12 @@ function build() {
 build();
 
 if (process.argv.includes('--watch')) {
-    console.log('Watching src/ and cv/ for changes...');
-    const onChange = (event, filename) => {
+    console.log('Watching src/ for changes...');
+    fs.watch(srcDir, { recursive: true }, (event, filename) => {
         if (filename && filename.endsWith('.html')) {
             console.log(`Changed: ${filename}`);
             build();
         }
-    };
-    fs.watch(srcDir, { recursive: true }, onChange);
-    fs.watch(cvDir, { recursive: true }, onChange);
+    });
 }
 
