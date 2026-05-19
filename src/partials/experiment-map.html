@@ -2,7 +2,8 @@
     <section id="map-iframe" class="cd-section">
         <div>
             
-            <iframe src="https://vue-playground-mauve.vercel.app/map?curated" class="full-screen-iframe" style="position:relative"></iframe>
+            <iframe data-src="https://vue-playground-mauve.vercel.app/map?curated" class="full-screen-iframe" style="position:relative"></iframe>
+            <script>setTimeout(function(){ var el = document.querySelector('#map-iframe iframe'); el.src = el.dataset.src; }, 2000);</script>
             
            <div class="info-box info-box-fixed info-box-white markdown-body scrollable-container scroll-white" style="width: 400px;">
                 <div class="scroll-container">
