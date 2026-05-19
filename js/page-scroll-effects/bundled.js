@@ -481,9 +481,12 @@ $('.scrollable-container').on('mousewheel DOMMouseScroll', function (e) {
     var el = this;
     var delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
     var scrollingDown = delta < 0;
+    var scrollingUp = delta > 0;
     var atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+    var atTop = el.scrollTop <= 0;
 
     if (scrollingDown && atBottom) return;
+    if (scrollingUp && atTop) return;
 
     e.stopPropagation();
 })

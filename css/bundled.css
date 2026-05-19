@@ -2795,6 +2795,37 @@ section.visible .hvr-buzz-pulse-grow {
   overflow-y: auto;
   max-height: 100%;
 }
+.scrollable-container::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollable-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollable-container::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+}
+
+.scrollable-container.scroll-black {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+.scrollable-container.scroll-black::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+.scrollable-container.scroll-black::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.scrollable-container.scroll-white {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+.scrollable-container.scroll-white::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+.scrollable-container.scroll-white::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
 
 .font-160 {
   font-size: 160px;
@@ -2962,6 +2993,7 @@ section > div div.info-box.info-box-fixed {
   direction: rtl;
 }
 section > div div.info-box.info-box-fixed .scroll-container {
+  height: 100%;
   direction: ltr;
   padding: 20px;
 }
@@ -2977,7 +3009,7 @@ section > div div.info-box.info-box-white {
   box-shadow: 3px 5px rgba(0, 0, 0, 0.3294117647);
 }
 section > div div.info-box.info-box-black {
-  background-color: #000000;
+  background-color: #1d1d1d;
   color: #fff;
   border: none;
   text-shadow: none;
