@@ -11,6 +11,9 @@
 
 @use "topnav";
 
+a:focus{outline:none !important;}
+
+
 
 @font-face {
   font-family: "Poppins";

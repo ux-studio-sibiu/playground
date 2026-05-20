@@ -319,72 +319,30 @@ function scrollHijacking(event) {
 
 // Listen to messages from iframes
 window.addEventListener("message", e => {
-  if (e.data.type === "scroll") {
-    if (e.data.deltaY < 0) prevSection()
-    else nextSection()
-  }
+  if (!e || !e.data || typeof e.data !== "object") return;
+  if (e.data.type !== "scroll") return;
+  if (e.data.deltaY < 0) prevSection()
+  else nextSection()
 });
 
 
 
 function prevSection(event) {
-    //go to previous section
+    //go to previous section — delegate to goToSection so the key/scroll path is
+    //identical to the nav-click path (the latter is known to work even with
+    //iframe-heavy sections).
     typeof event !== 'undefined' && event.preventDefault();
-
-    var visibleSection = sectionsAvailable.filter('.visible'),
-        middleScroll = (hijacking == 'off' && $(window).scrollTop() != visibleSection.offset().top) ? true : false;
-    visibleSection = middleScroll ? visibleSection.next('.cd-section') : visibleSection;
-
-    var animationParams = selectAnimation(animationType, middleScroll, 'prev'); console.log("prev " + actual + ">" + (actual - 1) + "   " + animationParams);
-    unbindScroll(visibleSection.prev('.cd-section'), animationParams[3]);
-
-        
-
-    if (!animating && !visibleSection.is(":first-child")) {
-        animating = true;
-        visibleSection.removeClass('visible').children('div').velocity(animationParams[2], animationParams[3], animationParams[4])
-        .end().prev('.cd-section').addClass('visible').children('div').velocity(animationParams[0], animationParams[3], animationParams[4], function () {
-            animating = false;
-            if (hijacking == 'off') $(window).on('scroll', scrollAnimation);
-        });
-
-        actual = actual - 1;
-        $(".navbar-nav li.link").removeClass("active").eq(actual-1).addClass("active");
-            
-
-    }
-    const currentSection = visibleSection.prev('.cd-section')
-
-    resetScroll();
-    callbackAfterSectionChange()
-
+    if (actual <= 1) return;
+    goToSection(event, actual - 1);
 }
-    
+
 function nextSection(event) {
-    //go to next section
+    //go to next section — delegate to goToSection (see prevSection comment).
     typeof event !== 'undefined' && event.preventDefault();
-
-    var visibleSection = sectionsAvailable.filter('.visible'),
-        middleScroll = (hijacking == 'off' && $(window).scrollTop() != visibleSection.offset().top) ? true : false;
-
-    var animationParams = selectAnimation(animationType, middleScroll, 'next'); console.log("next " + actual + "<" + (actual + 1) + "   " + animationParams)
-    unbindScroll(visibleSection.next('.cd-section'), animationParams[3]);
-
-    if (!animating && !visibleSection.is(":last-of-type")) {
-        animating = true;
-        visibleSection.removeClass('visible').children('div').velocity(animationParams[1], animationParams[3], animationParams[4])
-        .end().next('.cd-section').addClass('visible').children('div').velocity(animationParams[0], animationParams[3], animationParams[4], function () {
-            animating = false;
-            if (hijacking == 'off') $(window).on('scroll', scrollAnimation);
-        });
-
-        actual = actual + 1;
-        $(".navbar-nav li.link").removeClass("active").eq(actual - 1).addClass("active");
-        
-    }
-    resetScroll();
-    callbackAfterSectionChange();
+    if (actual >= sectionsAvailable.length) return;
+    goToSection(event, actual + 1);
 }
+
 //goToSection Function - only for data-ijacking = OFF
 function goToSection(event, sectionNumber) {
     //go to next section
