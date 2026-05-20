@@ -10,11 +10,10 @@
 }
 
 section#Advisor > div{
-		background-color: #e4e4e4 !important;
-		background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(155, 155, 155) 100%);
-		background-image: url($Project-Advisor-bk);
+		
+		// background-color: #1d1d1d !important;
+		background-color: #3d3d3d !important;
 		background-repeat: no-repeat;
-		// background-position: center center;
 		animation: pan 6s linear infinite alternate;
 		overflow:hidden;
 
@@ -66,7 +65,7 @@ section#Advisor > div{
 				.bullet{
 					width:8px;
 					height:8px;
-					background:#000;
+					background:#ffffff;
 					margin-right:8px;
 					float:left;
 					opacity:0.3;

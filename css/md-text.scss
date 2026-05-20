@@ -25,6 +25,13 @@
   &.markdown-body-black{
     color: #d0d7de !important;
   }
+
+.stack-section{
+  
+  text-align:justify;
+  line-height: 1.8;
+}
+
 }
 
 /* Headings */
@@ -95,6 +102,7 @@
   font-family: ui-monospace, SFMono-Regular, Consolas,
                "Liberation Mono", Menlo, monospace;
   font-size: 0.9em;
+  white-space: nowrap;
   background-color: #e7e7e7;
   padding: 0.2em 0.4em;
   border-radius: 6px;

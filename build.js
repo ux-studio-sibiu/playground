@@ -24,6 +24,7 @@ const INCLUDES = [
     { token: "@@include('partials/experiment-clasa-zero.html')",     file: 'src/partials/experiment-clasa-zero.html' },
     { token: "@@include('partials/experiment-zoom.html')",           file: 'src/partials/experiment-zoom.html' },
     { token: "@@include('partials/experiment-map.html')",            file: 'src/partials/experiment-map.html' },
+    { token: "@@include('partials/legacy-header.html')",             file: 'src/partials/legacy-header.html' },
     { token: "@@include('partials/experiment-optimize.html')",       file: 'src/partials/experiment-optimize.html' },
     { token: "@@include('partials/experiment-radio.html')",          file: 'src/partials/experiment-radio.html' },
     { token: "@@include('partials/experiments-architecture-portfolio.html')", file: 'src/partials/experiments-architecture-portfolio.html' },

@@ -1,5 +1,16 @@
     <section id="Advisor" class="cd-section ">
         <div>
+            <video autoplay muted loop playsinline 
+                        style="position:absolute;
+                        top:0;left:0;
+                        width:100%;height:100%;
+                        object-fit:cover;z-index:0;
+                        pointer-events:none;
+                        filter:grayscale(1);
+                        /* opacity:0.5; */
+                        mix-blend-mode: difference;">
+                        <source src="img/preload/static.webm" type="video/webm">
+                </video>
 
             <div class="screens">
                 <div class="screen s1"> <div class="screen-wrap"> <div class="browser-bar" style="border-bottom: 1px solid #e5e5e5; filter: brightness(0.8);"> </div> <div class="advisor-image sidenav-menus-new"  data-loop-img="13" data-loop-duration="400" data-img='1'> </div> </div> </div>
@@ -83,7 +94,7 @@
 
                 <br/>
 
-                <section>
+                <section class="stack-section" style="padding-bottom:20px">
                         <strong><code>Stack</code> : </strong>
                         <code>git</code>
                         <code>.NET</code>

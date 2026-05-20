@@ -232,6 +232,8 @@ function bindEvents(MQ, bool) {
         });
         //set navigation arrows visibility
         checkNavigation();
+        // Dispatch initialization event
+        document.dispatchEvent(new Event('navigation:initialized'));
     } else if (MQ == 'mobile') {
         //reset and unbind
         resetSectionStyle();
@@ -240,6 +242,8 @@ function bindEvents(MQ, bool) {
         prevArrow.off('click', prevSection);
         nextArrow.off('click', nextSection);
         $(document).off('keydown');
+        // Dispatch initialization event
+        document.dispatchEvent(new Event('navigation:initialized'));
     }
 }
 

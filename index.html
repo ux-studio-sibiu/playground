@@ -24,16 +24,15 @@
 
 <body data-hijacking="on" data-animation="scaleDown" class="the-bk loading h-100">
 
-    <!-- TMP: webm background replacing .the-bk image -->
-    <!-- <video autoplay muted loop playsinline id="bk-video" style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;pointer-events:none;">
-        <source src="img/preload/static.webm" type="video/webm">
-    </video> -->
+
 
         <!-- INTRO Section -->
     <section id="Intro" class="cd-section visible">
         
         <div class="vertical-align">
 
+                <!-- <div class="noise"> </div> -->
+                <!-- <div class="svg-background-lines"> </div> -->
                 <video autoplay muted loop playsinline 
                         style="position:absolute;
                         top:0;left:0;
@@ -45,17 +44,24 @@
                         mix-blend-mode: difference;">
                         <source src="img/preload/static.webm" type="video/webm">
                 </video>
- 
+                
+
                 <div class="col-md-12 intro-content" style="color:#fff; ">
                     
-                                                <h1 class="section-heading center-text text-shadow-light font-poppins neon-text-flicker-disabled" style="font-size:70px"><span>Țurcanu Răzvan</span> <span class="intro-accent-separator" style="color:yellow">|</span> <span>Portfolio</span></h1>
-                        <p class="lead section-lead center-text text-shadow-disabled font-poppins neon-text-disabled">small collage of projects, concepts, and interactive experiments</p>
-                    
+                        <h1 class="section-heading cursor-default center-text text-shadow-light font-bebas neon-text-flicker-disabled" style="font-size:70px"><span class="text-razvan">Țurcanu Răzvan</span> <span class="intro-accent-separator" style="color:yellow">|</span> <span class="text-portfolio">Portfolio</span></h1>
+                        <p class="lead section-lead center-text text-shadow font-poppins neon-text-disabled">
+                                <!-- old-school<span style="color:yellow"> / </span> -->
+                                
+                                <span class="subtitle-slash" >:</span>interfaces <span class="subtitle-divider" >-</span> 
+                                <span class="subtitle-slash" >:</span>concepts <span class="subtitle-divider" >-</span>  
+                                <span class="subtitle-slash" >:</span>experiments <span class="subtitle-divider" >-</span> 
+                                <span class="subtitle-slash" >:</span>new-school <span class="subtitle-divider" >-</span>
+                                <span class="subtitle-slash" >:</span>old-school <span class="subtitle-divider" >-</span> 
+                        </p>
                 </div>
                 
         </div>
     </section>
-    <!-- @@include('partials/skills.html') -->
         <!-- TOOLS Section -->
     <section id="Tools" class="cd-section ">
         <div class="vertical-align">
@@ -140,7 +146,6 @@
     </section>
 
     <!-- Projects Section -->
-
         <section id="Projects" class="cd-section">
         <div class="vertical-align">  
                     <div class="col-md-12">
@@ -152,6 +157,17 @@
     </section>
         <section id="Advisor" class="cd-section ">
         <div>
+            <video autoplay muted loop playsinline 
+                        style="position:absolute;
+                        top:0;left:0;
+                        width:100%;height:100%;
+                        object-fit:cover;z-index:0;
+                        pointer-events:none;
+                        filter:grayscale(1);
+                        /* opacity:0.5; */
+                        mix-blend-mode: difference;">
+                        <source src="img/preload/static.webm" type="video/webm">
+                </video>
 
             <div class="screens">
                 <div class="screen s1"> <div class="screen-wrap"> <div class="browser-bar" style="border-bottom: 1px solid #e5e5e5; filter: brightness(0.8);"> </div> <div class="advisor-image sidenav-menus-new"  data-loop-img="13" data-loop-duration="400" data-img='1'> </div> </div> </div>
@@ -235,7 +251,7 @@
 
                 <br/>
 
-                <section>
+                <section class="stack-section" style="padding-bottom:20px">
                         <strong><code>Stack</code> : </strong>
                         <code>git</code>
                         <code>.NET</code>
@@ -262,7 +278,7 @@
             
             <div class="info-box info-box-fixed info-box-black markdown-body markdown-body-black scrollable-container scroll-black" style="box-shadow:none; border-right:2px solid #b1b1b1;">
                 <div class="scroll-container" style="padding: 20px;"> 
-                    <div class="qr-code"> </div>
+                    
                     <section>
                         <a style="font-size: 2.4rem; margin: 10px 0 30px 27px !important; color:#fff; display: inline-block; outline: none;" href="https://casedeschise.ro/" target="_blank"><strong><code>www.casedeschise.ro</code></strong></a>
                         <ul>
@@ -271,7 +287,7 @@
                         </ul>
                     </section>
 
-                    <section>
+                    <section class="stack-section"">
                         <strong><code>Stack</code> : </strong>
                         <code>react</code>
                         <code>next.js</code>
@@ -284,8 +300,8 @@
                         <code>github actions</code>
                         <code>vercel</code>
                     </section>
-                    <br>
-                    <section>
+                    
+                    <section style="margin-top:20px">
                     
                         <ul>
                             <li>registration for each location : build-in form + email QR (Resend) + built-in QR validator</li>
@@ -305,6 +321,8 @@
                             
                         </ul>
                     </section>
+
+                    <!-- <div class="qr-code float-left"> </div> -->
                 </div>
             </div>
         </div>
@@ -319,60 +337,8 @@
             </div>
         </div>
     </section>
-    <!-- @@include('partials/project-multidevice.html') -->
-        <section id="Project-White" class="cd-section">
-        <div>
-            <video loop muted autoplay class=""><source src="img/preload/fnt.mp4" type="video/mp4" /> </video>
 
-            <div class="info-box" style="max-width:unset">
-                <span class="year">[2016]</span> Implementation example of <span style="color:#DF629C">previous concept</span><br><br>
- 
-                - <span style="color:#DF629C">custom SPA</span> implementation with jQuery and .NET MVC<br>
-                - standard UI stucture + <span style="color:#0099ca">client design guide</span><br>
-                - responsive, mobile-first, cross-browser
-            </div> 
-        </div>
-
-
-    </section>
-    <!-- @@include('partials/project-ghost.html') -->
-        <section id="Project-Configurator" class="cd-section">
-        <div >
-            <div class="info-box" style="max-width: unset;"> 
-                <span class="year">[2015]</span> Internal tool for managing <span style="color:#0099ca">team roadmap</span><br><br>
-                
-                - breakdown of <span style="color:#DF629C">effort and time estimates</span><br>
-                - ques projects acording to resurce availability. <br>
-                - <span style="color:#0099ca">interactive timeline</span> with scheduled projects. <br>
-                - mobile-first, <span style="color:#DF629C">responsive design</span>, .NET, jQuery, Bootstrap
-            </div>  
-
-        </div>
-    </section>
-        <section id="MipayAdmin" class="cd-section">
-        <div class="parent">
-            <!--<div class="window">
-                <div class="gif"> </div>-->
-
-            <video loop muted controls class="">
-                <source src="img/preload/admin.mp4" type="video/mp4" />
-            </video>
-
-            <div class="info-box" style="max-width: unset;">
-                <span class="year">[2017]</span> Admin dashboard (fraud screening)<br><br>
-                - tracks custumers, orders and transactions <br>
-
-                - SPA: <span style="color:#0099ca">.NET Core</span> + <span style="color:#DF629C">Angular 2</span><br>
-                - <span style="color:#DF629C">live search </span> and <span style="color:#0099ca">live filter</span> database entries<br>
-                - <span style="color:#0099ca">filter state persists</span> via query string<br>
-                - <span style="color:#DF629C">share state by url</span> is useful for investigating customer cases<br>
-                - client-scoped <span style="color:#0099ca">access control</span> for users<br>
-</div>
-
-    </section>
-
-    <!-- @@include('partials/project-checkout-prototype.html') -->
-
+    <!-- Experiments Section -->
         <!-- Experiments Section -->
     <section id="Demos" class="cd-section ">
         <div class="vertical-align">  
@@ -424,7 +390,7 @@
 
                     <br/>
 
-                    <section>
+                    <section class="stack-section" style="padding-bottom:20px">
                         <strong><code>Stack</code> : </strong>
                         <code>react</code>
                         <code>next.js</code>
@@ -459,7 +425,7 @@
                     </section>
 
                     <br>
-                    <section>
+                    <section class="stack-section">
                         <strong><code>Stack</code> : </strong>
                         <code>vue</code>
                         <code>nuxt</code>
@@ -500,7 +466,7 @@
                     </section>
 
                     <br>
-                    <section>
+                    <section class="stack-section">
                         <strong><code>Stack</code> : </strong>
                         <code>vue</code>
                         <code>nuxt</code>
@@ -515,6 +481,18 @@
             </div>
         </div>
     </section>
+    
+    <!-- Legacy Section -->
+        <!-- Legacy Section -->
+    <section id="Legacy" class="cd-section">
+        <div class="vertical-align">
+                    <div class="col-md-12">
+                        <h1 class="section-heading center-text font-160">Legacy</h1>
+                        <p class="lead section-lead center-text">This section features archived work and older interface explorations</p>
+                    </div>
+        </div>
+    </section>
+
         <!-- Demos-Optimize Section -->
     <section id="optimize-studio-iframe" class="cd-section">
         <div>
@@ -529,6 +507,19 @@
                     - obsesess over <span style="color:#0099ca">optimisation</span><br>
                     - presented here in an iframe: 'Enter' click, hover and scroll around<br> 
             </div>
+        </div>
+    </section>
+        <section id="Project-Configurator" class="cd-section">
+        <div >
+            <div class="info-box" style="max-width: unset;"> 
+                <span class="year">[2015]</span> Internal tool for managing <span style="color:#0099ca">team roadmap</span><br><br>
+                
+                - breakdown of <span style="color:#DF629C">effort and time estimates</span><br>
+                - ques projects acording to resurce availability. <br>
+                - <span style="color:#0099ca">interactive timeline</span> with scheduled projects. <br>
+                - mobile-first, <span style="color:#DF629C">responsive design</span>, .NET, jQuery, Bootstrap
+            </div>  
+
         </div>
     </section>
         <!-- Demos-Radio Section -->
@@ -548,8 +539,11 @@
             </div> 
         </div>
     </section>
-    <!-- @@include('partials/experiments-architecture-portfolio.html') -->
-    <!-- @@include('partials/resume.html') -->
+    
+    <!-- @@include('partials/project-white.html') -->
+    <!-- @@include('partials/project-mipayadmin.html') -->
+    
+    <!-- ContactSection -->
         <!-- CONTACT Section -->
     <section id="Contact" class="cd-section">
         <div class="vertical-align">
@@ -832,12 +826,6 @@
         <!-- Navigation -->
 
     <span id="not-mobile">  </span>
-    <span id="progress-loader">
-            <span id="bar">
-                    <span id="inner-bar"></span>
-                    <span id="inner-text">just one sec</span>
-            </span>
-    </span>
 
     <div class="cursor"></div>
     <nav class="navbar navbar-inverse navbar-fixed-top font-poppins" role="navigation">
@@ -845,7 +833,7 @@
         <div>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-container">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -854,34 +842,28 @@
                 <span class="logo" onclick="location.reload();" style="cursor:pointer"></span>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="nav-container">
                 <ul class="nav navbar-nav" >
                         <li class="link active"><a href="#" >Hi!</a>  </li>
                         <!-- <li class="link"><a href="#">My skills</a></li> -->
-                        <li class="link"><a href="#">My tools</a>    </li>
+                        <li class="link"><a href="#">My-tools</a>    </li>
                                 
-                        <li class="link">      <a href="#">My work :</a>    </li>
+                        <li class="link">      <a href="#">My-work :</a>    </li>
                         <li class="link small-child-projects click-on-load">    <a href="#">1</a></li>
                         <li class="link small-child-projects">    <a href="#">2</a></li>
                         <li class="link small-child-projects">    <a href="#">3</a></li>
-                        <li class="link small-child-projects">    <a href="#">4</a></li>
-                        <li class="link small-child-projects">    <a href="#">5</a></li>
-                        <li class="link small-child-projects">    <a href="#">6</a></li>
-                        <!-- <li class="link small-child-projects">    <a href="#">7</a></li>
-                        <li class="link small-child-projects">    <a href="#">8</a></li> -->
 
                         <li class="link " ><a href="#">Experiments :</a>    </li>
                         <!-- <li class="link " ><a href="#">AI assisted :</a>    </li> -->
                         <li class="link small-child-projects">    <a href="#">1</a></li>
                         <li class="link small-child-projects">    <a href="#">2</a></li>
                         <li class="link small-child-projects">    <a href="#">3</a></li>
-                        <li class="link small-child-projects">    <a href="#">4</a></li>
-                        <li class="link small-child-projects">    <a href="#">5</a></li>
+
                         
-                        <!-- <li class="link " ><a href="#">Legacy :</a>    </li>
+                        <li class="link " ><a href="#">Legacy :</a>    </li>
                         <li class="link small-child-projects">    <a href="#">1</a></li>
                         <li class="link small-child-projects">    <a href="#">2</a></li>
-                        <li class="link small-child-projects">    <a href="#">3</a></li> -->
+                        <li class="link small-child-projects">    <a href="#">3</a></li>
                 
                         <!-- <li class="link"><a href="#">My Resume</a>  </li> -->
                         <li class="link"><a href="#">Contact</a>  </li>
@@ -892,12 +874,13 @@
         <!-- /.container -->
     </nav>
 
-    <nav>
+    <!-- <nav>
         <ul class="cd-vertical-nav">
             <li><a href="#" class="cd-prev">Next</a></li>
             <li><a href="#" class="cd-next">Prev</a></li>
         </ul>
-    </nav>
+    </nav> -->
+
         <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
@@ -1009,7 +992,6 @@
                 var i,
                     j,
                     loaded = 0
-                loader = $("#progress-loader #bar #inner-bar");
 
                 for (i = 0, j = pictureUrls.length; i < j; i++) {
                     (function (img, src) {
@@ -1022,7 +1004,7 @@
                                 }
 
 
-                                loader.css("width", (loaded / j * 100) + "%");
+                                // loader.css("width", (loaded / j * 100) + "%");
                                 $("#inner-text").html(src);
 
                             }, 10);
@@ -1040,108 +1022,101 @@
                 }
             };
 
-            // first batch to preload
-            preloadPictures([
 
-                'img/preload/intro.jpg',
-                'img/preload/skills.jpg',
-                'img/preload/cd-icon-arrow.png',
-                
-                'img/preload/logos/chrome.png',
-                'img/preload/logos/claude.png',
-                'img/preload/logos/figma.png',
-                'img/preload/logos/git.png',
-
-                'img/preload/logos/photoshop.png',
-                'img/preload/logos/html.png',
-                'img/preload/logos/react-white.png',
-                'img/preload/logos/vscode.png',
-                
-                'img/preload/4in1.jpg',
-                'img/preload/MultiDevice.jpg',
-
-                // 'img/preload/Foocall.jpg',
-                // 'img/preload/Ghost.jpg',
-                // 'img/preload/optimize.jpg',
-                // 'img/preload/checkout.jpg',
-                //'img/preload/Vodafone.jpg',
-                //'img/preload/3Roi.jpg',
-
-            ], function () {
-
-                //after all images load
-                // preload second batch
-                preloadPictures([
-
-                    'img/preload/case-deschise.jpg',
-                    'img/preload/qr.jpg',
-                    'img/preload/qr-clasa-zero.jpg',
-                    'img/preload/Configurator.jpg',
-                    'img/preload/architecture.jpg',
-                    'img/preload/pdf.png',
-                    'img/preload/bussiness-card.jpg',
-                    'img/preload/contact.jpg',
-                    'img/preload/radio.jpg',
-                    
-                    'img/preload/advisor/01-overview.jpg',
-                    'img/preload/advisor/02-case-management.jpg',
-                    'img/preload/advisor/03-customers.jpg',
-                    'img/preload/advisor/04-checklists.jpg',
-                    'img/preload/advisor/05-kyc.jpg',
-
-                    'img/preload/advisor/06-contacts.jpg',
-                    'img/preload/advisor/07-time-registration.jpg',
-                    'img/preload/advisor/08-outlays.jpg',
-                    'img/preload/advisor/09-invoicing.jpg',
-                    'img/preload/advisor/10-resource-planning.jpg',
-
-                    'img/preload/advisor/11-reports.jpg',
-                    'img/preload/advisor/12-settings.jpg',
-                    'img/preload/advisor/13-settings-2.jpg',
-
-                    'img/preload/advisor/ncw-00.jpg',
-                    'img/preload/advisor/ncw-01.jpg',
-                    'img/preload/advisor/ncw-02.jpg',
-                    'img/preload/advisor/ncw-03.jpg',
-                    'img/preload/advisor/ncw-04.jpg',
-                    'img/preload/advisor/ncw-05.jpg',
-
-                    'img/preload/advisor/oldies/laptop-mask.png',
-                    'img/preload/advisor/oldies/01-old.jpg',
-                    'img/preload/advisor/oldies/02-old.jpg',
-                    'img/preload/advisor/oldies/03-old.jpg',
-                    'img/preload/advisor/oldies/04-old.jpg',
-                    'img/preload/advisor/oldies/05-old.jpg',
-                    'img/preload/advisor/oldies/06-old.jpg',
-                    'img/preload/advisor/oldies/07-old.jpg',
-                    'img/preload/advisor/oldies/08-old-new.jpg',
-                    'img/preload/advisor/oldies/09-old-new.jpg',
-
-                    'img/preload/advisor/2026/01-overview.jpg',
-                    'img/preload/advisor/2026/02-case-management.jpg',
-                    'img/preload/advisor/2026/03-customers.jpg',
-                    'img/preload/advisor/2026/04-checklists.jpg',
-                    'img/preload/advisor/2026/05-kyc.jpg',
-                    'img/preload/advisor/2026/06-contacts.jpg',
-                    'img/preload/advisor/2026/07-time-reg.jpg',
-                    'img/preload/advisor/2026/08-outlays.jpg',
-                    'img/preload/advisor/2026/09-invoicing.jpg',
-                    'img/preload/advisor/2026/10-resource-planning.jpg',
-                    'img/preload/advisor/2026/11-reports.jpg',
-                    'img/preload/advisor/2026/12-settings.jpg',
-                    'img/preload/advisor/2026/13-settings.jpg',
-
-                ])
-
+            // Listen for navigation plugin initialization
+            document.addEventListener('navigation:initialized', function () {
                 $("body").removeClass("loading");
-                $("#progress-loader").remove();
-                console.log('loaded all images');
-
-                loadjscssfile("js/page-scroll-effects/bundled.js", "js") //dynamically load and add this .js file
-
                 $("img[data-src]").reveal("fadeIn", 0);
-
             });
+
+            // Ensure intro.jpg is fully loaded and rendered before removing loading class
+            var introImg = new window.Image();
+            introImg.onload = function () {
+                // Now preload the rest of the first batch
+                preloadPictures([
+                    'img/preload/skills.jpg',
+                    'img/preload/cd-icon-arrow.png',
+                    'img/preload/logos/chrome.png',
+                    'img/preload/logos/claude.png',
+                    'img/preload/logos/figma.png',
+                    'img/preload/logos/git.png',
+                    'img/preload/logos/photoshop.png',
+                    'img/preload/logos/html.png',
+                    'img/preload/logos/react-white.png',
+                    'img/preload/logos/vscode.png',
+                    'img/preload/4in1.jpg',
+                    'img/preload/MultiDevice.jpg',
+                    // 'img/preload/Foocall.jpg',
+                    // 'img/preload/Ghost.jpg',
+                    // 'img/preload/optimize.jpg',
+                    // 'img/preload/checkout.jpg',
+                    //'img/preload/Vodafone.jpg',
+                    //'img/preload/3Roi.jpg',
+                ], function () {
+
+                    console.log('loaded all images');
+                    loadjscssfile("js/page-scroll-effects/bundled.js", "js") //dynamically load and add this .js file
+                    
+                    //after all images load
+                    // preload second batch
+                    preloadPictures([
+                        'img/preload/case-deschise.jpg',
+                        'img/preload/qr.jpg',
+                        'img/preload/qr-clasa-zero.jpg',
+                        'img/preload/Configurator.jpg',
+                        'img/preload/architecture.jpg',
+                        'img/preload/pdf.png',
+                        'img/preload/bussiness-card.jpg',
+                        'img/preload/contact.jpg',
+                        'img/preload/radio.jpg',
+                        'img/preload/advisor/01-overview.jpg',
+                        'img/preload/advisor/02-case-management.jpg',
+                        'img/preload/advisor/03-customers.jpg',
+                        'img/preload/advisor/04-checklists.jpg',
+                        'img/preload/advisor/05-kyc.jpg',
+                        'img/preload/advisor/06-contacts.jpg',
+                        'img/preload/advisor/07-time-registration.jpg',
+                        'img/preload/advisor/08-outlays.jpg',
+                        'img/preload/advisor/09-invoicing.jpg',
+                        'img/preload/advisor/10-resource-planning.jpg',
+                        'img/preload/advisor/11-reports.jpg',
+                        'img/preload/advisor/12-settings.jpg',
+                        'img/preload/advisor/13-settings-2.jpg',
+                        'img/preload/advisor/ncw-00.jpg',
+                        'img/preload/advisor/ncw-01.jpg',
+                        'img/preload/advisor/ncw-02.jpg',
+                        'img/preload/advisor/ncw-03.jpg',
+                        'img/preload/advisor/ncw-04.jpg',
+                        'img/preload/advisor/ncw-05.jpg',
+                        'img/preload/advisor/oldies/laptop-mask.png',
+                        'img/preload/advisor/oldies/01-old.jpg',
+                        'img/preload/advisor/oldies/02-old.jpg',
+                        'img/preload/advisor/oldies/03-old.jpg',
+                        'img/preload/advisor/oldies/04-old.jpg',
+                        'img/preload/advisor/oldies/05-old.jpg',
+                        'img/preload/advisor/oldies/06-old.jpg',
+                        'img/preload/advisor/oldies/07-old.jpg',
+                        'img/preload/advisor/oldies/08-old-new.jpg',
+                        'img/preload/advisor/oldies/09-old-new.jpg',
+                        'img/preload/advisor/2026/01-overview.jpg',
+                        'img/preload/advisor/2026/02-case-management.jpg',
+                        'img/preload/advisor/2026/03-customers.jpg',
+                        'img/preload/advisor/2026/04-checklists.jpg',
+                        'img/preload/advisor/2026/05-kyc.jpg',
+                        'img/preload/advisor/2026/06-contacts.jpg',
+                        'img/preload/advisor/2026/07-time-reg.jpg',
+                        'img/preload/advisor/2026/08-outlays.jpg',
+                        'img/preload/advisor/2026/09-invoicing.jpg',
+                        'img/preload/advisor/2026/10-resource-planning.jpg',
+                        'img/preload/advisor/2026/11-reports.jpg',
+                        'img/preload/advisor/2026/12-settings.jpg',
+                        'img/preload/advisor/2026/13-settings.jpg',
+                    ])
+                    
+                });
+            };
+            // Start loading intro.jpg and only after it's loaded, continue
+            introImg.src = 'img/preload/intro.jpg';
 
 
         });
@@ -1149,6 +1124,25 @@
             // setTimeout(function(){ $("li.click-on-load").trigger("click") }, 100);
         </script>
 
+
+    <!-- Loader overlay (excluded from nav/section logic) -->
+    <div class="intro-loading-indicator" aria-hidden="true" data-loader="true">
+        <div class="intro-loading-indicator-viewport">
+            <div class="intro-loading-indicator-content" style="color:#fff;">
+                <h1 class="opacity-0 section-heading cursor-default center-text text-shadow-light font-bebas neon-text-flicker-disabled" style="font-size:70px"><span class="intro-loading-indicator-name">Țurcanu Răzvan</span> <span class="intro-loading-indicator-separator" style="color:yellow">|</span> <span class="intro-loading-indicator-label opacity-0">Portfolio</span></h1>
+                <p class="opacity-0 lead section-lead center-text text-shadow font-poppins neon-text-disabled">
+                        <span class="subtitle-slash" >:</span>interfaces <span class="subtitle-divider" >-</span> 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- @@include('partials/project-mipayadmin.html') -->
+    <!-- @@include('partials/project-ghost.html') -->
+    <!-- @@include('partials/project-multidevice.html') -->
+    <!-- @@include('partials/project-checkout-prototype.html') -->
+    <!-- @@include('partials/experiments-architecture-portfolio.html') -->
+    <!-- @@include('partials/resume.html') -->
 
 </body>
 

@@ -110,6 +110,16 @@ body{
 }
 
 
+.opacity-0 { opacity:0 !important;}
+
+.visibility-hidden{
+  visibility:hidden;
+}
+
+.cursor-default{
+  cursor:default !important;
+}
+
 
 /* -------------------------------------------------------------------------------------------------------------*/
 /* --------------------------------------------	       Hover Effects	    ------------------------------------*/
@@ -267,6 +277,9 @@ section.visible .hvr-buzz-pulse-grow{
 }
 
 .center-text, .c-text{text-align:center;}
+.text-align-justify{
+  text-align: justify;
+}
 
  // in case your dealing with a block element apply this to the element itself 
 .center-block {
