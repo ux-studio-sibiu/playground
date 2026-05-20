@@ -3721,11 +3721,14 @@ section#clasa-zero-iframe > div .device-view iframe {
   border: 2px solid #d7d7d7;
 }
 section#clasa-zero-iframe > div.device-view-phone .device-view {
+  top: 6vh;
   width: min(60vw, 390px);
   height: min(80vh, 844px);
   right: 27vw;
   border-radius: 15px;
-  padding: 5px;
+  padding: 10px;
+  transform: scale(0.9);
+  transform-origin: center center;
 }
 section#clasa-zero-iframe > div.device-view-tablet .device-view {
   width: min(60vw, 1180px);
@@ -4472,13 +4475,11 @@ html.use-custom-cursor .cursor {
   background-color: #000000;
   border: none;
   height: 50px;
+  background-color: #000000;
+  border: none;
+  height: 50px;
   font-size: 18px;
   border-bottom: 1px solid #000;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  color: #fff;
-  outline: none !important;
   text-transform: lowercase;
   letter-spacing: 1px;
 }
@@ -4488,24 +4489,27 @@ html.use-custom-cursor .cursor {
 .navbar-inverse .navbar-nav > .active > a:focus {
   background-color: #ffffff !important;
   color: #000;
-}
-
-.navbar-inverse .navbar-nav > li.link > a:hover {
+  background-color: #ffffff !important;
   background-color: rgba(255, 255, 255, 0.4);
 }
-
-li.link {
+.navbar-inverse .navbar-nav > .active > a .navbar-inverse .navbar-nav > li.link > a:hover,
+.navbar-inverse .navbar-nav > .active > a:hover .navbar-inverse .navbar-nav > li.link > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus .navbar-inverse .navbar-nav > li.link > a:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.navbar-inverse .navbar-nav > .active > a li.link,
+.navbar-inverse .navbar-nav > .active > a:hover li.link,
+.navbar-inverse .navbar-nav > .active > a:focus li.link {
   float: left;
-  border-right: 1px solid #000;
   border: none;
 }
-
-.small-child-projects {
+.navbar-inverse .navbar-nav > .active > a .small-child-projects,
+.navbar-inverse .navbar-nav > .active > a:hover .small-child-projects,
+.navbar-inverse .navbar-nav > .active > a:focus .small-child-projects {
   width: 30px;
-}
-.small-child-projects a {
   text-align: center;
   padding-left: 0 !important;
+  padding-right: 0 !important;
   padding-right: 0 !important;
 }
 
@@ -4516,6 +4520,77 @@ span.logo {
   background-image: url(../img/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
+}
+@media (min-width: 768px) {
+  span.logo .navbar.navbar-inverse.navbar-fixed-top {
+    position: fixed;
+    top: 50%;
+    right: 16px;
+    left: auto;
+    transform: translateY(-50%);
+    width: 56px;
+    height: auto;
+    margin: 0;
+    padding: 10px 8px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(15, 18, 24, 0.8);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    z-index: 1200;
+  }
+  span.logo .navbar.navbar-inverse .navbar-header {
+    display: none;
+  }
+  span.logo .navbar.navbar-inverse #nav-container {
+    display: block !important;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+  }
+  span.logo .navbar.navbar-inverse .navbar-nav {
+    float: none;
+    margin: 0;
+    padding: 6px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  span.logo .navbar.navbar-inverse .navbar-nav > li.link {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+  span.logo .navbar.navbar-inverse .navbar-nav > li.link > a {
+    display: block;
+    width: 100%;
+    min-height: 18px;
+    padding: 4px 6px;
+    text-indent: -9999px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    transition: background-color 140ms ease, transform 140ms ease;
+  }
+  span.logo .navbar.navbar-inverse .navbar-nav > li.small-child-projects > a {
+    padding: 3px 6px;
+    min-height: 14px;
+  }
+  span.logo .navbar.navbar-inverse .navbar-nav > .active > a,
+  span.logo .navbar.navbar-inverse .navbar-nav > .active > a:hover,
+  span.logo .navbar.navbar-inverse .navbar-nav > .active > a:focus {
+    background: #ffffff !important;
+    transform: scaleX(1.12);
+  }
+  span.logo .navbar.navbar-inverse .navbar-nav > li.link > a:hover {
+    background: rgba(255, 255, 255, 0.62);
+  }
+  span.logo .navbar.navbar-inverse .small-child-projects {
+    width: 100%;
+  }
 }
 
 @font-face {

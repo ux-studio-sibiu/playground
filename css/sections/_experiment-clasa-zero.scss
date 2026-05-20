@@ -67,11 +67,14 @@ section#clasa-zero-iframe > div
 	}
 
 	&.device-view-phone .device-view {
+		top: 6vh;
 		width: min(60vw, 390px);
 		height: min(calc(80vh), 844px);
 		right: 27vw;
 		border-radius: 15px;
-		padding:5px;
+		padding:10px;
+		transform: scale(0.9);
+		transform-origin: center center;
 	}
 
 	&.device-view-tablet .device-view {
