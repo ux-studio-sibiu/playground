@@ -2894,8 +2894,9 @@ section.visible .hvr-buzz-pulse-grow {
   border: 3px solid #fff;
 }
 .bk-highlight p {
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.6;
+  margin-bottom: 0;
 }
 
 @-webkit-keyframes standard {
@@ -3207,6 +3208,9 @@ section#Tools > div .container {
   section#Tools > div .container {
     transform: scale(0.85);
   }
+}
+section#Tools > div .container .section-heading {
+  font-size: 30px;
 }
 
 @keyframes pan {
