@@ -2,9 +2,12 @@
     <section id="zoom-iframe" class="cd-section">
         <div>
             
-            <div class="tablet-view">
-                <iframe src="https://vue-playground-mauve.vercel.app/zoom" class="full-screen-iframe" style="position:relative"></iframe>
+            <div class="background-image" style="width:calc(100% - 400px); left:400px;">
+                <div class="device-view">
+                    <iframe src="https://vue-playground-mauve.vercel.app/zoom" class="full-screen-iframe" style="position:relative"></iframe>
+                </div>
             </div>
+
             <div class="info-box info-box-fixed info-box-white markdown-body scrollable-container scroll-white" style="width: 400px;">
                 <div class="scroll-container">
                     <section>
@@ -12,7 +15,8 @@
                         <ul>
                             <li>zoom based navigation for presentation website</li>
                             <li>css-transform navigation using <code>Zoomooz.js</code></li>
-                            <li>AI-assisted (github copilot), reviewed and refined manually</li>
+                            <li>iframe → parent page messaging (hover in iframe)</li>
+                            <li>AI-assisted (github copilot), reviewed and refined</li>
                             <li>draft concept, presented here in iframe</li>
                         </ul>
                     </section>
@@ -31,3 +35,30 @@
             </div>
         </div>
     </section>
+
+    <script>
+        (function () {
+            var zoomIframeBackground = document.querySelector("#zoom-iframe .background-image");
+            var lastZoomIframePayloadClass = "";
+
+            function toZoomPayloadClass(value) {
+                if (!value) return "";
+                var normalized = String(value).toLowerCase().replace(/^https?:\/\//, "").replace(/\?.*$/, "").replace(/#.*$/, "").replace(/\.[a-z0-9]+$/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+                return normalized ? ("zoom-payload-" + normalized) : "";
+            }
+
+            window.addEventListener("message", function (event) {
+                if (!event || !event.data || event.data.type !== "IFRAME_EVENT") return;
+                if (!zoomIframeBackground) return;
+                if (lastZoomIframePayloadClass) {
+                    zoomIframeBackground.classList.remove(lastZoomIframePayloadClass);
+                    lastZoomIframePayloadClass = "";
+                }
+                var nextClass = toZoomPayloadClass(event.data.data || "");
+                if (nextClass) {
+                    zoomIframeBackground.classList.add(nextClass);
+                    lastZoomIframePayloadClass = nextClass;
+                }
+            });
+        }());
+    </script>

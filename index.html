@@ -353,7 +353,11 @@
         <!-- Demos - Clasa Zero Section -->
     <section id="clasa-zero-iframe" class="cd-section">
         <div>
-            <div class="tablet-view">
+            <div class="device-view-switch" role="group" aria-label="Clasa Zero iframe view selector">
+                <button type="button" class="device-view-switch-btn is-active" data-device-view="tablet">Tablet</button>
+                <button type="button" class="device-view-switch-btn" data-device-view="phone">Phone</button>
+            </div>
+            <div class="device-view">
                 <iframe src="https://clasa-zero.vercel.app/game" class="full-screen-iframe" style="position:relative"></iframe>
             </div>
             <div class="info-box info-box-fixed info-box-white markdown-body scrollable-container scroll-white" style="width: 400px;">
@@ -405,13 +409,43 @@
             </div>
         </div>
     </section>
+
+    <script>
+        (function () {
+            var clasaZeroRoot = document.querySelector("#clasa-zero-iframe > div");
+            var clasaZeroViewButtons = document.querySelectorAll("#clasa-zero-iframe [data-device-view]");
+
+            function setClasaZeroView(view) {
+                if (!clasaZeroRoot) return;
+                clasaZeroRoot.classList.remove("device-view-tablet", "device-view-phone");
+                clasaZeroRoot.classList.add(view === "phone" ? "device-view-phone" : "device-view-tablet");
+                for (var i = 0; i < clasaZeroViewButtons.length; i++) {
+                    var button = clasaZeroViewButtons[i];
+                    var isActive = button.getAttribute("data-device-view") === (view === "phone" ? "phone" : "tablet");
+                    button.classList.toggle("is-active", isActive);
+                    button.setAttribute("aria-pressed", isActive ? "true" : "false");
+                }
+            }
+
+            for (var j = 0; j < clasaZeroViewButtons.length; j++) {
+                clasaZeroViewButtons[j].addEventListener("click", function () {
+                    setClasaZeroView(this.getAttribute("data-device-view"));
+                });
+            }
+
+            setClasaZeroView("tablet");
+        }());
+    </script>
         <!-- Demos - Zoom Section -->
     <section id="zoom-iframe" class="cd-section">
         <div>
             
-            <div class="tablet-view">
-                <iframe src="https://vue-playground-mauve.vercel.app/zoom" class="full-screen-iframe" style="position:relative"></iframe>
+            <div class="background-image" style="width:calc(100% - 400px); left:400px;">
+                <div class="device-view">
+                    <iframe src="https://vue-playground-mauve.vercel.app/zoom" class="full-screen-iframe" style="position:relative"></iframe>
+                </div>
             </div>
+
             <div class="info-box info-box-fixed info-box-white markdown-body scrollable-container scroll-white" style="width: 400px;">
                 <div class="scroll-container">
                     <section>
@@ -419,7 +453,8 @@
                         <ul>
                             <li>zoom based navigation for presentation website</li>
                             <li>css-transform navigation using <code>Zoomooz.js</code></li>
-                            <li>AI-assisted (github copilot), reviewed and refined manually</li>
+                            <li>iframe → parent page messaging (hover in iframe)</li>
+                            <li>AI-assisted (github copilot), reviewed and refined</li>
                             <li>draft concept, presented here in iframe</li>
                         </ul>
                     </section>
@@ -438,6 +473,33 @@
             </div>
         </div>
     </section>
+
+    <script>
+        (function () {
+            var zoomIframeBackground = document.querySelector("#zoom-iframe .background-image");
+            var lastZoomIframePayloadClass = "";
+
+            function toZoomPayloadClass(value) {
+                if (!value) return "";
+                var normalized = String(value).toLowerCase().replace(/^https?:\/\//, "").replace(/\?.*$/, "").replace(/#.*$/, "").replace(/\.[a-z0-9]+$/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+                return normalized ? ("zoom-payload-" + normalized) : "";
+            }
+
+            window.addEventListener("message", function (event) {
+                if (!event || !event.data || event.data.type !== "IFRAME_EVENT") return;
+                if (!zoomIframeBackground) return;
+                if (lastZoomIframePayloadClass) {
+                    zoomIframeBackground.classList.remove(lastZoomIframePayloadClass);
+                    lastZoomIframePayloadClass = "";
+                }
+                var nextClass = toZoomPayloadClass(event.data.data || "");
+                if (nextClass) {
+                    zoomIframeBackground.classList.add(nextClass);
+                    lastZoomIframePayloadClass = nextClass;
+                }
+            });
+        }());
+    </script>
         <!-- Demos - Map Section -->
     <section id="map-iframe" class="cd-section">
         <div>

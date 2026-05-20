@@ -1,7 +1,11 @@
     <!-- Demos - Clasa Zero Section -->
     <section id="clasa-zero-iframe" class="cd-section">
         <div>
-            <div class="tablet-view">
+            <div class="device-view-switch" role="group" aria-label="Clasa Zero iframe view selector">
+                <button type="button" class="device-view-switch-btn is-active" data-device-view="tablet">Tablet</button>
+                <button type="button" class="device-view-switch-btn" data-device-view="phone">Phone</button>
+            </div>
+            <div class="device-view">
                 <iframe src="https://clasa-zero.vercel.app/game" class="full-screen-iframe" style="position:relative"></iframe>
             </div>
             <div class="info-box info-box-fixed info-box-white markdown-body scrollable-container scroll-white" style="width: 400px;">
@@ -53,3 +57,30 @@
             </div>
         </div>
     </section>
+
+    <script>
+        (function () {
+            var clasaZeroRoot = document.querySelector("#clasa-zero-iframe > div");
+            var clasaZeroViewButtons = document.querySelectorAll("#clasa-zero-iframe [data-device-view]");
+
+            function setClasaZeroView(view) {
+                if (!clasaZeroRoot) return;
+                clasaZeroRoot.classList.remove("device-view-tablet", "device-view-phone");
+                clasaZeroRoot.classList.add(view === "phone" ? "device-view-phone" : "device-view-tablet");
+                for (var i = 0; i < clasaZeroViewButtons.length; i++) {
+                    var button = clasaZeroViewButtons[i];
+                    var isActive = button.getAttribute("data-device-view") === (view === "phone" ? "phone" : "tablet");
+                    button.classList.toggle("is-active", isActive);
+                    button.setAttribute("aria-pressed", isActive ? "true" : "false");
+                }
+            }
+
+            for (var j = 0; j < clasaZeroViewButtons.length; j++) {
+                clasaZeroViewButtons[j].addEventListener("click", function () {
+                    setClasaZeroView(this.getAttribute("data-device-view"));
+                });
+            }
+
+            setClasaZeroView("tablet");
+        }());
+    </script>
