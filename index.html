@@ -59,6 +59,20 @@
                                 <span class="subtitle-slash" >:</span>old-school <span class="subtitle-divider" >-</span> 
                         </p>
                 </div>
+
+                <!-- <video class="intro-static-overlay" autoplay muted loop playsinline 
+                        style="position:absolute;
+                        top:0;left:0;
+                        width:100%;height:100%;
+                        object-fit:cover;z-index:0;
+                        pointer-events:none;
+                        filter:grayscale(1);
+                        z-index:99;
+                        /* opacity:0.5; */
+                        mix-blend-mode: difference;
+                        transition: opacity 5s ease;">
+                        <source src="img/preload/large-static.mp4" type="video/webm">
+                </video> -->
                 
         </div>
     </section>
@@ -457,6 +471,8 @@
         <div class="">
             
             <div class="background-image" style="width:calc(100% - 400px); left:400px;">
+                <div class="bg-layer bg-layer-a"></div>
+                <div class="bg-layer bg-layer-b"></div>
                 <div class="device-view">
                     <iframe src="https://vue-playground-mauve.vercel.app/zoom" class="full-screen-iframe" style="position:relative" tabindex="-1"></iframe>
                 </div>
@@ -492,7 +508,14 @@
              <script>
                 (function () {
                     var zoomIframeBackground = document.querySelector("#zoom-iframe .background-image");
-                    var lastZoomIframePayloadClass = "";
+                    if (!zoomIframeBackground) return;
+                    var layers = [
+                        zoomIframeBackground.querySelector(".bg-layer-a"),
+                        zoomIframeBackground.querySelector(".bg-layer-b")
+                    ];
+                    if (!layers[0] || !layers[1]) return;
+                    var activeIndex = -1;
+                    var lastPayloadClass = "";
 
                     function toZoomPayloadClass(value) {
                         if (!value) return "";
@@ -502,16 +525,39 @@
 
                     window.addEventListener("message", function (event) {
                         if (!event || !event.data || event.data.type !== "IFRAME_EVENT") return;
-                        if (!zoomIframeBackground) return;
-                        if (lastZoomIframePayloadClass) {
-                            zoomIframeBackground.classList.remove(lastZoomIframePayloadClass);
-                            lastZoomIframePayloadClass = "";
-                        }
                         var nextClass = toZoomPayloadClass(event.data.data || "");
-                        if (nextClass) {
-                            zoomIframeBackground.classList.add(nextClass);
-                            lastZoomIframePayloadClass = nextClass;
+
+                        // Empty payload → nothing zoomed: fade out whichever layer is active.
+                        if (!nextClass) {
+                            if (activeIndex !== -1) {
+                                layers[activeIndex].classList.remove("is-visible");
+                                activeIndex = -1;
+                            }
+                            lastPayloadClass = "";
+                            return;
                         }
+
+                        if (nextClass === lastPayloadClass) return;
+
+                        var nextIndex = activeIndex === 0 ? 1 : 0;
+                        var incoming = layers[nextIndex];
+                        var outgoing = activeIndex === -1 ? null : layers[activeIndex];
+
+                        // Strip any stale zoom-payload-* class left from a previous cycle
+                        // (incoming layer may still carry a class from 2 messages ago).
+                        for (var i = incoming.classList.length - 1; i >= 0; i--) {
+                            var cls = incoming.classList[i];
+                            if (cls.indexOf("zoom-payload-") === 0) incoming.classList.remove(cls);
+                        }
+                        incoming.classList.add(nextClass);
+                        // force reflow so the new bg-image is committed before fading in
+                        // eslint-disable-next-line no-unused-expressions
+                        incoming.offsetWidth;
+                        incoming.classList.add("is-visible");
+                        if (outgoing) outgoing.classList.remove("is-visible");
+
+                        activeIndex = nextIndex;
+                        lastPayloadClass = nextClass;
                     });
                 }());
             </script>

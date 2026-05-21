@@ -3137,6 +3137,10 @@ section#Intro .intro-content {
   z-index: 2;
 }
 
+body:not(.loading) section#Intro .intro-static-overlay {
+  opacity: 0;
+}
+
 section#Intro .intro-accent-separator {
   display: inline-block;
   transition: transform 90ms ease-out;
@@ -3787,43 +3791,58 @@ section#zoom-iframe > div .background-image {
   left: 400px;
   background-size: cover;
   background-position: center center;
-  transition: background-image 180ms ease-in-out;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk2 {
+section#zoom-iframe > div .bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+section#zoom-iframe > div .bg-layer.is-visible {
+  opacity: 1;
+}
+section#zoom-iframe > div .bg-layer.zoom-payload-bk2 {
   background-image: url("../img/backgrounds/bk2.jpg") !important;
   background-position: center center;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk4 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk4 {
   background-image: url("../img/backgrounds/bk4.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk5 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk5 {
   background-image: url("../img/backgrounds/bk5.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk6 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk6 {
   background-image: url("../img/backgrounds/bk6.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk7 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk7 {
   background-image: url("../img/backgrounds/bk7.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk9 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk9 {
   background-image: url("../img/backgrounds/bk9.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk10 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk10 {
   background-image: url("../img/backgrounds/bk10.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk11 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk11 {
   background-image: url("../img/backgrounds/bk11.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk12 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk12 {
   background-image: url("../img/backgrounds/bk12.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk14 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk14 {
   background-image: url("../img/backgrounds/bk14.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk15 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk15 {
   background-image: url("../img/backgrounds/bk15.jpg") !important;
 }
-section#zoom-iframe > div .background-image.zoom-payload-bk28 {
+section#zoom-iframe > div .bg-layer.zoom-payload-bk28 {
   background-image: url("../img/backgrounds/bk28.jpg") !important;
 }
 section#zoom-iframe > div .device-view {

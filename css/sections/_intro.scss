@@ -14,6 +14,10 @@ section#Intro .intro-content {
 	z-index: 2;
 }
 
+body:not(.loading) section#Intro .intro-static-overlay {
+	opacity: 0;
+}
+
 section#Intro .intro-accent-separator {
 	display: inline-block;
 	transition: transform 90ms ease-out;
