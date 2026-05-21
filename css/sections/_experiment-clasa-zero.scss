@@ -2,8 +2,8 @@
 
 section#clasa-zero-iframe > div 
 
-{
-	background: #dfdfdf !important;	
+{	
+	background: #dfdfdf url('../img/backgrounds/bk2.jpg') center center / cover no-repeat !important;
 	background-size:cover;
 	background-position:center center;	
 
@@ -50,7 +50,7 @@ section#clasa-zero-iframe > div
 		overflow:hidden;
 		padding: 30px;
 		// border: 2px solid #d7d7d7;
-		box-shadow: 0px 2px 6px 2px #c9c9c9;
+		// box-shadow: 0px 2px 6px 2px #c9c9c9;
 		transform: rotate(-1.5deg);
 		// transition: width 220ms ease, height 220ms ease;
 
@@ -73,7 +73,7 @@ section#clasa-zero-iframe > div
 		right: 27vw;
 		border-radius: 15px;
 		padding:10px;
-		transform: scale(0.9);
+		transform: scale(0.9) rotate(-1.5deg);
 		transform-origin: center center;
 	}
 
@@ -91,8 +91,6 @@ section#clasa-zero-iframe > div
 		height: calc(100vh - 50px);
 		top: 0;
 		left: 0;
-		box-shadow: 3px 5px rgba(0, 0, 0, 0.3294117647);
-
 
 			div.qr-code{
 			height:200px;
