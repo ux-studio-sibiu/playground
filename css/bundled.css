@@ -3769,7 +3769,7 @@ section#clasa-zero-iframe > div .info-box div.qr-code {
   section#clasa-zero-iframe > div .info-box div.qr-code {
     height: 140px;
     width: 140px;
-    margin-left: 80px;
+    margin-left: 95px;
   }
 }
 @media (max-height: 900px) {
@@ -4307,8 +4307,9 @@ h2.section-heading {
     text-shadow: none;
   }
 }
-html.use-custom-cursor .cursor {
-  opacity: 1;
+html.use-custom-cursor,
+html.use-custom-cursor * {
+  cursor: none !important;
 }
 
 .custom-cursor {
@@ -4327,6 +4328,8 @@ html.use-custom-cursor .cursor {
   pointer-events: none;
   mix-blend-mode: difference;
   z-index: 9999;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
 }
 
 @page {

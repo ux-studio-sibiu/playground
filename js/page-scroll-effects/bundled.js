@@ -762,6 +762,8 @@ function setSectionAnimation(sectionOffset, windowHeight, animationName) {
 
 const cursor = document.querySelector('.cursor');
 let x = 0, y = 0;
+let scale = 0;
+let targetScale = 0;
 
 document.addEventListener('mousemove', (e) => {
   x = e.clientX - 32;
@@ -769,22 +771,50 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function loop() {
-  cursor.style.transform = `translate(${x}px, ${y}px)`;
+  // ease scale toward target (~250ms feel)
+  scale += (targetScale - scale) * 0.18;
+  if (Math.abs(targetScale - scale) < 0.001) scale = targetScale;
+  cursor.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+  cursor.style.opacity = scale > 0.02 ? 1 : 0;
   requestAnimationFrame(loop);
 }
 
 loop();
 
 const html = document.documentElement;
+let cursorLeaveTimer = null;
+const CURSOR_EXIT_MS = 350;
 
 document.querySelectorAll('.custom-cursor').forEach(el => {
-  el.addEventListener('mouseenter', () =>
-    html.classList.add('use-custom-cursor')
-  );
+  el.addEventListener('mouseenter', (e) => {
+    if (cursorLeaveTimer) {
+      clearTimeout(cursorLeaveTimer);
+      cursorLeaveTimer = null;
+    }
+    // Seed position from the entry event so the grow-in happens under the
+    // actual mouse, not wherever it was last left (e.g. (0,0) on first run,
+    // or stale on a scroll-induced enter).
+    x = e.clientX - 32;
+    y = e.clientY - 32;
+    // Snap to scale 0 at the new position before growing, so we don't
+    // interpolate scale from some leftover value at a stale location.
+    scale = 0;
+    cursor.style.transform = `translate(${x}px, ${y}px) scale(0)`;
+    html.classList.add('use-custom-cursor');
+    targetScale = 1;
+  });
 
-  el.addEventListener('mouseleave', () =>
-    html.classList.remove('use-custom-cursor')
-  );
+  el.addEventListener('mouseleave', () => {
+    // shrink the custom cursor; keep `use-custom-cursor` (which hides the
+    // system cursor globally) until the exit animation finishes, so the
+    // arrow never appears on top of the shrinking circle.
+    targetScale = 0;
+    if (cursorLeaveTimer) clearTimeout(cursorLeaveTimer);
+    cursorLeaveTimer = setTimeout(() => {
+      html.classList.remove('use-custom-cursor');
+      cursorLeaveTimer = null;
+    }, CURSOR_EXIT_MS);
+  });
 });
 
 

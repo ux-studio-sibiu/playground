@@ -31,8 +31,9 @@
 }
 
 // cursor
-html.use-custom-cursor .cursor{
-    opacity:1;
+html.use-custom-cursor,
+html.use-custom-cursor * {
+    cursor: none !important;
 }
 
 .custom-cursor{
@@ -51,4 +52,6 @@ html.use-custom-cursor .cursor{
   pointer-events: none;
   mix-blend-mode: difference;
   z-index: 9999;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
 }
