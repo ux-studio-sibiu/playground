@@ -2805,7 +2805,6 @@ section.visible .hvr-buzz-pulse-grow {
 
 .scrollable-container {
   overflow-y: auto;
-  max-height: 100%;
 }
 .scrollable-container::-webkit-scrollbar {
   width: 4px;

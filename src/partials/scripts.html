@@ -240,3 +240,102 @@
             //TODO: remove this
             // setTimeout(function(){ $("li.click-on-load").trigger("click") }, 100);
         </script>
+
+        <!-- Fluid-hover effect: WebGL displacement on the cursor for the
+             #Demos cover slide. Lazy-loaded — fluid-hover.js statically imports
+             three (~600KB), so we defer that fetch with a dynamic import() and
+             only trigger it as the Demos slide is approached. The render loop is
+             paused/resumed with slide visibility so we never paint hidden frames. -->
+        <script type="module">
+            // ------------------------------------------------------------------
+            // DEMOS cover: no image. The "experiments" headline is rasterised
+            // into the WebGL overlay and smears with the same displacement field.
+            var demosHost    = document.getElementById('demos-fluid');
+            var demosSection = document.getElementById('Demos');
+            var demosFx = null;
+            var loading = false;
+
+            function buildFluidHover() {
+                if (demosFx || loading || !demosHost) return;
+                loading = true;
+                // Dynamic import is what actually fetches fluid-hover.js → three.
+                import('./js/fluid-hover.js').then(function (mod) {
+                    demosFx = mod.createFluidHover({
+                        container: demosHost,
+                        imageless: true,
+                        strength: 0.22,
+                        radius:   7,
+                        chroma:   0.018,
+                        customDraw: function (ctx, info) {
+                            var cx = info.width / 2;
+                            var cy = info.height / 2;
+                            var dpr = info.dpr;
+
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'alphabetic';
+
+                            // Headline — matches .section-heading.font-160 in scale.
+                            // Letter-spacing in canvas2D requires per-glyph drawing,
+                            // so we fake the tight -0.7rem look by setting `letter-spacing`
+                            // on the context (supported in modern Chromium/WebKit) and
+                            // falling back to plain rendering elsewhere.
+                            ctx.font = '500 ' + (160 * dpr) + 'px "Poppins", system-ui, sans-serif';
+                            if ('letterSpacing' in ctx) ctx.letterSpacing = (-7 * dpr) + 'px';
+                            ctx.fillStyle = '#000000';
+                            ctx.fillText('experiments', cx, cy);
+
+                            // Subtitle — matches .lead.section-lead.
+                            ctx.font = '400 ' + (20 * dpr) + 'px "Poppins", system-ui, sans-serif';
+                            if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+                            ctx.fillStyle = 'rgba(0,0,0,0.8)';
+                            ctx.fillText('ai-assisted prototypes', cx, cy + 28 * dpr);
+                        },
+                    });
+
+                    // The custom fonts (Poppins) may not be ready when the first
+                    // overlay is drawn. Repaint once they're available.
+                    if (document.fonts && document.fonts.ready) {
+                        document.fonts.ready.then(function () { demosFx.redrawOverlay(); });
+                    }
+
+                    // Match the loop to live visibility. Building may finish while
+                    // the user is on another slide (pre-warm) or has already
+                    // arrived (in-flight nav) — re-check here rather than trust the
+                    // state at call time. createFluidHover() starts running.
+                    if (!demosSection || !demosSection.classList.contains('visible')) {
+                        demosFx.pause();
+                    }
+                });
+            }
+
+            if (demosSection) {
+                // Pre-warm: start fetching three.js + building the effect when the
+                // slide *before* Demos becomes visible, so it's ready on arrival.
+                var prevSection = demosSection.previousElementSibling;
+                while (prevSection && !prevSection.classList.contains('cd-section')) {
+                    prevSection = prevSection.previousElementSibling;
+                }
+
+                function syncDemosVisibility() {
+                    if (demosSection.classList.contains('visible')) {
+                        if (demosFx) demosFx.resume();
+                        else buildFluidHover(); // build resumes/pauses per live visibility
+                    } else if (demosFx) {
+                        demosFx.pause();
+                    }
+                }
+
+                // The section-nav plugin toggles `.visible` on the active slide.
+                new MutationObserver(syncDemosVisibility)
+                    .observe(demosSection, { attributes: true, attributeFilter: ['class'] });
+
+                if (prevSection) {
+                    new MutationObserver(function () {
+                        if (prevSection.classList.contains('visible')) buildFluidHover();
+                    }).observe(prevSection, { attributes: true, attributeFilter: ['class'] });
+                }
+
+                // Handle the case where Demos is already the landing slide.
+                syncDemosVisibility();
+            }
+        </script>

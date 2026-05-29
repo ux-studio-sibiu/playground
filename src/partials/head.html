@@ -13,3 +13,10 @@
     <link href="css/bundled.css" rel="stylesheet">
     <!-- Custom CSS -->
 
+    <!-- Three.js for the fluid-hover effect on the #Demos slide. Lazy-loaded:
+         the import map only declares how `three` resolves — nothing is fetched
+         until fluid-hover.js is dynamically imported on slide approach. -->
+    <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+    </script>
+

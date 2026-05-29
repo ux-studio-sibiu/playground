@@ -306,6 +306,17 @@ function scrollHijacking(event) {
     // allow browser zoom when Ctrl is pressed
     if (event.ctrlKey) return;
 
+    // Ignore wheel events that originate inside a .scrollable-container —
+    // those are owned by the per-element handler below (which decides when
+    // to bubble them through for a section change). This catches the case
+    // where a touchscreen / touchpad synthesizes wheel events on document
+    // mid-scroll, before the inner element has reached its edge.
+    var t = event.target;
+    while (t && t !== document) {
+        if (t.classList && t.classList.contains('scrollable-container')) return;
+        t = t.parentNode;
+    }
+
     // on mouse scroll - check if animate section
     if (event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0) {
         delta--;
@@ -439,19 +450,177 @@ $('.navbar-nav li.link').bind('click', function (event) {
     goToSection(event, goToSectionNumber);    
 });
 
-$('.scrollable-container').on('mousewheel DOMMouseScroll', function (e) {
+$('.scrollable-container').each(function () {
     var el = this;
-    var delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
-    var scrollingDown = delta < 0;
-    var scrollingUp = delta > 0;
-    var atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
-    var atTop = el.scrollTop <= 0;
+    var endAttempts = 0;       // gesture count while pressed against an edge
+    var lastEndDir = 0;        // 1 = down/bottom, -1 = up/top
+    var lastEventTime = 0;     // last wheel event timestamp
+    var inGesture = false;     // true while inside one continuous wheel/touchpad gesture
+    var resetTimer;
+    var touchActive = false;   // finger(s) currently down on this container
+    var lastTouchEnd = 0;      // timestamp of most recent touchend
+    var touchStartY = 0;       // Y at touchstart, to compute swipe direction/distance
+    var touchEndAttempts = 0;  // distinct at-edge touch swipes
+    var lastTouchEndDir = 0;
+    var touchEndResetTimer;
+    var SWIPE_THRESHOLD_PX = 30;  // minimum swipe to count as an attempt
 
-    if (scrollingDown && atBottom) return;
-    if (scrollingUp && atTop) return;
+    // Continuous touchpad/wheel events that arrive within this many ms of each
+    // other are treated as one gesture (so a 2-finger swipe that emits 20
+    // wheel events still counts as a single "attempt").
+    var GESTURE_GAP_MS = 180;
+    // After this much silence, the at-edge counter resets so the user is back
+    // to needing 2 attempts.
+    var END_RESET_MS = 700;
+    // Wheel events that arrive within this many ms after a touchend are most
+    // likely synthesized by the OS from the same touch gesture — swallow them.
+    var TOUCH_WHEEL_TAIL_MS = 350;
 
-    e.stopPropagation();
-})
+    el.addEventListener('touchstart', function (ev) {
+        touchActive = true;
+        if (ev.touches && ev.touches[0]) touchStartY = ev.touches[0].clientY;
+    }, { passive: true });
+    el.addEventListener('touchend', function (ev) {
+        touchActive = false;
+        lastTouchEnd = Date.now();
+        var endY = touchStartY;
+        if (ev.changedTouches && ev.changedTouches[0]) endY = ev.changedTouches[0].clientY;
+        var dy = endY - touchStartY;
+        if (Math.abs(dy) < SWIPE_THRESHOLD_PX) return;
+        // dy > 0 = finger moved down = user wants to scroll UP (prev)
+        // dy < 0 = finger moved up   = user wants to scroll DOWN (next)
+        var dir = dy < 0 ? 1 : -1;
+        var hasScroll = el.scrollHeight > el.clientHeight + 1;
+        var atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+        var atTop = el.scrollTop <= 0;
+        var atEnd = !hasScroll || (dir === 1 && atBottom) || (dir === -1 && atTop);
+
+        // No internal scroll: change section on first swipe.
+        if (!hasScroll) {
+            touchEndAttempts = 0;
+            lastTouchEndDir = 0;
+            if (dir > 0) {
+                if (typeof nextSection === 'function') nextSection();
+            } else {
+                if (typeof prevSection === 'function') prevSection();
+            }
+            return;
+        }
+
+        if (!atEnd) {
+            touchEndAttempts = 0;
+            lastTouchEndDir = 0;
+            return;
+        }
+        if (dir !== lastTouchEndDir) {
+            touchEndAttempts = 0;
+            lastTouchEndDir = dir;
+        }
+        touchEndAttempts++;
+        clearTimeout(touchEndResetTimer);
+        touchEndResetTimer = setTimeout(function () {
+            touchEndAttempts = 0;
+            lastTouchEndDir = 0;
+        }, END_RESET_MS);
+        // 1st at-edge swipe: ignored. 2nd+ swipe: trigger section change.
+        if (touchEndAttempts >= 2) {
+            touchEndAttempts = 0;
+            lastTouchEndDir = 0;
+            if (dir > 0) {
+                if (typeof nextSection === 'function') nextSection();
+            } else {
+                if (typeof prevSection === 'function') prevSection();
+            }
+        }
+    }, { passive: true });
+    el.addEventListener('touchcancel', function () {
+        touchActive = false;
+        lastTouchEnd = Date.now();
+    }, { passive: true });
+
+    $(el).on('mousewheel DOMMouseScroll wheel', function (e) {
+        // While the user is actively touching this container, never let wheel
+        // events bubble to the window-level scrollHijacking — touchscreens
+        // synthesize wheels during native scrolling.
+        if (touchActive || (Date.now() - lastTouchEnd) < TOUCH_WHEEL_TAIL_MS) {
+            e.stopPropagation();
+            return;
+        }
+        var oe = e.originalEvent;
+        var delta = oe.wheelDelta != null ? oe.wheelDelta : -(oe.deltaY || oe.detail || 0);
+        if (!delta) return;
+
+        var now = Date.now();
+        var isNewGesture = (now - lastEventTime) > GESTURE_GAP_MS;
+        lastEventTime = now;
+        if (isNewGesture) inGesture = false;
+
+        var scrollingDown = delta < 0;
+        var scrollingUp = delta > 0;
+        var atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+        var atTop = el.scrollTop <= 0;
+        var atEnd = (scrollingDown && atBottom) || (scrollingUp && atTop);
+
+        if (!atEnd) {
+            endAttempts = 0;
+            lastEndDir = 0;
+            inGesture = true;
+            e.stopPropagation();
+            return;
+        }
+
+        var dir = scrollingDown ? 1 : -1;
+        var hasScroll = el.scrollHeight > el.clientHeight + 1;
+
+        // No internal scroll: content fits, every gesture is effectively
+        // "at the edge". Skip the 2-attempt rule and change section on the
+        // first gesture.
+        if (!hasScroll) {
+            e.stopPropagation();
+            if (!isNewGesture) return; // swallow rest of same gesture
+            endAttempts = 0;
+            lastEndDir = 0;
+            inGesture = true;
+            if (dir > 0) {
+                if (typeof nextSection === 'function') nextSection();
+            } else {
+                if (typeof prevSection === 'function') prevSection();
+            }
+            return;
+        }
+
+        // Only count a new attempt at the start of a gesture (new direction
+        // also counts as a new attempt). Subsequent events inside the same
+        // gesture are swallowed without incrementing.
+        if (isNewGesture || dir !== lastEndDir) {
+            endAttempts++;
+            lastEndDir = dir;
+            inGesture = true;
+        }
+
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(function () {
+            endAttempts = 0;
+            lastEndDir = 0;
+            inGesture = false;
+        }, END_RESET_MS);
+
+        // Always swallow at-edge wheels so the window-level scrollHijacking
+        // never sees them (it has its own guard for .scrollable-container).
+        // On the 2nd+ at-edge gesture, trigger the section change directly.
+        e.stopPropagation();
+        if (endAttempts >= 2) {
+            endAttempts = 0;
+            lastEndDir = 0;
+            inGesture = false;
+            if (dir > 0) {
+                if (typeof nextSection === 'function') nextSection();
+            } else {
+                if (typeof prevSection === 'function') prevSection();
+            }
+        }
+    });
+});
 
 
 $("[data-loop-img]").each(function(){
