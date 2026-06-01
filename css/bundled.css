@@ -3674,10 +3674,12 @@ section#Demo-Radio > div iframe {
   border: none;
 }
 
+section#clasa-zero-iframe {
+  background-color: transparent !important;
+}
+
 section#clasa-zero-iframe > div {
-  background: #dfdfdf url("../img/backgrounds/bk4.jpg") center center/cover no-repeat !important;
-  background-size: cover;
-  background-position: center center;
+  background-color: transparent !important;
 }
 section#clasa-zero-iframe > div .device-view-switch {
   position: absolute;

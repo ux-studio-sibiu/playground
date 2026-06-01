@@ -21,6 +21,7 @@ const INCLUDES = [
     { token: "@@include('partials/project-mipayadmin.html')",        file: 'src/partials/project-mipayadmin.html' },
     { token: "@@include('partials/project-checkout-prototype.html')", file: 'src/partials/project-checkout-prototype.html' },
     { token: "@@include('partials/experiments-header.html')",        file: 'src/partials/experiments-header.html' },
+    { token: "@@include('partials/experiment-font-studio.html')",    file: 'src/partials/experiment-font-studio.html' },
     { token: "@@include('partials/experiment-clasa-zero.html')",     file: 'src/partials/experiment-clasa-zero.html' },
     { token: "@@include('partials/experiment-zoom.html')",           file: 'src/partials/experiment-zoom.html' },
     { token: "@@include('partials/experiment-map.html')",            file: 'src/partials/experiment-map.html' },

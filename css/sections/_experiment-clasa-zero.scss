@@ -1,11 +1,17 @@
 @use 'variables' as *;
 
+
+section#clasa-zero-iframe{
+	background-color:transparent !important; 
+}
+
 section#clasa-zero-iframe > div 
 
 {	
-	background: #dfdfdf url('../img/backgrounds/bk4.jpg') center center / cover no-repeat !important;
-	background-size:cover;
-	background-position:center center;	
+	// background: #dfdfdf url('../img/backgrounds/bk4.jpg') center center / cover no-repeat !important;
+	// background-size:cover;
+	// background-position:center center;
+	background-color:transparent !important; 	
 
 	.device-view-switch {
 		position: absolute;
