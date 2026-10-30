@@ -192,6 +192,11 @@
   font-size: 15px;
 }
 
+/* Independent work: its bullets run several lines, so they need more air between them */
+.markdown-body .independent-work li {
+  margin: 0.4em 0;
+}
+
 /* Tech stack line at the end of each job */
 .markdown-body li.stack {
   margin-top: 12px;
@@ -297,12 +302,12 @@
         <li>complemented the design effort with ui prototypes and technical feedback</li>
 
         <li>complemented <code>AI development</code> by setting up skills, <code>.md</code> instructions and documenting existing confirmed patterns</li>
-        <li class="stack"><code>git</code> <code>.NET Core</code> <code>claude code</code> <code>javascript</code> <code>ajax</code> <code>figma</code> <code>signalR</code> <code>snowplow</code> <code>AppInsights</code> <span class="is-new"><code>cypress</code></span></li>
+        <li class="stack"><code>git</code> <code>.NET Core</code> <code>claude code</code> <code>webpack</code> <code>typescript</code> <code>ajax</code> <code>figma</code> <code>signalR</code> <code>snowplow</code> <code>AppInsights</code> <span class="is-new"><code>cypress</code></span></li>
 		</ul>
     </section>
 
 	<br/>
-    <section class="page-start" style="margin-top: 40px;">
+    <section class="page-start independent-work" style="margin-top: 40px;">
       <p class="job-title" style="margin-bottom: 6px;"><strong> <code>2020 – present</code> > <code>independent work</code> > <span class="is-new"><code>creative frontend engineer</code></span></strong></p>
       <ul>
         <li>designed, developed and manages <a href="https://casedeschise.ro/" target="_blank">www.casedeschise.ro</a> for a yearly architecture open-house event: <code>2 cities</code>, <code>3 editions</code>, <code>30% audience growth</code> each year. Project features custom design, polished <code>sanity</code> cms, <code>QR</code>-based and quota-driven registration flows, maps, custom analytics, all built on <code>next.js</code><span class="is-new">, with <code>SSG</code> and webhook-driven cache revalidation to stay within the free <code>sanity</code> plan</span> on event peaks</li>
@@ -322,6 +327,7 @@
       <p class="job-title" style="margin-bottom: 6px;"><strong> <code>2014 – 2018</code> > <code>Mi-Pay Sibiu</code> > <code>frontend developer</code></strong></p>
       <ul>
         <li>enhanced web applications by integrating new features and improving performance</li>
+        <li>translated design and business requirements into responsive, accessible web pages</li>
         <!-- <li>improved responsiveness of products following <code>mobile-first</code> best practices</li> -->
         <li><span class="is-new">designed and built</span> an in-house <code>white-label</code> <span class="is-new">micro-payment product: one structure across devices and clients, with client branding handled by themed media. Shipped for <code>O2 Germany</code>, <code>Tesco</code>, <code>3Roi</code> and <code>FooCall</code>, shortening delivery cycles and lowering operational overhead</span></li>
         <li>modernized existing products by migrating to <code>SPA</code> using ajax libraries.</li>
